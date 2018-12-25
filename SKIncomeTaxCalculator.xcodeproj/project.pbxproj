@@ -97,6 +97,7 @@
 		B0FCD5F421D242B70082E795 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SK;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = skyline;
 				TargetAttributes = {
