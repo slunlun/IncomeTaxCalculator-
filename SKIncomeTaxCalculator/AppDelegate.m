@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "SKDef.h"
+#import "SKHomeNavigationViewController.h"
+#import "SKTaxHomeViewController.h"
 
 @import GoogleMobileAds;
 @interface AppDelegate ()
@@ -18,6 +20,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
+    SKTaxHomeViewController *homeVC = [[SKTaxHomeViewController alloc] init];
+    SKHomeNavigationViewController *nav = [[SKHomeNavigationViewController alloc] initWithRootViewController:homeVC];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
+    self.window.backgroundColor = [UIColor whiteColor];
    
     // Initialize Google Mobile Ads SDK
     [GADMobileAds configureWithApplicationID:GAD_APPID];
