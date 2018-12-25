@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */; };
 		B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60021D242B70082E795 /* AppDelegate.m */; };
-		B0FCD60421D242B70082E795 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* ViewController.m */; };
+		B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* SKADTestViewController.m */; };
 		B0FCD60721D242B70082E795 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60521D242B70082E795 /* Main.storyboard */; };
 		B0FCD60921D242CA0082E795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60821D242CA0082E795 /* Assets.xcassets */; };
 		B0FCD60C21D242CA0082E795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */; };
@@ -23,13 +23,14 @@
 		B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKIncomeTaxCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FCD5FF21D242B70082E795 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0FCD60021D242B70082E795 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B0FCD60221D242B70082E795 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B0FCD60321D242B70082E795 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B0FCD60221D242B70082E795 /* SKADTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKADTestViewController.h; sourceTree = "<group>"; };
+		B0FCD60321D242B70082E795 /* SKADTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKADTestViewController.m; sourceTree = "<group>"; };
 		B0FCD60621D242B70082E795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0FCD60821D242CA0082E795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0FCD60B21D242CA0082E795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0FCD60D21D242CA0082E795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0FCD60E21D242CA0082E795 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B0FCD61521D25C100082E795 /* SKDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKDef.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,13 +85,14 @@
 			children = (
 				B0FCD5FF21D242B70082E795 /* AppDelegate.h */,
 				B0FCD60021D242B70082E795 /* AppDelegate.m */,
-				B0FCD60221D242B70082E795 /* ViewController.h */,
-				B0FCD60321D242B70082E795 /* ViewController.m */,
+				B0FCD60221D242B70082E795 /* SKADTestViewController.h */,
+				B0FCD60321D242B70082E795 /* SKADTestViewController.m */,
 				B0FCD60521D242B70082E795 /* Main.storyboard */,
 				B0FCD60821D242CA0082E795 /* Assets.xcassets */,
 				B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */,
 				B0FCD60D21D242CA0082E795 /* Info.plist */,
 				B0FCD60E21D242CA0082E795 /* main.m */,
+				B0FCD61521D25C100082E795 /* SKDef.h */,
 			);
 			path = SKIncomeTaxCalculator;
 			sourceTree = "<group>";
@@ -192,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FCD60421D242B70082E795 /* ViewController.m in Sources */,
+				B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */,
 				B0FCD60F21D242CA0082E795 /* main.m in Sources */,
 				B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */,
 			);
