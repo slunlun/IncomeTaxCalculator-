@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		583C5C4421D3327A00C3639F /* SKSocialSecurityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4321D3327A00C3639F /* SKSocialSecurityView.m */; };
+		583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */; };
+		583C5C4A21D35F6A00C3639F /* SKDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4921D35F6A00C3639F /* SKDetailInfoViewController.m */; };
 		7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */; };
 		7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */; };
@@ -30,6 +33,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		583C5C4221D3327A00C3639F /* SKSocialSecurityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKSocialSecurityView.h; path = ../../../../../Documents/SKSocialSecurityView.h; sourceTree = "<group>"; };
+		583C5C4321D3327A00C3639F /* SKSocialSecurityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SKSocialSecurityView.m; path = ../../../../../Documents/SKSocialSecurityView.m; sourceTree = "<group>"; };
+		583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityCell.h; sourceTree = "<group>"; };
+		583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityCell.m; sourceTree = "<group>"; };
+		583C5C4821D35F6A00C3639F /* SKDetailInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SKDetailInfoViewController.h; path = ../../../../../Documents/SKDetailInfoViewController.h; sourceTree = "<group>"; };
+		583C5C4921D35F6A00C3639F /* SKDetailInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SKDetailInfoViewController.m; path = ../../../../../Documents/SKDetailInfoViewController.m; sourceTree = "<group>"; };
 		7E7388B821D264E70093CD83 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		7E7388BA21D264E70093CD83 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -96,6 +105,19 @@
 				ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		583C5C4121D331F900C3639F /* SKDetailInfoViews */ = {
+			isa = PBXGroup;
+			children = (
+				583C5C4221D3327A00C3639F /* SKSocialSecurityView.h */,
+				583C5C4321D3327A00C3639F /* SKSocialSecurityView.m */,
+				583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */,
+				583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */,
+				583C5C4821D35F6A00C3639F /* SKDetailInfoViewController.h */,
+				583C5C4921D35F6A00C3639F /* SKDetailInfoViewController.m */,
+			);
+			path = SKDetailInfoViews;
 			sourceTree = "<group>";
 		};
 		720606143961302BE78CA069 /* Frameworks */ = {
@@ -177,6 +199,7 @@
 		B0FCD5FE21D242B70082E795 /* SKIncomeTaxCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				583C5C4121D331F900C3639F /* SKDetailInfoViews */,
 				7E7388B621D264DB0093CD83 /* 3rdSource */,
 				B0FCD5FF21D242B70082E795 /* AppDelegate.h */,
 				B0FCD60021D242B70082E795 /* AppDelegate.m */,
@@ -303,11 +326,14 @@
 				7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */,
 				7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */,
 				B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */,
+				583C5C4421D3327A00C3639F /* SKSocialSecurityView.m in Sources */,
 				7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */,
+				583C5C4A21D35F6A00C3639F /* SKDetailInfoViewController.m in Sources */,
 				7E7388DA21D264E80093CD83 /* View+MASAdditions.m in Sources */,
 				7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */,
 				7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */,
+				583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */,
 				7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
