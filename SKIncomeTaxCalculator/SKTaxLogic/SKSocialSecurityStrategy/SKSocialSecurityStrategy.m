@@ -8,21 +8,24 @@
 
 #import "SKSocialSecurityStrategy.h"
 #import "NSObject+SKRuntime.h"
+@interface SKSocialSecurityStrategy()
+@property (nonatomic, strong, readwrite) NSString *SS_ID;
+@property (nonatomic, strong, readwrite) NSString *SS_TITLE;
+@end
 
 @implementation SKSocialSecurityStrategy
-
 - (CGFloat)calculateCompanyPaied:(CGFloat)salary {
     CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
     CGFloat PFBaseLine = salary > self.MAX_PF_BASELINE.floatValue?self.MAX_PF_BASELINE.floatValue:salary;
     
-    return socialSecurityBaseLine * self.C_ED.floatValue * self.C_MD.floatValue * self.C_UE.floatValue  +  PFBaseLine * self.C_PF.floatValue;
+    return socialSecurityBaseLine * self.C_ED.floatValue * self.C_MD.floatValue * self.C_UE.floatValue  +  PFBaseLine * self.C_HF.floatValue;
 }
 
 - (CGFloat)calculatePersonalPaied:(CGFloat)salary {
     CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
     CGFloat PFBaseLine = salary > self.MAX_PF_BASELINE.floatValue?self.MAX_PF_BASELINE.floatValue:salary;
     
-    return socialSecurityBaseLine * self.P_ED.floatValue * self.P_MD.floatValue * self.P_UE.floatValue + PFBaseLine * self.P_PF.floatValue;
+    return socialSecurityBaseLine * self.P_ED.floatValue * self.P_MD.floatValue * self.P_UE.floatValue + PFBaseLine * self.P_HF.floatValue;
 }
 
 - (CGFloat)calculateTotaolPaied:(CGFloat)salary {

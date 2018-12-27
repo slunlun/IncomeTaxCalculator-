@@ -20,12 +20,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    SKTaxContext *taxContext = [SKTaxContext sharedInstance];
-    SKSocialSecurityStrategy *lss = taxContext.socialSecurityStrategies.lastObject;
-    [taxContext updateCurrentSecurityStrategy:lss];
-    [taxContext loadAllSocialSecurity];
-    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     SKTaxHomeViewController *homeVC = [[SKTaxHomeViewController alloc] init];

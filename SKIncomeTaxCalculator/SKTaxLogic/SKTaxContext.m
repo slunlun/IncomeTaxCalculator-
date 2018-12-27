@@ -15,19 +15,35 @@
 #define P_ED @"P_ED"        // 个人养老保险比例
 #define P_MD @"P_MD"        // 个人医疗保险比例
 #define P_UE @"P_UE"        // 个人失业保险比例
-#define P_PF @"P_PF"        // 个人公积金保险比例
+#define P_PF @"P_HF"        // 个人公积金保险比例
 #define C_ED @"C_ED"        // 公司养老保险比例
 #define C_MD @"C_MD"        // 公司医疗保险比例
 #define C_UE @"C_UE"        // 公司失业保险比例
-#define C_PF @"C_PF"        // 公司公积金保险比例
+#define C_PF @"C_HF"        // 公司公积金保险比例
 #define MAX_SS_BASELINE @"MAX_SS_BASELINE"  // 社保最高基数
 #define MAX_PF_BASELINE @"MAX_PF_BASELINE"  // 公积金最高基数
 
+// 个税预扣率表的key
+#define TAX_LEAVE_1 @"TAX_LEAVE_1"
+#define TAX_LEAVE_2 @"TAX_LEAVE_2"
+#define TAX_LEAVE_3 @"TAX_LEAVE_3"
+#define TAX_LEAVE_4 @"TAX_LEAVE_4"
+#define TAX_LEAVE_5 @"TAX_LEAVE_5"
+#define TAX_LEAVE_6 @"TAX_LEAVE_6"
+#define TAX_LEAVE_7 @"TAX_LEAVE_7"
 
+
+// 个人免税额
+#define PERSONAL_TAX_FREE 5000.0f
+
+@implementation SKSpecialDeduction
+@end
 
 @interface SKTaxContext()
-
-
+@property (nonatomic, strong) NSMutableArray<SKSocialSecurityStrategy *> *socialSecurityStrategies;
+@property (nonatomic, strong, readwrite) SKSocialSecurityStrategy *currentSecurityStrategy;
+@property (nonatomic, strong, readwrite) NSMutableArray *deductions;
+@property (nonatomic, strong) NSDictionary *personalTaxRateTable;
 @end
 
 @implementation SKTaxContext
@@ -44,6 +60,21 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self loadAllSocialSecurity];
+        _childDeduction = [[SKSpecialDeduction alloc] init];
+        _childDeduction.title = @"子女教育";
+        _childDeduction.deduction = 0.0f;
+        
+        _adultEducationDeduction = [[SKSpecialDeduction alloc] init];
+        _adultEducationDeduction.title = @"继续教育";
+        _adultEducationDeduction.deduction = 0.0f;
+        
+        _housingDeduction = [[SKSpecialDeduction alloc] init];
+        _housingDeduction.title = @"住房情况";
+        _housingDeduction.deduction = 0.0f;
+        
+        _parentSupportDeduction = [[SKSpecialDeduction alloc] init];
+        _parentSupportDeduction.title = @"赡养老人";
+        _parentSupportDeduction.deduction = 0.0f;
     }
     return self;
 }
@@ -95,6 +126,168 @@
     return filePatch;
 }
 
+#pragma mark -  专项扣除
+- (void)updateChildDeduction:(SKChildStatus)childStatus {
+    switch (childStatus) {
+        case SKChildStatusOne:
+        {
+            self.childDeduction.deduction = 1000.0f;
+        }
+            break;
+        case SKChildStatusTwo:
+        {
+            self.childDeduction.deduction = 2000.0f;
+        }
+            break;
+        case SKChildStatusThree:
+        {
+            self.childDeduction.deduction = 3000.0f;
+        }
+            break;
+        case SKChildStatusNONE:
+        {
+            self.childDeduction.deduction = 0.0f;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)updateAdultEducationDeduction:(SKAdultEducationStatus)adultEducationStatus {
+    switch (adultEducationStatus) {
+        case SKAdultEducationStatusAcademic:
+        {
+            self.adultEducationDeduction.deduction = 400.0f;
+        }
+            break;
+        case SKAdultEducationStatusVocational:
+        {
+            self.adultEducationDeduction.deduction = 0.0f;
+        }
+            break;
+        case SKAdultEducationStatusNONE:
+        {
+            self.adultEducationDeduction.deduction = 0.0f;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)updateHousingDeduction:(SKHousingStatus)housingStatus {
+    switch (housingStatus) {
+        case SKHousingStatusFirstHousingLoan:
+        {
+            self.housingDeduction.deduction = 1000.0f;
+        }
+            break;
+        case SKHousingStatusRentLeave1:
+        {
+            self.housingDeduction.deduction = 1500.0f;
+        }
+            break;
+        case SKHousingStatusRentLeave2:
+        {
+            self.housingDeduction.deduction = 1100.0f;
+        }
+            break;
+        case SKHousingStatusRentLeave3:
+        {
+            self.housingDeduction.deduction = 800.0f;
+        }
+            break;
+        case SKHousingStatusNONE:
+        {
+            self.housingDeduction.deduction = 0.0f;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)updateParentsSupportDeduction:(SKParentsSupportStatus)parentSupportStatus {
+    switch (parentSupportStatus) {
+        case SKParentsSupportStatusOnlyChild:
+        {
+            self.parentSupportDeduction.deduction = 2000.0f;
+        }
+            break;
+        case SKParentsSupportStatusNoOnlyChild:
+        {
+            self.parentSupportDeduction.deduction = 1000.0f;
+        }
+            break;
+        case SKParentsSupportStatusNONE:
+        {
+            self.parentSupportDeduction.deduction = 0.0f;
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark -  清空状态
+- (void)cleanUpTaxContext {
+    self.childDeduction.deduction = 0.0f;
+    self.adultEducationDeduction.deduction = 0.0f;
+    self.housingDeduction.deduction = 0.0f;
+    self.parentSupportDeduction.deduction = 0.0f;
+}
+
+#pragma mark - 根据应缴税额，确定预扣率
+- (NSDictionary *)fetchPersonalTaxRate:(CGFloat)taxableIncome {
+    NSString *taxLeave = TAX_LEAVE_1;
+    if (36000 < taxableIncome && taxableIncome <=144000) {
+        taxLeave = TAX_LEAVE_2;
+    }else if (144000 < taxableIncome && taxableIncome <=300000) {
+        taxLeave = TAX_LEAVE_3;
+    }else if (300000 < taxableIncome && taxableIncome <=420000) {
+        taxLeave = TAX_LEAVE_4;
+    }else if (420000 < taxableIncome && taxableIncome <=660000) {
+        taxLeave = TAX_LEAVE_5;
+    }else if (660000 < taxableIncome && taxableIncome <=960000) {
+        taxLeave = TAX_LEAVE_6;
+    }else if (960000 < taxableIncome) {
+        taxLeave = TAX_LEAVE_7;
+    }
+    NSDictionary *taxRate = self.personalTaxRateTable[taxLeave];
+    return taxRate;
+}
+
+#pragma mark -  计算个人所得税
+- (NSArray<NSDictionary *> *)calculatePersonalIncomeTax {
+    NSMutableArray *personalIncomeTaxes = [NSMutableArray arrayWithCapacity:12];
+    CGFloat  socialSecurityPaied = [self.currentSecurityStrategy calculatePersonalPaied:self.salary];
+    CGFloat personalDeduction = self.childDeduction.deduction + self.adultEducationDeduction.deduction + self.housingDeduction.deduction + self.parentSupportDeduction.deduction;
+    CGFloat personalTaxBaseLine = self.salary - PERSONAL_TAX_FREE - socialSecurityPaied - personalDeduction;
+    NSDictionary *personalTaxRate = [self fetchPersonalTaxRate:personalTaxBaseLine];
+    CGFloat personalTax = personalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
+    NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
+    [personalIncomeTaxes addObject:dic];
+    
+    // 根据1月的值，计算第n月的个税额度
+    for (NSInteger n = 2; n < 13; ++n) {
+        CGFloat curPersonalTaxBaseLine = personalTaxBaseLine * n;
+        NSDictionary *personalTaxRate = [self fetchPersonalTaxRate:curPersonalTaxBaseLine];
+        CGFloat personalTax = curPersonalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
+        NSDictionary *preDic = [personalIncomeTaxes lastObject];
+        CGFloat perPersonalTax = ((NSNumber *)preDic[PERSONAL_TAX_COUNT]).floatValue;
+        personalTax -= perPersonalTax;
+        NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
+        [personalIncomeTaxes addObject:dic];
+    }
+    return nil;
+}
+
+#pragma mark -  计算个人应缴社保及公积金
+- (CGFloat)calculatePersonalSocialSecurityAndHousingFund {
+    return [self.currentSecurityStrategy calculatePersonalPaied:self.salary];;
+}
+
 #pragma mark - setter/getter
 - (NSMutableArray *)deductions {
     if (_deductions == nil) {
@@ -108,6 +301,20 @@
         _socialSecurityStrategies = [NSMutableArray array];
     }
     return _socialSecurityStrategies;
+}
+
+- (NSDictionary *)personalTaxRateTable {
+    if (_personalTaxRateTable == nil) {
+        _personalTaxRateTable = @{TAX_LEAVE_1:@{TAX_RATE:@0.03f, TAX_QUICK_DISCOUNT:@0.0f},
+                                  TAX_LEAVE_2:@{TAX_RATE:@0.1f, TAX_QUICK_DISCOUNT:@2520.f},
+                                  TAX_LEAVE_3:@{TAX_RATE:@0.2f, TAX_QUICK_DISCOUNT:@16920.f},
+                                  TAX_LEAVE_4:@{TAX_RATE:@0.25f, TAX_QUICK_DISCOUNT:@31920.0f},
+                                  TAX_LEAVE_5:@{TAX_RATE:@0.3f, TAX_QUICK_DISCOUNT:@52920.0f},
+                                  TAX_LEAVE_6:@{TAX_RATE:@0.35f, TAX_QUICK_DISCOUNT:@85920.0f},
+                                  TAX_LEAVE_7:@{TAX_RATE:@0.45f, TAX_QUICK_DISCOUNT:@181920.0f},
+                                  };
+    }
+    return _personalTaxRateTable;
 }
 
 

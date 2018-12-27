@@ -12,18 +12,18 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SKSocialSecurityStrategy : NSObject
-@property (nonatomic, strong) NSString *SS_ID;
-@property (nonatomic, strong) NSString *SS_TITLE;
+@property (nonatomic, strong, readonly) NSString *SS_ID;
+@property (nonatomic, strong, readonly) NSString *SS_TITLE;
 
 @property (nonatomic, strong) NSNumber *P_ED;
 @property (nonatomic, strong) NSNumber *P_MD;
 @property (nonatomic, strong) NSNumber *P_UE;
-@property (nonatomic, strong) NSNumber *P_PF;
+@property (nonatomic, strong) NSNumber *P_HF;
 
 @property (nonatomic, strong) NSNumber *C_ED;
 @property (nonatomic, strong) NSNumber *C_MD;
 @property (nonatomic, strong) NSNumber *C_UE;
-@property (nonatomic, strong) NSNumber *C_PF;
+@property (nonatomic, strong) NSNumber *C_HF;
 
 
 @property (nonatomic, strong) NSNumber *MAX_SS_BASELINE;
