@@ -11,6 +11,7 @@
 
 
 @interface SKSocialSecurityView : UIView
-@property(nonatomic,strong) NSArray<NSArray<NSString *> *>* dataArray;
+@property(nonatomic,strong) UILabel *titleLabel;
+- (instancetype)initWithDataArray:(NSArray<NSArray<NSString *> *>*)dataArray;
 @end
 

@@ -14,24 +14,25 @@ static CGFloat itemHeight = 40.0;
 @interface SKBaseFormView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong)UICollectionView *collectionView;
 @property (nonatomic, assign)CGFloat itemWidth;
+@property(nonatomic,strong) NSArray<NSArray<NSString *> *>* dataArray;
 @end
 @implementation SKBaseFormView
-- (instancetype)init {
-    if (self = [super init]) {
+- (instancetype)initWithDataArray:(NSArray<NSArray<NSString *> *> *)dataArray {
+    self = [super init];
+    if (self) {
+        self.dataArray = dataArray;
         [self commonInit];
-       
+        
     }
     return self;
 }
-- (void)setDataArray:(NSArray<NSArray *> *)dataArray {
-    _dataArray = dataArray;
-    self.itemWidth = self.bounds.size.width/dataArray.firstObject.count;
-    [self.collectionView reloadData];
-    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(dataArray.count * itemHeight));
-    }];
-}
+
 - (void)commonInit {
+    self.itemWidth = ([UIScreen mainScreen].bounds.size.width-20)/self.dataArray.firstObject.count;
+    
+    UILabel *titleLabel = [[UILabel alloc]init];
+    [self addSubview:titleLabel];
+    self.titleLabel = titleLabel;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.minimumInteritemSpacing = 0;
@@ -47,11 +48,17 @@ static CGFloat itemHeight = 40.0;
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[SKSocialSecurityCell class] forCellWithReuseIdentifier:@"cell"];
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(8);
-        make.left.equalTo(self).offset(10);
-        make.right.equalTo(self).offset(-10);
-        make.height.equalTo(@(3 * itemHeight));
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.height.equalTo(@30);
+    }];
+    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleLabel.mas_bottom).offset(8);
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.height.equalTo(@(self.dataArray.count * itemHeight));
         make.bottom.equalTo(self).offset(-8);
     }];
 }
