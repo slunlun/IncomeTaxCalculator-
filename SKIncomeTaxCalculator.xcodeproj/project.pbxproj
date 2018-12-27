@@ -1,543 +1,555 @@
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 50;
-	objects = {
+    archiveVersion = 1;
+    classes = {
+    };
+    objectVersion = 50;
+    objects = {
 
 /* Begin PBXBuildFile section */
-		583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */; };
-		583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4E21D3877F00C3639F /* SKBaseFormView.m */; };
-		583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */; };
-		583C5C5C21D484BC00C3639F /* SKDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */; };
-		7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */; };
-		7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */; };
-		7E7388D721D264E80093CD83 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C721D264E70093CD83 /* MASConstraintMaker.m */; };
-		7E7388D821D264E80093CD83 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C821D264E70093CD83 /* MASLayoutConstraint.m */; };
-		7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C921D264E70093CD83 /* NSArray+MASAdditions.m */; };
-		7E7388DA21D264E80093CD83 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388CA21D264E70093CD83 /* View+MASAdditions.m */; };
-		7E7388DB21D264E80093CD83 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388CD21D264E70093CD83 /* MASConstraint.m */; };
-		7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388CF21D264E70093CD83 /* MASViewConstraint.m */; };
-		7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388D021D264E70093CD83 /* MASViewAttribute.m */; };
-		7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388D221D264E80093CD83 /* MBProgressHUD.m */; };
-		7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */; };
-		7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */; };
-		817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */; };
-		B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60021D242B70082E795 /* AppDelegate.m */; };
-		B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* SKADTestViewController.m */; };
-		B0FCD60721D242B70082E795 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60521D242B70082E795 /* Main.storyboard */; };
-		B0FCD60921D242CA0082E795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60821D242CA0082E795 /* Assets.xcassets */; };
-		B0FCD60C21D242CA0082E795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */; };
-		B0FCD60F21D242CA0082E795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60E21D242CA0082E795 /* main.m */; };
+        583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */; };
+        583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4E21D3877F00C3639F /* SKBaseFormView.m */; };
+        583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */; };
+        583C5C5C21D484BC00C3639F /* SKDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */; };
+        7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+        7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */; };
+        7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */; };
+        7E7388D721D264E80093CD83 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C721D264E70093CD83 /* MASConstraintMaker.m */; };
+        7E7388D821D264E80093CD83 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C821D264E70093CD83 /* MASLayoutConstraint.m */; };
+        7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C921D264E70093CD83 /* NSArray+MASAdditions.m */; };
+        7E7388DA21D264E80093CD83 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388CA21D264E70093CD83 /* View+MASAdditions.m */; };
+        7E7388DB21D264E80093CD83 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388CD21D264E70093CD83 /* MASConstraint.m */; };
+        7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388CF21D264E70093CD83 /* MASViewConstraint.m */; };
+        7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388D021D264E70093CD83 /* MASViewAttribute.m */; };
+        7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388D221D264E80093CD83 /* MBProgressHUD.m */; };
+        7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */; };
+        7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */; };
+		7EC9496321D483B50077225D /* SKTaxHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9496221D483B50077225D /* SKTaxHomeTableViewCell.m */; };
+		7EC9496621D4843C0077225D /* SKTaxPaymentItemDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9496421D4843C0077225D /* SKTaxPaymentItemDataModel.m */; };
+        817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */; };
+        B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60021D242B70082E795 /* AppDelegate.m */; };
+        B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* SKADTestViewController.m */; };
+        B0FCD60721D242B70082E795 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60521D242B70082E795 /* Main.storyboard */; };
+        B0FCD60921D242CA0082E795 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60821D242CA0082E795 /* Assets.xcassets */; };
+        B0FCD60C21D242CA0082E795 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */; };
+        B0FCD60F21D242CA0082E795 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60E21D242CA0082E795 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityCell.h; sourceTree = "<group>"; };
-		583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityCell.m; sourceTree = "<group>"; };
-		583C5C4E21D3877F00C3639F /* SKBaseFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBaseFormView.m; sourceTree = "<group>"; };
-		583C5C5021D3877F00C3639F /* SKBaseFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBaseFormView.h; sourceTree = "<group>"; };
-		583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityView.m; sourceTree = "<group>"; };
-		583C5C5221D3878000C3639F /* SKSocialSecurityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityView.h; sourceTree = "<group>"; };
-		583C5C5A21D484BC00C3639F /* SKDetailInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKDetailInfoVC.h; sourceTree = "<group>"; };
-		583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKDetailInfoVC.m; sourceTree = "<group>"; };
-		7E7388B821D264E70093CD83 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
-		7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		7E7388BA21D264E70093CD83 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
-		7E7388BB21D264E70093CD83 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
-		7E7388BC21D264E70093CD83 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		7E7388BD21D264E70093CD83 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
-		7E7388BE21D264E70093CD83 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
-		7E7388BF21D264E70093CD83 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		7E7388C021D264E70093CD83 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
-		7E7388C121D264E70093CD83 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
-		7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
-		7E7388C321D264E70093CD83 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
-		7E7388C421D264E70093CD83 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
-		7E7388C521D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
-		7E7388C721D264E70093CD83 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
-		7E7388C821D264E70093CD83 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
-		7E7388C921D264E70093CD83 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
-		7E7388CA21D264E70093CD83 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
-		7E7388CB21D264E70093CD83 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
-		7E7388CC21D264E70093CD83 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
-		7E7388CD21D264E70093CD83 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
-		7E7388CE21D264E70093CD83 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		7E7388CF21D264E70093CD83 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
-		7E7388D021D264E70093CD83 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
-		7E7388D221D264E80093CD83 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		7E7388D321D264E80093CD83 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHomeNavigationViewController.m; sourceTree = "<group>"; };
-		7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaxHomeViewController.m; sourceTree = "<group>"; };
-		7E7388E121D2652A0093CD83 /* SKHomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHomeNavigationViewController.h; sourceTree = "<group>"; };
-		7E7388E221D2652A0093CD83 /* SKTaxHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaxHomeViewController.h; sourceTree = "<group>"; };
-		A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKIncomeTaxCalculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.release.xcconfig"; sourceTree = "<group>"; };
-		B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.debug.xcconfig"; sourceTree = "<group>"; };
-		B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKIncomeTaxCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0FCD5FF21D242B70082E795 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B0FCD60021D242B70082E795 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B0FCD60221D242B70082E795 /* SKADTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKADTestViewController.h; sourceTree = "<group>"; };
-		B0FCD60321D242B70082E795 /* SKADTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKADTestViewController.m; sourceTree = "<group>"; };
-		B0FCD60621D242B70082E795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B0FCD60821D242CA0082E795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B0FCD60B21D242CA0082E795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0FCD60D21D242CA0082E795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0FCD60E21D242CA0082E795 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B0FCD61521D25C100082E795 /* SKDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKDef.h; sourceTree = "<group>"; };
+        583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityCell.h; sourceTree = "<group>"; };
+        583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityCell.m; sourceTree = "<group>"; };
+        583C5C4E21D3877F00C3639F /* SKBaseFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBaseFormView.m; sourceTree = "<group>"; };
+        583C5C5021D3877F00C3639F /* SKBaseFormView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBaseFormView.h; sourceTree = "<group>"; };
+        583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityView.m; sourceTree = "<group>"; };
+        583C5C5221D3878000C3639F /* SKSocialSecurityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityView.h; sourceTree = "<group>"; };
+        583C5C5A21D484BC00C3639F /* SKDetailInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKDetailInfoVC.h; sourceTree = "<group>"; };
+        583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKDetailInfoVC.m; sourceTree = "<group>"; };
+        7E7388B821D264E70093CD83 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+        7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+        7E7388BA21D264E70093CD83 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+        7E7388BB21D264E70093CD83 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+        7E7388BC21D264E70093CD83 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+        7E7388BD21D264E70093CD83 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+        7E7388BE21D264E70093CD83 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+        7E7388BF21D264E70093CD83 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+        7E7388C021D264E70093CD83 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+        7E7388C121D264E70093CD83 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+        7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+        7E7388C321D264E70093CD83 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+        7E7388C421D264E70093CD83 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+        7E7388C521D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+        7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+        7E7388C721D264E70093CD83 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+        7E7388C821D264E70093CD83 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+        7E7388C921D264E70093CD83 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+        7E7388CA21D264E70093CD83 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+        7E7388CB21D264E70093CD83 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+        7E7388CC21D264E70093CD83 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+        7E7388CD21D264E70093CD83 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+        7E7388CE21D264E70093CD83 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+        7E7388CF21D264E70093CD83 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+        7E7388D021D264E70093CD83 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+        7E7388D221D264E80093CD83 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+        7E7388D321D264E80093CD83 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+        7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKHomeNavigationViewController.m; sourceTree = "<group>"; };
+        7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaxHomeViewController.m; sourceTree = "<group>"; };
+        7E7388E121D2652A0093CD83 /* SKHomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHomeNavigationViewController.h; sourceTree = "<group>"; };
+        7E7388E221D2652A0093CD83 /* SKTaxHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaxHomeViewController.h; sourceTree = "<group>"; };
+		7EC9496121D483B50077225D /* SKTaxHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTaxHomeTableViewCell.h; sourceTree = "<group>"; };
+		7EC9496221D483B50077225D /* SKTaxHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKTaxHomeTableViewCell.m; sourceTree = "<group>"; };
+		7EC9496421D4843C0077225D /* SKTaxPaymentItemDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaxPaymentItemDataModel.m; sourceTree = "<group>"; };
+		7EC9496521D4843C0077225D /* SKTaxPaymentItemDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaxPaymentItemDataModel.h; sourceTree = "<group>"; };
+        A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKIncomeTaxCalculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+        ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.release.xcconfig"; sourceTree = "<group>"; };
+        B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.debug.xcconfig"; sourceTree = "<group>"; };
+        B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKIncomeTaxCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        B0FCD5FF21D242B70082E795 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+        B0FCD60021D242B70082E795 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+        B0FCD60221D242B70082E795 /* SKADTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKADTestViewController.h; sourceTree = "<group>"; };
+        B0FCD60321D242B70082E795 /* SKADTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKADTestViewController.m; sourceTree = "<group>"; };
+        B0FCD60621D242B70082E795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+        B0FCD60821D242CA0082E795 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        B0FCD60B21D242CA0082E795 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+        B0FCD60D21D242CA0082E795 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+        B0FCD60E21D242CA0082E795 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+        B0FCD61521D25C100082E795 /* SKDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKDef.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B0FCD5F921D242B70082E795 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        B0FCD5F921D242B70082E795 /* Frameworks */ = {
+            isa = PBXFrameworksBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32E670086CB3C53B5DA58C9D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */,
-				ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		583C5C4121D331F900C3639F /* SKDetailInfoViews */ = {
-			isa = PBXGroup;
-			children = (
-				583C5C5221D3878000C3639F /* SKSocialSecurityView.h */,
-				583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */,
-				583C5C5021D3877F00C3639F /* SKBaseFormView.h */,
-				583C5C4E21D3877F00C3639F /* SKBaseFormView.m */,
-				583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */,
-				583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */,
-			);
-			path = SKDetailInfoViews;
-			sourceTree = "<group>";
-		};
-		720606143961302BE78CA069 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7E7388B621D264DB0093CD83 /* 3rdSource */ = {
-			isa = PBXGroup;
-			children = (
-				7E7388B721D264E70093CD83 /* Masonry */,
-				7E7388D121D264E80093CD83 /* MBProgressHUD */,
-			);
-			path = 3rdSource;
-			sourceTree = "<group>";
-		};
-		7E7388B721D264E70093CD83 /* Masonry */ = {
-			isa = PBXGroup;
-			children = (
-				7E7388B821D264E70093CD83 /* MASCompositeConstraint.h */,
-				7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */,
-				7E7388BA21D264E70093CD83 /* MASConstraint+Private.h */,
-				7E7388BB21D264E70093CD83 /* MASLayoutConstraint.h */,
-				7E7388BC21D264E70093CD83 /* NSArray+MASShorthandAdditions.h */,
-				7E7388BD21D264E70093CD83 /* MASConstraintMaker.h */,
-				7E7388BE21D264E70093CD83 /* View+MASAdditions.h */,
-				7E7388BF21D264E70093CD83 /* NSArray+MASAdditions.h */,
-				7E7388C021D264E70093CD83 /* MASUtilities.h */,
-				7E7388C121D264E70093CD83 /* MASViewAttribute.h */,
-				7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */,
-				7E7388C321D264E70093CD83 /* MASViewConstraint.h */,
-				7E7388C421D264E70093CD83 /* MASConstraint.h */,
-				7E7388C521D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.h */,
-				7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */,
-				7E7388C721D264E70093CD83 /* MASConstraintMaker.m */,
-				7E7388C821D264E70093CD83 /* MASLayoutConstraint.m */,
-				7E7388C921D264E70093CD83 /* NSArray+MASAdditions.m */,
-				7E7388CA21D264E70093CD83 /* View+MASAdditions.m */,
-				7E7388CB21D264E70093CD83 /* View+MASShorthandAdditions.h */,
-				7E7388CC21D264E70093CD83 /* Masonry.h */,
-				7E7388CD21D264E70093CD83 /* MASConstraint.m */,
-				7E7388CE21D264E70093CD83 /* ViewController+MASAdditions.h */,
-				7E7388CF21D264E70093CD83 /* MASViewConstraint.m */,
-				7E7388D021D264E70093CD83 /* MASViewAttribute.m */,
-			);
-			path = Masonry;
-			sourceTree = "<group>";
-		};
-		7E7388D121D264E80093CD83 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				7E7388D221D264E80093CD83 /* MBProgressHUD.m */,
-				7E7388D321D264E80093CD83 /* MBProgressHUD.h */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		B0FCD5F321D242B70082E795 = {
-			isa = PBXGroup;
-			children = (
-				B0FCD5FE21D242B70082E795 /* SKIncomeTaxCalculator */,
-				B0FCD5FD21D242B70082E795 /* Products */,
-				32E670086CB3C53B5DA58C9D /* Pods */,
-				720606143961302BE78CA069 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		B0FCD5FD21D242B70082E795 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B0FCD5FE21D242B70082E795 /* SKIncomeTaxCalculator */ = {
-			isa = PBXGroup;
-			children = (
-				583C5C4121D331F900C3639F /* SKDetailInfoViews */,
-				7E7388B621D264DB0093CD83 /* 3rdSource */,
-				B0FCD5FF21D242B70082E795 /* AppDelegate.h */,
-				B0FCD60021D242B70082E795 /* AppDelegate.m */,
-				B0FCD60221D242B70082E795 /* SKADTestViewController.h */,
-				B0FCD60321D242B70082E795 /* SKADTestViewController.m */,
-				7E7388E121D2652A0093CD83 /* SKHomeNavigationViewController.h */,
-				7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */,
-				7E7388E221D2652A0093CD83 /* SKTaxHomeViewController.h */,
-				7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */,
+        32E670086CB3C53B5DA58C9D /* Pods */ = {
+            isa = PBXGroup;
+            children = (
+                B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */,
+                ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */,
+            );
+            name = Pods;
+            sourceTree = "<group>";
+        };
+        583C5C4121D331F900C3639F /* SKDetailInfoViews */ = {
+            isa = PBXGroup;
+            children = (
+                583C5C5221D3878000C3639F /* SKSocialSecurityView.h */,
+                583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */,
+                583C5C5021D3877F00C3639F /* SKBaseFormView.h */,
+                583C5C4E21D3877F00C3639F /* SKBaseFormView.m */,
+                583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */,
+                583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */,
+            );
+            path = SKDetailInfoViews;
+            sourceTree = "<group>";
+        };
+        720606143961302BE78CA069 /* Frameworks */ = {
+            isa = PBXGroup;
+            children = (
+                A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */,
+            );
+            name = Frameworks;
+            sourceTree = "<group>";
+        };
+        7E7388B621D264DB0093CD83 /* 3rdSource */ = {
+            isa = PBXGroup;
+            children = (
+                7E7388B721D264E70093CD83 /* Masonry */,
+                7E7388D121D264E80093CD83 /* MBProgressHUD */,
+            );
+            path = 3rdSource;
+            sourceTree = "<group>";
+        };
+        7E7388B721D264E70093CD83 /* Masonry */ = {
+            isa = PBXGroup;
+            children = (
+                7E7388B821D264E70093CD83 /* MASCompositeConstraint.h */,
+                7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */,
+                7E7388BA21D264E70093CD83 /* MASConstraint+Private.h */,
+                7E7388BB21D264E70093CD83 /* MASLayoutConstraint.h */,
+                7E7388BC21D264E70093CD83 /* NSArray+MASShorthandAdditions.h */,
+                7E7388BD21D264E70093CD83 /* MASConstraintMaker.h */,
+                7E7388BE21D264E70093CD83 /* View+MASAdditions.h */,
+                7E7388BF21D264E70093CD83 /* NSArray+MASAdditions.h */,
+                7E7388C021D264E70093CD83 /* MASUtilities.h */,
+                7E7388C121D264E70093CD83 /* MASViewAttribute.h */,
+                7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */,
+                7E7388C321D264E70093CD83 /* MASViewConstraint.h */,
+                7E7388C421D264E70093CD83 /* MASConstraint.h */,
+                7E7388C521D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.h */,
+                7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */,
+                7E7388C721D264E70093CD83 /* MASConstraintMaker.m */,
+                7E7388C821D264E70093CD83 /* MASLayoutConstraint.m */,
+                7E7388C921D264E70093CD83 /* NSArray+MASAdditions.m */,
+                7E7388CA21D264E70093CD83 /* View+MASAdditions.m */,
+                7E7388CB21D264E70093CD83 /* View+MASShorthandAdditions.h */,
+                7E7388CC21D264E70093CD83 /* Masonry.h */,
+                7E7388CD21D264E70093CD83 /* MASConstraint.m */,
+                7E7388CE21D264E70093CD83 /* ViewController+MASAdditions.h */,
+                7E7388CF21D264E70093CD83 /* MASViewConstraint.m */,
+                7E7388D021D264E70093CD83 /* MASViewAttribute.m */,
+            );
+            path = Masonry;
+            sourceTree = "<group>";
+        };
+        7E7388D121D264E80093CD83 /* MBProgressHUD */ = {
+            isa = PBXGroup;
+            children = (
+                7E7388D221D264E80093CD83 /* MBProgressHUD.m */,
+                7E7388D321D264E80093CD83 /* MBProgressHUD.h */,
+            );
+            path = MBProgressHUD;
+            sourceTree = "<group>";
+        };
+        B0FCD5F321D242B70082E795 = {
+            isa = PBXGroup;
+            children = (
+                B0FCD5FE21D242B70082E795 /* SKIncomeTaxCalculator */,
+                B0FCD5FD21D242B70082E795 /* Products */,
+                32E670086CB3C53B5DA58C9D /* Pods */,
+                720606143961302BE78CA069 /* Frameworks */,
+            );
+            sourceTree = "<group>";
+        };
+        B0FCD5FD21D242B70082E795 /* Products */ = {
+            isa = PBXGroup;
+            children = (
+                B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */,
+            );
+            name = Products;
+            sourceTree = "<group>";
+        };
+        B0FCD5FE21D242B70082E795 /* SKIncomeTaxCalculator */ = {
+            isa = PBXGroup;
+            children = (
+                583C5C4121D331F900C3639F /* SKDetailInfoViews */,
+                7E7388B621D264DB0093CD83 /* 3rdSource */,
+                B0FCD5FF21D242B70082E795 /* AppDelegate.h */,
+                B0FCD60021D242B70082E795 /* AppDelegate.m */,
+                B0FCD60221D242B70082E795 /* SKADTestViewController.h */,
+                B0FCD60321D242B70082E795 /* SKADTestViewController.m */,
+                7E7388E121D2652A0093CD83 /* SKHomeNavigationViewController.h */,
+                7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */,
+                7E7388E221D2652A0093CD83 /* SKTaxHomeViewController.h */,
+                7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */,
+				7EC9496121D483B50077225D /* SKTaxHomeTableViewCell.h */,
+				7EC9496221D483B50077225D /* SKTaxHomeTableViewCell.m */,
+				7EC9496521D4843C0077225D /* SKTaxPaymentItemDataModel.h */,
+				7EC9496421D4843C0077225D /* SKTaxPaymentItemDataModel.m */,
 				583C5C5A21D484BC00C3639F /* SKDetailInfoVC.h */,
 				583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */,
-				B0FCD60521D242B70082E795 /* Main.storyboard */,
-				B0FCD60821D242CA0082E795 /* Assets.xcassets */,
-				B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */,
-				B0FCD60D21D242CA0082E795 /* Info.plist */,
-				B0FCD60E21D242CA0082E795 /* main.m */,
-				B0FCD61521D25C100082E795 /* SKDef.h */,
-			);
-			path = SKIncomeTaxCalculator;
-			sourceTree = "<group>";
-		};
+                B0FCD60521D242B70082E795 /* Main.storyboard */,
+                B0FCD60821D242CA0082E795 /* Assets.xcassets */,
+                B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */,
+                B0FCD60D21D242CA0082E795 /* Info.plist */,
+                B0FCD60E21D242CA0082E795 /* main.m */,
+                B0FCD61521D25C100082E795 /* SKDef.h */,
+            );
+            path = SKIncomeTaxCalculator;
+            sourceTree = "<group>";
+        };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0FCD5FB21D242B70082E795 /* SKIncomeTaxCalculator */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B0FCD61221D242CA0082E795 /* Build configuration list for PBXNativeTarget "SKIncomeTaxCalculator" */;
-			buildPhases = (
-				44C670CBFD88405D9E4866F1 /* [CP] Check Pods Manifest.lock */,
-				B0FCD5F821D242B70082E795 /* Sources */,
-				B0FCD5F921D242B70082E795 /* Frameworks */,
-				B0FCD5FA21D242B70082E795 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SKIncomeTaxCalculator;
-			productName = SKIncomeTaxCalculator;
-			productReference = B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */;
-			productType = "com.apple.product-type.application";
-		};
+        B0FCD5FB21D242B70082E795 /* SKIncomeTaxCalculator */ = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = B0FCD61221D242CA0082E795 /* Build configuration list for PBXNativeTarget "SKIncomeTaxCalculator" */;
+            buildPhases = (
+                44C670CBFD88405D9E4866F1 /* [CP] Check Pods Manifest.lock */,
+                B0FCD5F821D242B70082E795 /* Sources */,
+                B0FCD5F921D242B70082E795 /* Frameworks */,
+                B0FCD5FA21D242B70082E795 /* Resources */,
+            );
+            buildRules = (
+            );
+            dependencies = (
+            );
+            name = SKIncomeTaxCalculator;
+            productName = SKIncomeTaxCalculator;
+            productReference = B0FCD5FC21D242B70082E795 /* SKIncomeTaxCalculator.app */;
+            productType = "com.apple.product-type.application";
+        };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B0FCD5F421D242B70082E795 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = SK;
-				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = skyline;
-				TargetAttributes = {
-					B0FCD5FB21D242B70082E795 = {
-						CreatedOnToolsVersion = 10.1;
-					};
-				};
-			};
-			buildConfigurationList = B0FCD5F721D242B70082E795 /* Build configuration list for PBXProject "SKIncomeTaxCalculator" */;
-			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = B0FCD5F321D242B70082E795;
-			productRefGroup = B0FCD5FD21D242B70082E795 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				B0FCD5FB21D242B70082E795 /* SKIncomeTaxCalculator */,
-			);
-		};
+        B0FCD5F421D242B70082E795 /* Project object */ = {
+            isa = PBXProject;
+            attributes = {
+                CLASSPREFIX = SK;
+                LastUpgradeCheck = 1010;
+                ORGANIZATIONNAME = skyline;
+                TargetAttributes = {
+                    B0FCD5FB21D242B70082E795 = {
+                        CreatedOnToolsVersion = 10.1;
+                    };
+                };
+            };
+            buildConfigurationList = B0FCD5F721D242B70082E795 /* Build configuration list for PBXProject "SKIncomeTaxCalculator" */;
+            compatibilityVersion = "Xcode 9.3";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (
+                en,
+                Base,
+            );
+            mainGroup = B0FCD5F321D242B70082E795;
+            productRefGroup = B0FCD5FD21D242B70082E795 /* Products */;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (
+                B0FCD5FB21D242B70082E795 /* SKIncomeTaxCalculator */,
+            );
+        };
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B0FCD5FA21D242B70082E795 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0FCD60C21D242CA0082E795 /* LaunchScreen.storyboard in Resources */,
-				B0FCD60921D242CA0082E795 /* Assets.xcassets in Resources */,
-				B0FCD60721D242B70082E795 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        B0FCD5FA21D242B70082E795 /* Resources */ = {
+            isa = PBXResourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                B0FCD60C21D242CA0082E795 /* LaunchScreen.storyboard in Resources */,
+                B0FCD60921D242CA0082E795 /* Assets.xcassets in Resources */,
+                B0FCD60721D242B70082E795 /* Main.storyboard in Resources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		44C670CBFD88405D9E4866F1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SKIncomeTaxCalculator-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
+        44C670CBFD88405D9E4866F1 /* [CP] Check Pods Manifest.lock */ = {
+            isa = PBXShellScriptBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+            );
+            inputFileListPaths = (
+            );
+            inputPaths = (
+                "${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+                "${PODS_ROOT}/Manifest.lock",
+            );
+            name = "[CP] Check Pods Manifest.lock";
+            outputFileListPaths = (
+            );
+            outputPaths = (
+                "$(DERIVED_FILE_DIR)/Pods-SKIncomeTaxCalculator-checkManifestLockResult.txt",
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+            shellPath = /bin/sh;
+            shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+            showEnvVarsInLog = 0;
+        };
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B0FCD5F821D242B70082E795 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7E7388D721D264E80093CD83 /* MASConstraintMaker.m in Sources */,
-				B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */,
-				7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */,
-				7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */,
-				B0FCD60F21D242CA0082E795 /* main.m in Sources */,
-				7E7388D821D264E80093CD83 /* MASLayoutConstraint.m in Sources */,
-				7E7388DB21D264E80093CD83 /* MASConstraint.m in Sources */,
-				583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */,
-				7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */,
-				7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */,
-				B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */,
-				583C5C5C21D484BC00C3639F /* SKDetailInfoVC.m in Sources */,
-				7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */,
-				583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */,
-				7E7388DA21D264E80093CD83 /* View+MASAdditions.m in Sources */,
-				7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
-				7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */,
-				7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */,
-				583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */,
-				7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
+        B0FCD5F821D242B70082E795 /* Sources */ = {
+            isa = PBXSourcesBuildPhase;
+            buildActionMask = 2147483647;
+            files = (
+                7E7388D721D264E80093CD83 /* MASConstraintMaker.m in Sources */,
+                B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */,
+                7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */,
+                7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */,
+                B0FCD60F21D242CA0082E795 /* main.m in Sources */,
+                7E7388D821D264E80093CD83 /* MASLayoutConstraint.m in Sources */,
+                7E7388DB21D264E80093CD83 /* MASConstraint.m in Sources */,
+                583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */,
+                7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */,
+                7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */,
+                B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */,
+                583C5C5C21D484BC00C3639F /* SKDetailInfoVC.m in Sources */,
+                7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */,
+                583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */,
+                7E7388DA21D264E80093CD83 /* View+MASAdditions.m in Sources */,
+                7EC9496621D4843C0077225D /* SKTaxPaymentItemDataModel.m in Sources */,
+                7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+                7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */,
+                7EC9496321D483B50077225D /* SKTaxHomeTableViewCell.m in Sources */,
+                7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */,
+                583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */,
+                7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */,
+            );
+            runOnlyForDeploymentPostprocessing = 0;
+        };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B0FCD60521D242B70082E795 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B0FCD60621D242B70082E795 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B0FCD60B21D242CA0082E795 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
+        B0FCD60521D242B70082E795 /* Main.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                B0FCD60621D242B70082E795 /* Base */,
+            );
+            name = Main.storyboard;
+            sourceTree = "<group>";
+        };
+        B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */ = {
+            isa = PBXVariantGroup;
+            children = (
+                B0FCD60B21D242CA0082E795 /* Base */,
+            );
+            name = LaunchScreen.storyboard;
+            sourceTree = "<group>";
+        };
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B0FCD61021D242CA0082E795 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		B0FCD61121D242CA0082E795 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		B0FCD61321D242CA0082E795 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 987Y5M3S28;
-				INFOPLIST_FILE = SKIncomeTaxCalculator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skyline.SKIncomeTaxCalculator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B0FCD61421D242CA0082E795 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 987Y5M3S28;
-				INFOPLIST_FILE = SKIncomeTaxCalculator/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.skyline.SKIncomeTaxCalculator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
+        B0FCD61021D242CA0082E795 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                CLANG_ANALYZER_NONNULL = YES;
+                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+                CLANG_CXX_LIBRARY = "libc++";
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CLANG_ENABLE_OBJC_WEAK = YES;
+                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+                CLANG_WARN_BOOL_CONVERSION = YES;
+                CLANG_WARN_COMMA = YES;
+                CLANG_WARN_CONSTANT_CONVERSION = YES;
+                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+                CLANG_WARN_EMPTY_BODY = YES;
+                CLANG_WARN_ENUM_CONVERSION = YES;
+                CLANG_WARN_INFINITE_RECURSION = YES;
+                CLANG_WARN_INT_CONVERSION = YES;
+                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+                CLANG_WARN_STRICT_PROTOTYPES = YES;
+                CLANG_WARN_SUSPICIOUS_MOVE = YES;
+                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+                CLANG_WARN_UNREACHABLE_CODE = YES;
+                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+                CODE_SIGN_IDENTITY = "iPhone Developer";
+                COPY_PHASE_STRIP = NO;
+                DEBUG_INFORMATION_FORMAT = dwarf;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                ENABLE_TESTABILITY = YES;
+                GCC_C_LANGUAGE_STANDARD = gnu11;
+                GCC_DYNAMIC_NO_PIC = NO;
+                GCC_NO_COMMON_BLOCKS = YES;
+                GCC_OPTIMIZATION_LEVEL = 0;
+                GCC_PREPROCESSOR_DEFINITIONS = (
+                    "DEBUG=1",
+                    "$(inherited)",
+                );
+                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+                GCC_WARN_UNDECLARED_SELECTOR = YES;
+                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+                GCC_WARN_UNUSED_FUNCTION = YES;
+                GCC_WARN_UNUSED_VARIABLE = YES;
+                IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+                MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+                MTL_FAST_MATH = YES;
+                ONLY_ACTIVE_ARCH = YES;
+                SDKROOT = iphoneos;
+            };
+            name = Debug;
+        };
+        B0FCD61121D242CA0082E795 /* Release */ = {
+            isa = XCBuildConfiguration;
+            buildSettings = {
+                ALWAYS_SEARCH_USER_PATHS = NO;
+                CLANG_ANALYZER_NONNULL = YES;
+                CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+                CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+                CLANG_CXX_LIBRARY = "libc++";
+                CLANG_ENABLE_MODULES = YES;
+                CLANG_ENABLE_OBJC_ARC = YES;
+                CLANG_ENABLE_OBJC_WEAK = YES;
+                CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+                CLANG_WARN_BOOL_CONVERSION = YES;
+                CLANG_WARN_COMMA = YES;
+                CLANG_WARN_CONSTANT_CONVERSION = YES;
+                CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+                CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+                CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+                CLANG_WARN_EMPTY_BODY = YES;
+                CLANG_WARN_ENUM_CONVERSION = YES;
+                CLANG_WARN_INFINITE_RECURSION = YES;
+                CLANG_WARN_INT_CONVERSION = YES;
+                CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+                CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+                CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+                CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+                CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+                CLANG_WARN_STRICT_PROTOTYPES = YES;
+                CLANG_WARN_SUSPICIOUS_MOVE = YES;
+                CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+                CLANG_WARN_UNREACHABLE_CODE = YES;
+                CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+                CODE_SIGN_IDENTITY = "iPhone Developer";
+                COPY_PHASE_STRIP = NO;
+                DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+                ENABLE_NS_ASSERTIONS = NO;
+                ENABLE_STRICT_OBJC_MSGSEND = YES;
+                GCC_C_LANGUAGE_STANDARD = gnu11;
+                GCC_NO_COMMON_BLOCKS = YES;
+                GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+                GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+                GCC_WARN_UNDECLARED_SELECTOR = YES;
+                GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+                GCC_WARN_UNUSED_FUNCTION = YES;
+                GCC_WARN_UNUSED_VARIABLE = YES;
+                IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+                MTL_ENABLE_DEBUG_INFO = NO;
+                MTL_FAST_MATH = YES;
+                SDKROOT = iphoneos;
+                VALIDATE_PRODUCT = YES;
+            };
+            name = Release;
+        };
+        B0FCD61321D242CA0082E795 /* Debug */ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                CODE_SIGN_STYLE = Automatic;
+                DEVELOPMENT_TEAM = 987Y5M3S28;
+                INFOPLIST_FILE = SKIncomeTaxCalculator/Info.plist;
+                IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                PRODUCT_BUNDLE_IDENTIFIER = com.skyline.SKIncomeTaxCalculator;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Debug;
+        };
+        B0FCD61421D242CA0082E795 /* Release */ = {
+            isa = XCBuildConfiguration;
+            baseConfigurationReference = ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */;
+            buildSettings = {
+                ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+                CODE_SIGN_STYLE = Automatic;
+                DEVELOPMENT_TEAM = 987Y5M3S28;
+                INFOPLIST_FILE = SKIncomeTaxCalculator/Info.plist;
+                IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+                LD_RUNPATH_SEARCH_PATHS = (
+                    "$(inherited)",
+                    "@executable_path/Frameworks",
+                );
+                PRODUCT_BUNDLE_IDENTIFIER = com.skyline.SKIncomeTaxCalculator;
+                PRODUCT_NAME = "$(TARGET_NAME)";
+                TARGETED_DEVICE_FAMILY = "1,2";
+            };
+            name = Release;
+        };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0FCD5F721D242B70082E795 /* Build configuration list for PBXProject "SKIncomeTaxCalculator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B0FCD61021D242CA0082E795 /* Debug */,
-				B0FCD61121D242CA0082E795 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B0FCD61221D242CA0082E795 /* Build configuration list for PBXNativeTarget "SKIncomeTaxCalculator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B0FCD61321D242CA0082E795 /* Debug */,
-				B0FCD61421D242CA0082E795 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
+        B0FCD5F721D242B70082E795 /* Build configuration list for PBXProject "SKIncomeTaxCalculator" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                B0FCD61021D242CA0082E795 /* Debug */,
+                B0FCD61121D242CA0082E795 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
+        B0FCD61221D242CA0082E795 /* Build configuration list for PBXNativeTarget "SKIncomeTaxCalculator" */ = {
+            isa = XCConfigurationList;
+            buildConfigurations = (
+                B0FCD61321D242CA0082E795 /* Debug */,
+                B0FCD61421D242CA0082E795 /* Release */,
+            );
+            defaultConfigurationIsVisible = 0;
+            defaultConfigurationName = Release;
+        };
 /* End XCConfigurationList section */
-	};
-	rootObject = B0FCD5F421D242B70082E795 /* Project object */;
+    };
+    rootObject = B0FCD5F421D242B70082E795 /* Project object */;
 }
