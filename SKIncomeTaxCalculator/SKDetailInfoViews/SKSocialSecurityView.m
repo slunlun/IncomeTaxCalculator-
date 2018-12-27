@@ -8,18 +8,19 @@
 
 #import "SKSocialSecurityView.h"
 #import "Masonry.h"
-#import "SKSocialsecurityCell.h"
+#import "SKSocialSecurityCell.h"
 
 #define itemWtdth  ([UIScreen mainScreen].bounds.size.width-20)/5.0
 static CGFloat itemHeight = 40.0;
 @interface SKSocialSecurityView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic, strong)UICollectionView *collectionView;
+@property (nonatomic, assign)CGFloat itemWidth;
 @end
 @implementation SKSocialSecurityView
 - (instancetype)init {
     if (self = [super init]) {
         [self commonInit];
-//        self.backgroundColor = [UIColor cyanColor];
+
     }
     return self;
 }
@@ -43,13 +44,20 @@ static CGFloat itemHeight = 40.0;
     [collectionView registerClass:[SKSocialSecurityCell class] forCellWithReuseIdentifier:@"cell"];
     [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(8);
-        make.left.equalTo(self).offset(10);
-        make.right.equalTo(self).offset(-10);
+        make.left.equalTo(self);
+        make.right.equalTo(self);
         make.height.equalTo(@(7 * itemHeight));
         make.bottom.equalTo(self).offset(-8);
     }];
 }
-
+- (void)setDataArray:(NSArray<NSArray *> *)dataArray {
+    _dataArray = dataArray;
+    self.itemWidth = self.bounds.size.width/dataArray.firstObject.count;
+    [self.collectionView reloadData];
+    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(dataArray.count * itemHeight));
+    }];
+}
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 | indexPath.section == 6)  {
         if (indexPath.row > 0) {

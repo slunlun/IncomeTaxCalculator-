@@ -11,6 +11,6 @@
 
 
 @interface SKSocialSecurityView : UIView
-
+@property(nonatomic,strong) NSArray<NSArray<NSString *> *>* dataArray;
 @end
 

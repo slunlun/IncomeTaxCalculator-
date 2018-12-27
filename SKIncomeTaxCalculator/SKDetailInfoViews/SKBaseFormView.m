@@ -27,6 +27,9 @@ static CGFloat itemHeight = 40.0;
     _dataArray = dataArray;
     self.itemWidth = self.bounds.size.width/dataArray.firstObject.count;
     [self.collectionView reloadData];
+    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(dataArray.count * itemHeight));
+    }];
 }
 - (void)commonInit {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
@@ -48,7 +51,7 @@ static CGFloat itemHeight = 40.0;
         make.top.equalTo(self).offset(8);
         make.left.equalTo(self).offset(10);
         make.right.equalTo(self).offset(-10);
-        make.height.equalTo(@(7 * itemHeight));
+        make.height.equalTo(@(3 * itemHeight));
         make.bottom.equalTo(self).offset(-8);
     }];
 }
@@ -67,11 +70,10 @@ static CGFloat itemHeight = 40.0;
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SKSocialSecurityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.infoStr = @"养老";
+    cell.infoStr = self.dataArray[indexPath.section][indexPath.row];
     if (indexPath.row>0) {
         //        cell.textColor = [UIColor redColor];
     }
     return cell;
 }
-
 @end
