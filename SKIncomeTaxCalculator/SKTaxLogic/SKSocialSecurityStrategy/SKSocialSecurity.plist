@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>MAX_SS_BASELINE</key>
+		<real>7457.47</real>
+		<key>MAX_PF_BASELINE</key>
+		<real>7457.47</real>
+		<key>P_ED</key>
+		<real>0.01</real>
+		<key>P_MD</key>
+		<real>0.02</real>
+		<key>P_UE</key>
+		<real>0.01</real>
+		<key>P_PF</key>
+		<real>0.08</real>
+		<key>C_ED</key>
+		<real>0.2</real>
+		<key>C_MD</key>
+		<real>0.1</real>
+		<key>C_UE</key>
+		<real>0.01</real>
+		<key>C_PF</key>
+		<real>0.08</real>
+		<key>SS_ID</key>
+		<string>SS_DEF</string>
+		<key>SS_TITLE</key>
+		<string>默认</string>
+	</dict>
+	<dict>
+		<key>MAX_SS_BASELINE</key>
+		<real>15274.74</real>
+		<key>MAX_PF_BASELINE</key>
+		<integer>0</integer>
+		<key>P_ED</key>
+		<real>0.08</real>
+		<key>P_MD</key>
+		<real>0.02</real>
+		<key>P_UE</key>
+		<real>0.005</real>
+		<key>P_PF</key>
+		<real>0.12</real>
+		<key>C_ED</key>
+		<real>0.14</real>
+		<key>C_MD</key>
+		<real>0.105</real>
+		<key>C_UE</key>
+		<real>0.005</real>
+		<key>C_PF</key>
+		<real>0.12</real>
+		<key>SS_ID</key>
+		<string>SS_HANG_ZHOU</string>
+		<key>SS_TITLE</key>
+		<string>杭州</string>
+	</dict>
+</array>
+</plist>
