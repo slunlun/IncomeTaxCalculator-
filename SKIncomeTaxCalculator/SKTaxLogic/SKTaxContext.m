@@ -7,7 +7,7 @@
 //
 
 #import "SKTaxContext.h"
-#import "SKSocialSecurityStrategy.h"
+
 
 // 三险一金plist的key
 #define ID @"SS_ID"
@@ -26,8 +26,8 @@
 
 
 @interface SKTaxContext()
-@property (nonatomic, strong) NSMutableArray<SKSocialSecurityStrategy *> *socialSecurityStrategies;
-@property (nonatomic, strong) SKSocialSecurityStrategy *currentSecurityStrategy;
+
+
 @end
 
 @implementation SKTaxContext
@@ -50,9 +50,16 @@
 
 #pragma mark - social security
 - (void)loadAllSocialSecurity {
-    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"SKSocialSecurity" ofType:@"plist"];
-    NSMutableArray *dataArray = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-    [dataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSMutableArray *sandBoxDataArray = [[NSMutableArray alloc]initWithContentsOfFile:[self socialSecurityPlistPath]];
+    if (sandBoxDataArray ==nil) { // 程序第一次启动时，以bundle中的plist 为模板，设置document 目录下的 SKSocialSecurity.plist
+        NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"SKSocialSecurity" ofType:@"plist"];
+        NSMutableArray *dataArray = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+        [dataArray writeToFile:[self socialSecurityPlistPath] atomically:YES];
+        sandBoxDataArray = [[NSMutableArray alloc]initWithContentsOfFile:[self socialSecurityPlistPath]];
+    }
+    
+   
+    [sandBoxDataArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSDictionary *strategyDict = (NSDictionary *)obj;
         SKSocialSecurityStrategy *ss = [[SKSocialSecurityStrategy alloc] init];
         [ss setValuesForKeysWithDictionary:strategyDict];
@@ -66,12 +73,26 @@
         self.currentSecurityStrategy = strategy;
         [self.socialSecurityStrategies removeObject:strategy];
         [self.socialSecurityStrategies insertObject:strategy atIndex:0];
+        [self updateSocialSecurityPlist];
     }
 }
 
 - (void)updateSocialSecurityPlist {
-    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"SKSocialSecurity" ofType:@"plist"];
-    [self.socialSecurityStrategies writeToFile:plistPath atomically:YES];
+    NSString *plistPath = [self socialSecurityPlistPath];
+ 
+    NSMutableArray *dataArray = [NSMutableArray array];
+    for (SKSocialSecurityStrategy *ss in self.socialSecurityStrategies) {
+        NSDictionary *dict = [ss convertToDictionary];
+        [dataArray addObject:dict];
+    }
+    [dataArray writeToFile:plistPath atomically:YES];
+}
+
+- (NSString *)socialSecurityPlistPath {
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArray objectAtIndex:0];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"SKSocialSecurity.plist"];
+    return filePatch;
 }
 
 #pragma mark - setter/getter

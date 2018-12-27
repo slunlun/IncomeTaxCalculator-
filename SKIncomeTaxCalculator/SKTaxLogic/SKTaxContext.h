@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#import "SKSocialSecurityStrategy.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SKTaxContext : NSObject
 + (instancetype)sharedInstance;
-
+@property (nonatomic, strong) SKSocialSecurityStrategy *currentSecurityStrategy;
 @property (nonatomic, assign) CGFloat salary;
 // 三险一金策略
+- (void)updateCurrentSecurityStrategy:(SKSocialSecurityStrategy *)strategy;
+- (void)loadAllSocialSecurity;
+@property (nonatomic, strong) NSMutableArray<SKSocialSecurityStrategy *> *socialSecurityStrategies;
 @property (nonatomic, strong) NSMutableArray *deductions;
 @end
 

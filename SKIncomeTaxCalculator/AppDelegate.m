@@ -10,7 +10,7 @@
 #import "SKDef.h"
 #import "SKHomeNavigationViewController.h"
 #import "SKTaxHomeViewController.h"
-
+#import "SKTaxContext.h"
 @import GoogleMobileAds;
 @interface AppDelegate ()
 
@@ -20,6 +20,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    SKTaxContext *taxContext = [SKTaxContext sharedInstance];
+    SKSocialSecurityStrategy *lss = taxContext.socialSecurityStrategies.lastObject;
+    [taxContext updateCurrentSecurityStrategy:lss];
+    [taxContext loadAllSocialSecurity];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     

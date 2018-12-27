@@ -7,8 +7,10 @@
 //
 
 #import "SKSocialSecurityStrategy.h"
+#import "NSObject+SKRuntime.h"
 
 @implementation SKSocialSecurityStrategy
+
 - (CGFloat)calculateCompanyPaied:(CGFloat)salary {
     CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
     CGFloat PFBaseLine = salary > self.MAX_PF_BASELINE.floatValue?self.MAX_PF_BASELINE.floatValue:salary;
@@ -39,6 +41,12 @@
 
 - (NSUInteger)hash {
     return [self.SS_ID hash];
+}
+
+#pragma mark - convertToDictionary
+- (NSDictionary *)convertToDictionary {
+    return [self getAllPropertiesAndVaules];
+    
 }
 
 @end

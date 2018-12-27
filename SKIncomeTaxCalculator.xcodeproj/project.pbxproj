@@ -36,6 +36,7 @@
 		B0FFFDA521D4C19400FDF5F2 /* SKSocialSecurity.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0FFFDA021D4C19400FDF5F2 /* SKSocialSecurity.plist */; };
 		B0FFFDA621D4C19400FDF5F2 /* SKSocialSecurityStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FFFDA221D4C19400FDF5F2 /* SKSocialSecurityStrategy.m */; };
 		B0FFFDA721D4C19400FDF5F2 /* SKTaxContext.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FFFDA421D4C19400FDF5F2 /* SKTaxContext.m */; };
+		B0FFFDAA21D4D03400FDF5F2 /* NSObject+SKRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FFFDA921D4D03400FDF5F2 /* NSObject+SKRuntime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,8 @@
 		B0FFFDA221D4C19400FDF5F2 /* SKSocialSecurityStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityStrategy.m; sourceTree = "<group>"; };
 		B0FFFDA321D4C19400FDF5F2 /* SKTaxContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaxContext.h; sourceTree = "<group>"; };
 		B0FFFDA421D4C19400FDF5F2 /* SKTaxContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaxContext.m; sourceTree = "<group>"; };
+		B0FFFDA821D4D03400FDF5F2 /* NSObject+SKRuntime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SKRuntime.h"; sourceTree = "<group>"; };
+		B0FFFDA921D4D03400FDF5F2 /* NSObject+SKRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SKRuntime.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +242,8 @@
 				B0FCD60D21D242CA0082E795 /* Info.plist */,
 				B0FCD60E21D242CA0082E795 /* main.m */,
 				B0FCD61521D25C100082E795 /* SKDef.h */,
+				B0FFFDA821D4D03400FDF5F2 /* NSObject+SKRuntime.h */,
+				B0FFFDA921D4D03400FDF5F2 /* NSObject+SKRuntime.m */,
 			);
 			path = SKIncomeTaxCalculator;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				7EC9496621D4843C0077225D /* SKTaxPaymentItemDataModel.m in Sources */,
 				7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */,
+				B0FFFDAA21D4D03400FDF5F2 /* NSObject+SKRuntime.m in Sources */,
 				7EC9496321D483B50077225D /* SKTaxHomeTableViewCell.m in Sources */,
 				7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */,
 				583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */,

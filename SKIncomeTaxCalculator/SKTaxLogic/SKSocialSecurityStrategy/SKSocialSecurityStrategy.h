@@ -29,9 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *MAX_SS_BASELINE;
 @property (nonatomic, strong) NSNumber *MAX_PF_BASELINE;
 
+@property (nonatomic, assign) NSInteger testNu;
+
 - (CGFloat)calculateCompanyPaied:(CGFloat)salary;
 - (CGFloat)calculatePersonalPaied:(CGFloat)salary;
 - (CGFloat)calculateTotaolPaied:(CGFloat)salary;
+
+- (NSDictionary *)convertToDictionary;
 @end
 
 NS_ASSUME_NONNULL_END
