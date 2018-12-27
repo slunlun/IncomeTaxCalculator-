@@ -15,18 +15,22 @@ static CGFloat itemHeight = 40.0;
 @interface SKSocialSecurityView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic, strong)UICollectionView *collectionView;
 @property (nonatomic, assign)CGFloat itemWidth;
+@property(nonatomic,strong) NSArray<NSArray<NSString *> *>* dataArray;
 @end
 @implementation SKSocialSecurityView
-- (instancetype)init {
+- (instancetype)initWithDataArray:(NSArray<NSArray<NSString *> *> *)dataArray {
     if (self = [super init]) {
+        self.dataArray = dataArray;
         [self commonInit];
-
     }
     return self;
 }
-
 - (void)commonInit {
-   
+    self.itemWidth = ([UIScreen mainScreen].bounds.size.width-20)/5;
+    UILabel *titleLabel = [[UILabel alloc]init];
+    [self addSubview:titleLabel];
+    self.titleLabel = titleLabel;
+    titleLabel.text = @"三险一金";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.minimumInteritemSpacing = 0;
@@ -42,47 +46,41 @@ static CGFloat itemHeight = 40.0;
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerClass:[SKSocialSecurityCell class] forCellWithReuseIdentifier:@"cell"];
-    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(8);
         make.left.equalTo(self);
         make.right.equalTo(self);
-        make.height.equalTo(@(7 * itemHeight));
+        make.height.equalTo(@30);
+    }];
+    [collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleLabel.mas_bottom).offset(8);
+        make.left.equalTo(self);
+        make.right.equalTo(self);
+        make.height.equalTo(@(self.dataArray.count * itemHeight));
         make.bottom.equalTo(self).offset(-8);
     }];
 }
-- (void)setDataArray:(NSArray<NSArray *> *)dataArray {
-    _dataArray = dataArray;
-    self.itemWidth = self.bounds.size.width/dataArray.firstObject.count;
-    [self.collectionView reloadData];
-    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(dataArray.count * itemHeight));
-    }];
-}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 | indexPath.section == 6)  {
+    if (indexPath.section == 0 | indexPath.section == self.dataArray.count-1)  {
         if (indexPath.row > 0) {
-            return CGSizeMake(itemWtdth*2, itemHeight);
+            return CGSizeMake(self.itemWidth*2, itemHeight);
         }
     }
-    return CGSizeMake(itemWtdth, itemHeight);
+    return CGSizeMake(self.itemWidth, itemHeight);
 }
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 7;
+    return self.dataArray.count;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section==0) {
-        return 3;
-    } else if (section == 6) {
-        return 3;
-    }
-    return 5;
+    return self.dataArray[section].count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SKSocialSecurityCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.infoStr = @"养老";
+    cell.infoStr = self.dataArray[indexPath.section][indexPath.row];
     if (indexPath.row>0) {
 //        cell.textColor = [UIColor redColor];
     }

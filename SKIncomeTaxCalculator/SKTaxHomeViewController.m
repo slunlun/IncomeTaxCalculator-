@@ -11,6 +11,7 @@
 #import "SKDef.h"
 #import "SKTaxHomeTableViewCell.h"
 #import "SKTaxPaymentItemDataModel.h"
+#import "SKDetailInfoVC.h"
 
 @interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -124,6 +125,8 @@
 - (void)leftBarButtonItemClcik:(UIBarButtonItem *) sender {
     //TODO
     NSLog(@"left button clicked!");
+    SKDetailInfoVC *VC = [[SKDetailInfoVC alloc]init];
+    [self.navigationController pushViewController:VC animated:YES];
 }
 
 #pragma mark - Table view data source
