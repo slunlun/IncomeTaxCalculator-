@@ -9,5 +9,7 @@
 #ifndef SKDef_h
 #define SKDef_h
 
+#define kMargin 8
+
 #define GAD_APPID @"ca-app-pub-7600977789871519~3653895124"
 #endif /* SKDef_h */

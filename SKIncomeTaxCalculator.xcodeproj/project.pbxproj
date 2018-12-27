@@ -26,6 +26,8 @@
 		7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388D221D264E80093CD83 /* MBProgressHUD.m */; };
 		7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */; };
 		7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */; };
+		7EC9496321D483B50077225D /* SKTaxHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9496221D483B50077225D /* SKTaxHomeTableViewCell.m */; };
+		7EC9496621D4843C0077225D /* SKTaxPaymentItemDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9496421D4843C0077225D /* SKTaxPaymentItemDataModel.m */; };
 		817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */; };
 		B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60021D242B70082E795 /* AppDelegate.m */; };
 		B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* SKADTestViewController.m */; };
@@ -79,6 +81,10 @@
 		7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaxHomeViewController.m; sourceTree = "<group>"; };
 		7E7388E121D2652A0093CD83 /* SKHomeNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKHomeNavigationViewController.h; sourceTree = "<group>"; };
 		7E7388E221D2652A0093CD83 /* SKTaxHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaxHomeViewController.h; sourceTree = "<group>"; };
+		7EC9496121D483B50077225D /* SKTaxHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKTaxHomeTableViewCell.h; sourceTree = "<group>"; };
+		7EC9496221D483B50077225D /* SKTaxHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKTaxHomeTableViewCell.m; sourceTree = "<group>"; };
+		7EC9496421D4843C0077225D /* SKTaxPaymentItemDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTaxPaymentItemDataModel.m; sourceTree = "<group>"; };
+		7EC9496521D4843C0077225D /* SKTaxPaymentItemDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTaxPaymentItemDataModel.h; sourceTree = "<group>"; };
 		A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKIncomeTaxCalculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +230,10 @@
 				7E7388DF21D2652A0093CD83 /* SKHomeNavigationViewController.m */,
 				7E7388E221D2652A0093CD83 /* SKTaxHomeViewController.h */,
 				7E7388E021D2652A0093CD83 /* SKTaxHomeViewController.m */,
+				7EC9496121D483B50077225D /* SKTaxHomeTableViewCell.h */,
+				7EC9496221D483B50077225D /* SKTaxHomeTableViewCell.m */,
+				7EC9496521D4843C0077225D /* SKTaxPaymentItemDataModel.h */,
+				7EC9496421D4843C0077225D /* SKTaxPaymentItemDataModel.m */,
 				B0FCD60521D242B70082E795 /* Main.storyboard */,
 				B0FCD60821D242CA0082E795 /* Assets.xcassets */,
 				B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */,
@@ -348,8 +358,10 @@
 				583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */,
 				583C5C4A21D35F6A00C3639F /* SKDetailInfoViewController.m in Sources */,
 				7E7388DA21D264E80093CD83 /* View+MASAdditions.m in Sources */,
+				7EC9496621D4843C0077225D /* SKTaxPaymentItemDataModel.m in Sources */,
 				7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				7E7388DD21D264E80093CD83 /* MASViewAttribute.m in Sources */,
+				7EC9496321D483B50077225D /* SKTaxHomeTableViewCell.m in Sources */,
 				7E7388E321D2652A0093CD83 /* SKHomeNavigationViewController.m in Sources */,
 				583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */,
 				7E7388DE21D264E80093CD83 /* MBProgressHUD.m in Sources */,
