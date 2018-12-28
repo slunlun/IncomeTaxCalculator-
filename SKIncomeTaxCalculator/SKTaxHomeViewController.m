@@ -11,12 +11,15 @@
 #import "SKDef.h"
 #import "SKTaxHomeTableViewCell.h"
 #import "SKTaxPaymentItemDataModel.h"
-#import "SKDetailInfoVC.h"
+#import "SKUniversalSingleSelectionPickerView.h"
+#import "SKCityChooseViewController.h"
 
-@interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate>
 
 @property (nonatomic,strong) UITextField *textField;
 @property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong) UIButton *cityChooseButton;
+@property (nonatomic,strong) UIButton *cityDisplayButton;
 @property (nonatomic,strong) NSArray *data;
 
 @end
@@ -51,7 +54,7 @@
         SKTaxPaymentItemDataModel *model1 = [[SKTaxPaymentItemDataModel alloc] initWithTitle:@"专项附加扣除:" content:@"" placeholder:@"" isSelected:NO modelType:SKTaxModelTypeSpecialAdditionalDeduction];
         SKTaxPaymentItemDataModel *model2 = [[SKTaxPaymentItemDataModel alloc] initWithTitle:@"子女教育:" content:@"" placeholder:@"选择受教育子女" isSelected:NO modelType:SKTaxModelTypeChildEducation];
         SKTaxPaymentItemDataModel *model3 = [[SKTaxPaymentItemDataModel alloc] initWithTitle:@"继续教育:" content:@"" placeholder:@"选择继续教育情况" isSelected:NO modelType:SKTaxModelTypeContinuingEducation];
-        SKTaxPaymentItemDataModel *model4 = [[SKTaxPaymentItemDataModel alloc] initWithTitle:@"住房情况:" content:@"" placeholder:@"选择住房/租房类型" isSelected:NO modelType:SKTaxModelTypeContinuingEducation];
+        SKTaxPaymentItemDataModel *model4 = [[SKTaxPaymentItemDataModel alloc] initWithTitle:@"住房情况:" content:@"" placeholder:@"选择住房/租房类型" isSelected:NO modelType:SKTaxModelTypeHousingSituation];
         SKTaxPaymentItemDataModel *model5 = [[SKTaxPaymentItemDataModel alloc] initWithTitle:@"赡养老人:" content:@"" placeholder:@"选择赡养老人情况" isSelected:NO modelType:SKTaxModelTypeSupportForTheElderly];
         
         [dataModelArray addObject:model1];
@@ -69,7 +72,28 @@
 {
     self.textField.placeholder = @"请输入税前月薪或税后月薪";
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    
     [self.view addSubview:_textField];
+    
+    UIButton *cityButton = [[UIButton alloc] init];
+    cityButton.backgroundColor = [UIColor clearColor];
+    [cityButton setTitle:@"所在地区" forState:UIControlStateNormal];
+    [cityButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    cityButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [cityButton setImage:[UIImage imageNamed:@"accessoryIcon"] forState:UIControlStateNormal];
+    cityButton.titleEdgeInsets = UIEdgeInsetsMake(0, - cityButton.imageView.bounds.size.width - 40.0, 0, cityButton.imageView.bounds.size.width);
+    cityButton.imageEdgeInsets = UIEdgeInsetsMake(0, cityButton.imageView.bounds.size.width + 68.0, 0, 0);
+    [cityButton addTarget:self action:@selector(cityChooseButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.cityChooseButton = cityButton;
+    [self.view addSubview:cityButton];
+    
+    UIButton *cityDisplayButton = [[UIButton alloc] init];
+    cityDisplayButton.backgroundColor = [UIColor clearColor];
+    [cityDisplayButton setTitle:@"北京" forState:UIControlStateNormal];
+    [cityDisplayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    cityDisplayButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.cityDisplayButton = cityDisplayButton;
+    [self.view addSubview:cityDisplayButton];
     
     //init tableview
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -99,14 +123,29 @@
         make.height.equalTo(@55);
     }];
     
+    [_cityChooseButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.height.equalTo(@(45));
+        make.width.equalTo(@(90));
+        make.top.equalTo(self.textField.mas_bottom).offset(8);
+    }];
+    
+    [_cityDisplayButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(45));
+        make.width.equalTo(@(90));
+        make.top.equalTo(self.textField.mas_bottom).offset(8);
+    }];
+    
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.textField).offset(64);
+        make.top.equalTo(self.textField.mas_bottom).offset(64);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
         make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     
-    self.textField.backgroundColor = [UIColor clearColor];
+    //    self.textField.backgroundColor = [UIColor orangeColor];
+    //    self.cityChooseButton.backgroundColor = [UIColor greenColor];
     
 }
 
@@ -125,11 +164,9 @@
 - (void)leftBarButtonItemClcik:(UIBarButtonItem *) sender {
     //TODO
     NSLog(@"left button clicked!");
-    SKDetailInfoVC *VC = [[SKDetailInfoVC alloc]init];
-    [self.navigationController pushViewController:VC animated:YES];
 }
 
-#pragma mark - Table view data source
+#pragma mark - table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -141,6 +178,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SKTaxHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TAX_HOME_TABLEVIEW_CELL"];
+    cell.delegate = self;
     if (!cell) {
         cell = [[SKTaxHomeTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"TAX_HOME_TABLEVIEW_CELL"];
     }
@@ -152,9 +190,63 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        return;
+    }
     SKTaxPaymentItemDataModel *model = self.data[indexPath.row];
+    
+    //pickView
+    SKUniversalSingleSelectionPickerView *pickerView = [[SKUniversalSingleSelectionPickerView alloc] initWithFrame:CGRectMake(0, 0, MainScreenWidth, MainScreenHeight) delegate:self title:@"" leftBtnTitle:@"" rightBtnTitle:@"完成" dataModel:model];
+    //    self.resultDict = pickerView.resultDict;
+    pickerView.resultBlock = ^(SKTaxPaymentItemDataModel *newModel) {
+        //        ws.resultDict = [[NSDictionary alloc] initWithDictionary:dict];
+        model.content = newModel.content;
+        [self.tableView reloadData];
+    };
+    
+    [pickerView show];
+    
     NSLog(@"%@--------clicked",model.itemTitle);
 }
 
+#pragma -mark SKBasePickerViewDelegate
+- (void)actionWithButton:(UIButton *)sender title:(nonnull NSString *)title {
+    switch (sender.tag) {
+        case 100:
+        {
+            //            [YMBlackSmallAlert showAlertWithMessage:sender.titleLabel.text time:2.0f];
+        }
+            break;
+        case 101:
+        {
+            //            NSLog(@"self.resultDict-- == %@", self.resultDict);
+            //            NSString *pickerViewTitle = self.resultDict[@"pickerViewTitle"];
+            //            [YMBlackSmallAlert showAlertWithMessage:pickerViewTitle time:2.0f];
+            //
+            //            if (![title isEqualToString:@"时间选择"]) {
+            //                [[YMObtainUserLocationManager shareManager] transferMapWithAddress:pickerViewTitle view:self.view];
+            //            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma -mark SKTaxHomeTableViewCellDelegate
+- (void)actionWithDeleteButton:(SKTaxHomeTableViewCell *)cell dataModel:(SKTaxPaymentItemDataModel *)model
+{
+    [self.tableView reloadData];
+}
+
+#pragma  -mark Event
+
+- (void)cityChooseButtonClicked:(id)sender
+{
+    SKCityChooseViewController *vc = [[SKCityChooseViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
 @end
+
 
