@@ -32,7 +32,6 @@
 		7EC949D421D5BF1C0077225D /* UIView+YMFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949CC21D5BF1B0077225D /* UIView+YMFrame.m */; };
 		7EC949D521D5BF1C0077225D /* SKPickerToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949CD21D5BF1B0077225D /* SKPickerToolBarView.m */; };
 		7EC949D621D5BF1C0077225D /* SKUniversalSingleSelectionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949CE21D5BF1B0077225D /* SKUniversalSingleSelectionPickerView.m */; };
-		7EC949D721D5BF1C0077225D /* SKUniversalSingleSelectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949D021D5BF1B0077225D /* SKUniversalSingleSelectModel.m */; };
 		817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */; };
 		B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60021D242B70082E795 /* AppDelegate.m */; };
 		B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* SKADTestViewController.m */; };
@@ -96,13 +95,11 @@
 		7EC949C721D5BF1B0077225D /* SKPickerToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPickerToolBarView.h; sourceTree = "<group>"; };
 		7EC949C821D5BF1B0077225D /* UIView+YMFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YMFrame.h"; sourceTree = "<group>"; };
 		7EC949C921D5BF1B0077225D /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		7EC949CA21D5BF1B0077225D /* SKUniversalSingleSelectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUniversalSingleSelectModel.h; sourceTree = "<group>"; };
 		7EC949CB21D5BF1B0077225D /* SKBasePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBasePickerView.m; sourceTree = "<group>"; };
 		7EC949CC21D5BF1B0077225D /* UIView+YMFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YMFrame.m"; sourceTree = "<group>"; };
 		7EC949CD21D5BF1B0077225D /* SKPickerToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPickerToolBarView.m; sourceTree = "<group>"; };
 		7EC949CE21D5BF1B0077225D /* SKUniversalSingleSelectionPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUniversalSingleSelectionPickerView.m; sourceTree = "<group>"; };
 		7EC949CF21D5BF1B0077225D /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		7EC949D021D5BF1B0077225D /* SKUniversalSingleSelectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUniversalSingleSelectModel.m; sourceTree = "<group>"; };
 		7EC949D121D5BF1B0077225D /* SKBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasePickerView.h; sourceTree = "<group>"; };
 		A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKIncomeTaxCalculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,17 +220,15 @@
 			isa = PBXGroup;
 			children = (
 				7EC949C621D5BF1B0077225D /* SKUniversalSingleSelectionPickerView.h */,
-				7EC949C721D5BF1B0077225D /* SKPickerToolBarView.h */,
-				7EC949C821D5BF1B0077225D /* UIView+YMFrame.h */,
-				7EC949C921D5BF1B0077225D /* UIColor+Hex.m */,
-				7EC949CA21D5BF1B0077225D /* SKUniversalSingleSelectModel.h */,
-				7EC949CB21D5BF1B0077225D /* SKBasePickerView.m */,
-				7EC949CC21D5BF1B0077225D /* UIView+YMFrame.m */,
-				7EC949CD21D5BF1B0077225D /* SKPickerToolBarView.m */,
 				7EC949CE21D5BF1B0077225D /* SKUniversalSingleSelectionPickerView.m */,
+				7EC949C721D5BF1B0077225D /* SKPickerToolBarView.h */,
+				7EC949CD21D5BF1B0077225D /* SKPickerToolBarView.m */,
+				7EC949C821D5BF1B0077225D /* UIView+YMFrame.h */,
+				7EC949CC21D5BF1B0077225D /* UIView+YMFrame.m */,
 				7EC949CF21D5BF1B0077225D /* UIColor+Hex.h */,
-				7EC949D021D5BF1B0077225D /* SKUniversalSingleSelectModel.m */,
+				7EC949C921D5BF1B0077225D /* UIColor+Hex.m */,
 				7EC949D121D5BF1B0077225D /* SKBasePickerView.h */,
+				7EC949CB21D5BF1B0077225D /* SKBasePickerView.m */,
 			);
 			path = pickview;
 			sourceTree = "<group>";
@@ -412,7 +407,6 @@
 				7E7388D721D264E80093CD83 /* MASConstraintMaker.m in Sources */,
 				B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */,
 				B0FFFDA621D4C19400FDF5F2 /* SKSocialSecurityStrategy.m in Sources */,
-				7EC949D721D5BF1C0077225D /* SKUniversalSingleSelectModel.m in Sources */,
 				7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */,
 				7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */,
 				7EC949D421D5BF1C0077225D /* UIView+YMFrame.m in Sources */,

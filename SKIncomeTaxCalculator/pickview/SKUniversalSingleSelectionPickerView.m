@@ -8,7 +8,6 @@
 
 #import "SKUniversalSingleSelectionPickerView.h"
 
-#import "SKUniversalSingleSelectModel.h"
 
 @interface SKUniversalSingleSelectionPickerView ()
 <UIPickerViewDelegate, UIPickerViewDataSource>
