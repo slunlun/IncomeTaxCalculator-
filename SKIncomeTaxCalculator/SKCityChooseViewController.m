@@ -72,7 +72,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //
+    SKSocialSecurityStrategy *selectedCityModel = self.cityData[indexPath.row];
+    SKCityTaxPaymentRatioDetailViewController *infoVC = [[SKCityTaxPaymentRatioDetailViewController alloc] initWithStragetyModel:selectedCityModel];
+    [self.navigationController pushViewController:infoVC animated:NO];
 }
 
 
