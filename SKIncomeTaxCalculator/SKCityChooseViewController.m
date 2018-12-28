@@ -74,6 +74,13 @@
 {
     SKSocialSecurityStrategy *selectedCityModel = self.cityData[indexPath.row];
     SKCityTaxPaymentRatioDetailViewController *infoVC = [[SKCityTaxPaymentRatioDetailViewController alloc] initWithStragetyModel:selectedCityModel];
+    
+    [infoVC setSaveButtonClickedBlock:^(NSString *cityName) {
+        if (self.chooseCompletedBlock) {
+            self.chooseCompletedBlock(cityName);
+        }
+    }];
+ 
     [self.navigationController pushViewController:infoVC animated:NO];
 }
 

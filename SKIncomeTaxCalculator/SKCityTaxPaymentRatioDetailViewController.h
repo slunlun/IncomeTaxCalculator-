@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SKTaxContext.h"
 
+typedef void(^saveButtonClickedBlock)(NSString *cityName);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SKCityTaxPaymentRatioDetailViewController : UIViewController
+
+@property (nonatomic,copy) saveButtonClickedBlock saveButtonClickedBlock;
 
 -(instancetype)initWithStragetyModel:(SKSocialSecurityStrategy *)strategyModel;
 
