@@ -126,7 +126,7 @@
     tableView.allowsMultipleSelection = NO;
     tableView.contentInset = UIEdgeInsetsMake(0, 0, kMargin * 4, 0);
     tableView.cellLayoutMarginsFollowReadableWidth = NO;
-    
+    tableView.tableFooterView =[[UIView alloc]init];
     self.tableView = tableView;
     [self.view addSubview:tableView];
     

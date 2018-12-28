@@ -101,6 +101,8 @@ typedef NS_ENUM(NSInteger, textFieldType) {
 - (void)commonInit{
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height - 30);
+    scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView = scrollView;
     [scrollView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:scrollView];
