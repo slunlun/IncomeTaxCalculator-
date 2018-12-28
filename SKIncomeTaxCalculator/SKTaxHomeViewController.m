@@ -14,12 +14,13 @@
 #import "SKUniversalSingleSelectionPickerView.h"
 #import "SKCityChooseViewController.h"
 
-@interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate>
+@interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong) UITextField *textField;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIButton *cityChooseButton;
 @property (nonatomic,strong) UIButton *cityDisplayButton;
+@property (nonatomic,strong) UIButton *taxCalculateButton;
 @property (nonatomic,strong) NSArray *data;
 
 @end
@@ -40,6 +41,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"个税计算器";
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickBackground:)];
+    tapGesture.delegate = self;
+    [self.view addGestureRecognizer:tapGesture];
+    
     [self tableData];
     [self commonInit];
     [self commonInitNavgationBar];
@@ -70,7 +76,8 @@
 
 - (void)commonInit
 {
-    self.textField.placeholder = @"请输入税前月薪或税后月薪";
+    self.textField.placeholder = @"请输入税前月薪月薪";
+    self.textField.delegate = self;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
     
     [self.view addSubview:_textField];
@@ -95,6 +102,16 @@
     cityDisplayButton.titleLabel.font = [UIFont systemFontOfSize:16];
     self.cityDisplayButton = cityDisplayButton;
     [self.view addSubview:cityDisplayButton];
+    
+    UIButton *calculateButton = [[UIButton alloc] init];
+    calculateButton.layer.cornerRadius = 2.0;
+    calculateButton.backgroundColor = [UIColor clearColor];
+    [calculateButton setTitle:@"计算" forState:UIControlStateNormal];
+    [calculateButton addTarget:self action:@selector(calculateButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [calculateButton setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:150.0/255.0 blue:73.0/255.0 alpha:1.0]];
+    calculateButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    self.taxCalculateButton = calculateButton;
+    [self.view addSubview:calculateButton];
     
     //init tableview
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -142,7 +159,16 @@
         make.top.equalTo(self.textField.mas_bottom).offset(64);
         make.left.equalTo(self.view);
         make.right.equalTo(self.view);
-        make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+        make.height.equalTo(@(280));
+        //make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+    }];
+    
+    [calculateButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.right.equalTo(self.view).offset(-20);
+        make.height.equalTo(@(45));
+        make.top.equalTo(self.tableView.mas_bottom).offset(20);
+//        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
     }];
     
     //    self.textField.backgroundColor = [UIColor orangeColor];
@@ -240,7 +266,7 @@
     [self.tableView reloadData];
 }
 
-#pragma  -mark Event
+#pragma -mark button click event
 
 - (void)cityChooseButtonClicked:(id)sender
 {
@@ -249,6 +275,53 @@
         [self.cityDisplayButton setTitle:cityName forState:UIControlStateNormal];
     }];
     [self.navigationController pushViewController:vc animated:NO];
+}
+
+- (void)calculateButtonClicked:(id)sender
+{
+    
+}
+
+
+#pragma -mark UITextfield Delagate
+
+// 限制只能输入数字
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    return [self validateNumber:string];
+}
+
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
+#pragma mark - OnClick Background Event
+- (void)onClickBackground:(id)sender
+{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
+    if ([touch.view isKindOfClass:[UIScrollView class]]){
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 @end
