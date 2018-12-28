@@ -13,7 +13,7 @@
 #import "SKTaxPaymentItemDataModel.h"
 #import "SKUniversalSingleSelectionPickerView.h"
 #import "SKCityChooseViewController.h"
-
+#import "SKAllResultViewController.h"
 @interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong) UITextField *textField;
@@ -279,7 +279,9 @@
 
 - (void)calculateButtonClicked:(id)sender
 {
-    
+    SKAllResultViewController *allResultVC = [[SKAllResultViewController alloc]init];
+    allResultVC.dataArray = @[@[@"10000",@"2000",@"2000",@"1000",@"7000"]];
+    [self.navigationController pushViewController:allResultVC animated:YES];
 }
 
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58353F9A21D65C9B0028B7A8 /* SKAllResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58353F9721D65C9A0028B7A8 /* SKAllResultViewController.m */; };
+		58353F9B21D65C9B0028B7A8 /* SKResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58353F9921D65C9B0028B7A8 /* SKResultTableViewCell.m */; };
 		583C5C4721D35A8E00C3639F /* SKSocialSecurityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */; };
 		583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4E21D3877F00C3639F /* SKBaseFormView.m */; };
 		583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */; };
@@ -47,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58353F9621D65C9A0028B7A8 /* SKResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKResultTableViewCell.h; sourceTree = "<group>"; };
+		58353F9721D65C9A0028B7A8 /* SKAllResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKAllResultViewController.m; sourceTree = "<group>"; };
+		58353F9821D65C9B0028B7A8 /* SKAllResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKAllResultViewController.h; sourceTree = "<group>"; };
+		58353F9921D65C9B0028B7A8 /* SKResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKResultTableViewCell.m; sourceTree = "<group>"; };
 		583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityCell.h; sourceTree = "<group>"; };
 		583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKSocialSecurityCell.m; sourceTree = "<group>"; };
 		583C5C4E21D3877F00C3639F /* SKBaseFormView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKBaseFormView.m; sourceTree = "<group>"; };
@@ -157,6 +163,10 @@
 				583C5C4E21D3877F00C3639F /* SKBaseFormView.m */,
 				583C5C4521D35A8E00C3639F /* SKSocialSecurityCell.h */,
 				583C5C4621D35A8E00C3639F /* SKSocialSecurityCell.m */,
+				58353F9821D65C9B0028B7A8 /* SKAllResultViewController.h */,
+				58353F9721D65C9A0028B7A8 /* SKAllResultViewController.m */,
+				58353F9621D65C9A0028B7A8 /* SKResultTableViewCell.h */,
+				58353F9921D65C9B0028B7A8 /* SKResultTableViewCell.m */,
 			);
 			path = SKDetailInfoViews;
 			sourceTree = "<group>";
@@ -431,10 +441,12 @@
 				7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */,
 				7EC949D421D5BF1C0077225D /* UIView+YMFrame.m in Sources */,
 				B0FCD60F21D242CA0082E795 /* main.m in Sources */,
+				58353F9A21D65C9B0028B7A8 /* SKAllResultViewController.m in Sources */,
 				7EC949D621D5BF1C0077225D /* SKUniversalSingleSelectionPickerView.m in Sources */,
 				7E7388D821D264E80093CD83 /* MASLayoutConstraint.m in Sources */,
 				7E7388DB21D264E80093CD83 /* MASConstraint.m in Sources */,
 				583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */,
+				58353F9B21D65C9B0028B7A8 /* SKResultTableViewCell.m in Sources */,
 				B0FFFDA721D4C19400FDF5F2 /* SKTaxContext.m in Sources */,
 				7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */,
 				7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */,
