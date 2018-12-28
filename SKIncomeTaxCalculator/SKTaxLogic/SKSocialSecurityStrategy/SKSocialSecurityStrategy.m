@@ -21,11 +21,51 @@
     return socialSecurityBaseLine * self.C_ED.floatValue * self.C_MD.floatValue * self.C_UE.floatValue  +  PFBaseLine * self.C_HF.floatValue;
 }
 
+- (CGFloat)calculateCompanyED:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.C_ED.floatValue;
+}
+
+- (CGFloat)calculateCompanyMD:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.C_MD.floatValue;
+}
+
+- (CGFloat)calculateCompanyUE:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.C_UE.floatValue;
+}
+
+- (CGFloat)calculateCompanyHF:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.C_HF.floatValue;
+}
+
 - (CGFloat)calculatePersonalPaied:(CGFloat)salary {
     CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
     CGFloat PFBaseLine = salary > self.MAX_PF_BASELINE.floatValue?self.MAX_PF_BASELINE.floatValue:salary;
     
     return socialSecurityBaseLine * self.P_ED.floatValue * self.P_MD.floatValue * self.P_UE.floatValue + PFBaseLine * self.P_HF.floatValue;
+}
+
+- (CGFloat)calculatePersonalED:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.P_ED.floatValue;
+}
+
+- (CGFloat)calculatePersonalMD:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.P_MD.floatValue;
+}
+
+- (CGFloat)calculatePersonalUE:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.P_UE.floatValue;
+}
+
+- (CGFloat)calculatePersonalHF:(CGFloat)salary {
+    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
+    return socialSecurityBaseLine * self.P_HF.floatValue;
 }
 
 - (CGFloat)calculateTotaolPaied:(CGFloat)salary {

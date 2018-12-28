@@ -62,6 +62,7 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 
 // 三险一金策略
 - (void)updateCurrentSecurityStrategy:(SKSocialSecurityStrategy *)strategy;
+- (NSArray<SKSocialSecurityStrategy *> *)allSecurityStrategies;
 
 // 专项扣除
 - (void)updateChildDeduction:(SKChildStatus)childStatus;
@@ -76,6 +77,16 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 - (NSArray<NSDictionary *> *)calculatePersonalIncomeTax;
 // 计算个人应缴社保及公积金
 - (CGFloat)calculatePersonalSocialSecurityAndHousingFund;
+- (CGFloat)calculatePersonalED; // 个人养老
+- (CGFloat)calculatePersonalMD; // 个人医疗
+- (CGFloat)calculatePersonalUE; // 个人失业
+- (CGFloat)calculatePersonalHF; // 个人公积金
+
+- (CGFloat)calculateCompanyED;  // 公司养老
+- (CGFloat)calculateCompanyMD;  // 公司医疗
+- (CGFloat)calculateCompanyUE;  // 公司失业
+- (CGFloat)calculateCompanyHF;  // 公司公积金
+
 
 @end
 

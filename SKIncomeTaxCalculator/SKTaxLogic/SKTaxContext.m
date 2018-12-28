@@ -99,6 +99,10 @@
     self.currentSecurityStrategy = self.socialSecurityStrategies.firstObject;  // 第一个三险一金策略为默认项
 }
 
+- (NSArray<SKSocialSecurityStrategy *> *)allSecurityStrategies {
+    return [self.socialSecurityStrategies copy];
+}
+
 - (void)updateCurrentSecurityStrategy:(SKSocialSecurityStrategy *)strategy {
     if (![self.currentSecurityStrategy isEqual:strategy]) {
         self.currentSecurityStrategy = strategy;
@@ -285,7 +289,39 @@
 
 #pragma mark -  计算个人应缴社保及公积金
 - (CGFloat)calculatePersonalSocialSecurityAndHousingFund {
-    return [self.currentSecurityStrategy calculatePersonalPaied:self.salary];;
+    return [self.currentSecurityStrategy calculatePersonalPaied:self.salary];
+}
+
+- (CGFloat)calculatePersonalED {
+    return [self.currentSecurityStrategy calculatePersonalED:self.salary];
+}
+
+- (CGFloat)calculatePersonalMD {
+    return [self.currentSecurityStrategy calculatePersonalMD:self.salary];
+}
+
+- (CGFloat)calculatePersonalUE {
+    return [self.currentSecurityStrategy calculatePersonalUE:self.salary];
+}
+
+- (CGFloat)calculatePersonalHF {
+    return [self.currentSecurityStrategy calculatePersonalHF:self.salary];
+}
+
+- (CGFloat)calculateCompanyED {
+    return [self.currentSecurityStrategy calculateCompanyED:self.salary];
+}
+
+- (CGFloat)calculateCompanyMD {
+    return [self.currentSecurityStrategy calculateCompanyMD:self.salary];
+}
+
+- (CGFloat)calculateCompanyUE {
+    return [self.currentSecurityStrategy calculateCompanyUE:self.salary];
+}
+
+- (CGFloat)calculateCompanyHF {
+    return [self.currentSecurityStrategy calculateCompanyHF:self.salary];
 }
 
 #pragma mark - setter/getter
