@@ -1,16 +1,20 @@
 PODS:
   - Google-Mobile-Ads-SDK (7.37.0)
+  - IQKeyboardManager (6.2.0)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
+  - IQKeyboardManager
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Google-Mobile-Ads-SDK
+    - IQKeyboardManager
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: d028682d7450749a1955679da050eaf70d997b3e
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
 
-PODFILE CHECKSUM: 544809392c0b6117c56475f18090f648f891d079
+PODFILE CHECKSUM: 5b4dde7459fa5eff4d9ba4ea715a855124e121cd
 
 COCOAPODS: 1.5.3
