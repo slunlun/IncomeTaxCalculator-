@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "SKTaxPaymentItemDataModel.h"
+@class SKTaxHomeTableViewCell;
+
+/** 协议方法 */
+@protocol SKTaxHomeTableViewCellDelegate <NSObject>
+/** 删除按钮点击代理方法 */
+- (void)actionWithDeleteButton:(SKTaxHomeTableViewCell *)cell dataModel:(SKTaxPaymentItemDataModel *)model;
+
+@end
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SKTaxHomeTableViewCell : UITableViewCell
+
+@property (nonatomic, weak) id<SKTaxHomeTableViewCellDelegate> delegate;
+
 
 @property(nonatomic, weak, readonly) UILabel *titleLabel;
 @property(nonatomic, weak, readonly) UILabel *contentLabel;
@@ -22,3 +33,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 NS_ASSUME_NONNULL_END
+

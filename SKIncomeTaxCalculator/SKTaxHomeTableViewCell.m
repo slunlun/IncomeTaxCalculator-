@@ -59,7 +59,12 @@
         [self.customAccessView setHidden:YES];
         [self.policyDescripButton setHidden:NO];
     }else{
-        [self.deleteButton setHidden:NO];
+        if (model.content.length > 0 && model.content) {
+            [self.deleteButton setHidden:NO];
+        }else{
+            [self.deleteButton setHidden:YES];
+        }
+        
         [self.customAccessView setHidden:NO];
         [self.policyDescripButton setHidden:YES];
     }
@@ -73,11 +78,11 @@
     
     UILabel *contentLabel = [[UILabel alloc] init];
     contentLabel.textAlignment = NSTextAlignmentLeft;
+    
     self.contentLabel = contentLabel;
     [self.contentView addSubview:contentLabel];
     
     UIImageView *accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"accessoryIcon"]];
-    //accessoryView.backgroundColor = [UIColor redColor];
     self.customAccessView = accessoryView;
     [self.contentView addSubview:accessoryView];
     
@@ -89,7 +94,7 @@
     
     UIButton *policyDesButton = [[UIButton alloc] init];
     [policyDesButton setTitle:@"政策解读" forState:UIControlStateNormal];
-    [policyDesButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [policyDesButton setTitleColor:[UIColor colorWithRed:0.0/255.0 green:134.0/255.0 blue:204.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     policyDesButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [policyDesButton addTarget:self action:@selector(policyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.policyDescripButton = policyDesButton;
@@ -144,9 +149,10 @@
 #pragma -mark touch event
 -(void)deleteButtonClicked:(id)sender
 {
-    //TODO
-    
-    
+    if ([self.delegate respondsToSelector:@selector(actionWithDeleteButton:dataModel:)]) {
+        self.model.content = @"";
+        [self.delegate actionWithDeleteButton:self dataModel:_model];
+    }
 }
 
 - (void)policyButtonClicked:(id)sender
@@ -155,4 +161,5 @@
 }
 
 @end
+
 
