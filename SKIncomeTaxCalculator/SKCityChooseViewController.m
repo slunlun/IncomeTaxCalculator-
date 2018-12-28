@@ -45,8 +45,8 @@
 
 - (void)loadTableData
 {
-    NSMutableArray *cityData = [[NSMutableArray alloc] initWithObjects:@"北京",@"上海" ,@"广州",@"深圳",@"杭州" ,@"通用",@"自定义", nil];
-    self.cityData = [cityData copy];
+//    NSMutableArray *cityData = [[NSMutableArray alloc] initWithObjects:@"北京",@"上海" ,@"广州",@"深圳",@"杭州" ,@"通用",@"自定义", nil];
+    self.cityData = [[SKTaxContext sharedInstance] allSecurityStrategies];
 }
 
 #pragma mark - table view data source
@@ -65,8 +65,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"TAX_CITY_TABLEVIEW_CELL"];
     }
     
-    NSString *cityName = self.cityData[indexPath.row];
-    cell.textLabel.text = cityName;
+    SKSocialSecurityStrategy *cityModel = self.cityData[indexPath.row];
+    cell.textLabel.text = cityModel.SS_TITLE;
     return cell;
 }
 
