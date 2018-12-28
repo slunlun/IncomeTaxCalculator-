@@ -10,9 +10,13 @@
 #import "SKTaxContext.h"
 #import "SKCityTaxPaymentRatioDetailViewController.h"
 
+typedef void(^cityChooseCompletedBlock)(NSString *cityName);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SKCityChooseViewController : UIViewController
+
+@property (nonatomic, copy) cityChooseCompletedBlock chooseCompletedBlock;
 
 @end
 

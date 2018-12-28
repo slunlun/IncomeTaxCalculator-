@@ -89,7 +89,8 @@
     
     UIButton *cityDisplayButton = [[UIButton alloc] init];
     cityDisplayButton.backgroundColor = [UIColor clearColor];
-    [cityDisplayButton setTitle:@"北京" forState:UIControlStateNormal];
+    NSString *dispalyName = [SKTaxContext sharedInstance].currentSecurityStrategy.SS_TITLE;
+    [cityDisplayButton setTitle:dispalyName forState:UIControlStateNormal];
     [cityDisplayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     cityDisplayButton.titleLabel.font = [UIFont systemFontOfSize:16];
     self.cityDisplayButton = cityDisplayButton;
@@ -244,6 +245,9 @@
 - (void)cityChooseButtonClicked:(id)sender
 {
     SKCityChooseViewController *vc = [[SKCityChooseViewController alloc] init];
+    [vc setChooseCompletedBlock:^(NSString *cityName) {
+        [self.cityDisplayButton setTitle:cityName forState:UIControlStateNormal];
+    }];
     [self.navigationController pushViewController:vc animated:NO];
 }
 

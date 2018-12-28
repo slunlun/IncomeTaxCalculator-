@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     textFieldTypTaxPaySocialSecurityMAX = 10,
 };
 
-@interface SKCityTaxPaymentRatioDetailViewController ()<UITextFieldDelegate>
+@interface SKCityTaxPaymentRatioDetailViewController ()<UITextFieldDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong,nonnull) SKSocialSecurityStrategy *strategyModel;
 
@@ -77,6 +77,12 @@ typedef NS_ENUM(NSInteger, textFieldType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = _strategyModel.SS_TITLE;
+    
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickBackground:)];
+    tapGesture.delegate = self;
+    [self.view addGestureRecognizer:tapGesture];
+    
     [self.view setBackgroundColor:[UIColor colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1.0]];
     [self commonInit];
     // Do any additional setup after loading the view.
@@ -144,7 +150,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:houseFoundItemLabel];
     
     UILabel *basePayItemLabel = [[UILabel alloc] init];
-    basePayItemLabel.text = @"缴费基数封顶数";
+    basePayItemLabel.text = @"公积金缴费基数封顶数";
     self.basePayMaxLabel = basePayItemLabel;
     [scrollView addSubview:basePayItemLabel];
     
@@ -155,6 +161,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     
     UITextField *pensionForPersonalTextField = [[UITextField alloc] init];
     pensionForPersonalTextField.delegate = self;
+    pensionForPersonalTextField.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.P_ED.floatValue * 100)];
     pensionForPersonalTextField.tag = textFieldTypePensionForPersonal;
     pensionForPersonalTextField.borderStyle = UITextBorderStyleRoundedRect;
     pensionForPersonalTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -163,6 +170,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:pensionForPersonalTextField];
     
     UITextField *pensionForCompanyTextfield = [[UITextField alloc] init];
+    pensionForCompanyTextfield.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.C_ED.stringValue.floatValue * 100)];
     pensionForCompanyTextfield.tag = textFieldTypePensionForComapny;
       pensionForCompanyTextfield.delegate = self;
     pensionForCompanyTextfield.borderStyle = UITextBorderStyleRoundedRect;
@@ -172,6 +180,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:pensionForCompanyTextfield];
     
     UITextField *medicalForPersonalTextfield = [[UITextField alloc] init];
+    medicalForPersonalTextfield.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.P_MD.floatValue * 100)];
     medicalForPersonalTextfield.tag = textFieldTypeMedicalForPersonal;
      medicalForPersonalTextfield.delegate = self;
     medicalForPersonalTextfield.keyboardType = UIKeyboardTypeNumberPad;
@@ -181,6 +190,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:medicalForPersonalTextfield];
     
     UITextField *medicalForCompanyTextfield = [[UITextField alloc] init];
+    medicalForCompanyTextfield.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.C_MD.floatValue * 100)];
     medicalForCompanyTextfield.tag = textFieldTypeMedicalForComapny;
       medicalForCompanyTextfield.delegate = self;
     medicalForCompanyTextfield.borderStyle = UITextBorderStyleRoundedRect;
@@ -190,6 +200,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:medicalForCompanyTextfield];
     
     UITextField *unemploymentForPersonalTextfield = [[UITextField alloc] init];
+    unemploymentForPersonalTextfield.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.P_UE.floatValue * 100)];
     unemploymentForPersonalTextfield.tag = textFieldTypeUnemployementForPersonal;
     unemploymentForPersonalTextfield.delegate = self;
     unemploymentForPersonalTextfield.borderStyle = UITextBorderStyleRoundedRect;
@@ -199,6 +210,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:unemploymentForPersonalTextfield];
     
     UITextField *unemploymentForCompanyTextfield = [[UITextField alloc] init];
+    unemploymentForCompanyTextfield.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.C_UE.floatValue * 100)];
     unemploymentForCompanyTextfield.tag = textFieldTypeUnemployementForCompany;
     unemploymentForCompanyTextfield.delegate = self;
     unemploymentForCompanyTextfield.borderStyle = UITextBorderStyleRoundedRect;
@@ -208,6 +220,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:unemploymentForCompanyTextfield];
     
     UITextField *housingFundForPersonalTextfield = [[UITextField alloc] init];
+    housingFundForPersonalTextfield.text = [NSString stringWithFormat:@"%.2lf",(_strategyModel.P_HF.floatValue * 100)];
     housingFundForPersonalTextfield.tag = textFieldTypeHouseFundForPersonal;
     housingFundForPersonalTextfield.delegate = self;
     housingFundForPersonalTextfield.keyboardType = UIKeyboardTypeNumberPad;
@@ -217,6 +230,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:housingFundForPersonalTextfield];
     
     UITextField *housingFundForCompanyTextfield = [[UITextField alloc] init];
+    housingFundForCompanyTextfield.text =  [NSString stringWithFormat:@"%.2lf",(_strategyModel.C_HF.floatValue * 100)];
     housingFundForCompanyTextfield.tag = textFieldTypeHouseFundForCompany;
     housingFundForCompanyTextfield.delegate = self;
     housingFundForCompanyTextfield.keyboardType = UIKeyboardTypeNumberPad;
@@ -226,6 +240,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:housingFundForCompanyTextfield];
     
     UITextField *basePayMaxTextField = [[UITextField alloc] init];
+    basePayMaxTextField.text =  _strategyModel.MAX_PF_BASELINE.stringValue;
     basePayMaxTextField.tag = textFieldTypTaxPayMAX;
     basePayMaxTextField.delegate = self;
     basePayMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -234,6 +249,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:basePayMaxTextField];
     
     UITextField *basePaySocialSecurityMaxTextField = [[UITextField alloc] init];
+    basePaySocialSecurityMaxTextField.text = _strategyModel.MAX_SS_BASELINE.stringValue;
     basePaySocialSecurityMaxTextField.tag = textFieldTypTaxPaySocialSecurityMAX;
     basePaySocialSecurityMaxTextField.delegate = self;
     basePaySocialSecurityMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -279,6 +295,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     UILabel *percentageLabel8 = [[UILabel alloc] init];
     percentageLabel8.text = @"%";
     [scrollView addSubview:percentageLabel8];
+    
     
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
@@ -466,7 +483,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [basePayItemLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.top.equalTo(houseFoundItemLabel.mas_bottom).offset(20);
-        make.width.equalTo(@(160));
+        make.width.equalTo(@(180));
         make.height.equalTo(@(40));
     }];
     
@@ -480,7 +497,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [basePaysSocialSecurityMaxLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.top.equalTo(basePayMaxTextField.mas_bottom).offset(20);
-        make.width.equalTo(@(160));
+        make.width.equalTo(@(180));
         make.height.equalTo(@(40));
     }];
     
@@ -502,7 +519,83 @@ typedef NS_ENUM(NSInteger, textFieldType) {
 #pragma -mark tap event
 -(void)onTapSaveButton:(id)sender
 {
+    if (self.pensionForPersonalTextfield.text.length > 0) {
+        float value = self.pensionForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_ED = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_ED = [NSNumber numberWithFloat:0.0];
+    }
     
+    if (self.pensionForCompanyTextfield.text.length > 0) {
+        float value = self.pensionForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.C_ED = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_ED = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.medicalForPersonalTextfield.text.length > 0) {
+        float value = self.medicalForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_MD = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_MD = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.medicalForCompanyTextfield.text.length > 0) {
+        float value = self.medicalForCompanyTextfield.text.floatValue/100.0;
+        _strategyModel.C_MD = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_MD = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.unemploymentForPersonalTextfield.text.length > 0) {
+        float value = self.unemploymentForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_UE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_UE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.unemploymentForCompanyTextfield.text.length > 0) {
+        float value = self.unemploymentForCompanyTextfield.text.floatValue/100.0;
+        _strategyModel.C_UE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_UE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.housingFundForPersonalTextfield.text.length > 0) {
+        float value = self.housingFundForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_HF = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_HF = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.housingFundForCompanyTextfield.text.length > 0) {
+        float value = self.housingFundForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.C_HF = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_HF = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.basePayMaxTextField.text.length > 0) {
+        float value = self.basePayMaxTextField.text.floatValue;
+        _strategyModel.MAX_PF_BASELINE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.MAX_PF_BASELINE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.basePaySocialSecurityMaxTextField.text.length > 0) {
+        float value = self.basePaySocialSecurityMaxTextField.text.floatValue;
+        _strategyModel.MAX_SS_BASELINE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.MAX_SS_BASELINE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    [[SKTaxContext sharedInstance] updateCurrentSecurityStrategy:_strategyModel];
+    
+    if (self.saveButtonClickedBlock) {
+        self.saveButtonClickedBlock(_strategyModel.SS_TITLE);
+    }
+    
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma -mark UITextfield Delagate
@@ -580,27 +673,53 @@ typedef NS_ENUM(NSInteger, textFieldType) {
 #pragma -mark keyboard event
 - (void)keyboardDidShow:(NSNotification *)notif
 {
-//    // 获得键盘尺寸
-//    NSDictionary *info = notif.userInfo;
-//
-//    NSValue *aValue = [info objectForKeyedSubscript:UIKeyboardFrameEndUserInfoKey];
-//    CGSize keyboardSize = [aValue CGRectValue].size;
-//
-//
-//    //重新定义ScrollView的尺寸
-//    CGRect viewFrame = self.scrollView.frame;
-//
-//    viewFrame.size.height -=(keyboardSize.height);  //原来的尺寸减去键盘的高度
-//    self.scrollView.frame = viewFrame;
+    // 获得键盘尺寸
+    NSDictionary *info = notif.userInfo;
+
+    NSValue *aValue = [info objectForKeyedSubscript:UIKeyboardFrameEndUserInfoKey];
+    CGSize keyboardSize = [aValue CGRectValue].size;
+
+
+    //重新定义ScrollView的尺寸
+    CGRect viewFrame = self.scrollView.frame;
+
+    viewFrame.size.height -=(keyboardSize.height);  //原来的尺寸减去键盘的高度
+    self.scrollView.frame = viewFrame;
 //
 //
 //    //获取当前文本框架大小
-    CGRect textFieldRect = [self.basePayMaxTextField frame];
+   // CGRect textFieldRect = [self.basePayMaxTextField frame];
 }
 
 - (void)keyboardDidHide:(NSNotification *)notif
 {
     //TODO
+}
+
+#pragma mark - OnClick Event
+- (void)onClickBackground:(id)sender
+{
+     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    
+    if ([touch.view isKindOfClass:[UIScrollView class]]){
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+#pragma -mark Dealloc Method
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
 }
 
 @end
