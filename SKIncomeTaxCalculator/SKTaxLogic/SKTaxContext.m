@@ -292,7 +292,7 @@
         NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
         [personalIncomeTaxes addObject:dic];
     }
-    return nil;
+    return personalIncomeTaxes;
 }
 
 #pragma mark -  计算个人应缴社保及公积金
