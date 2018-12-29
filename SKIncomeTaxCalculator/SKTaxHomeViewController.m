@@ -68,14 +68,14 @@
     
     self.topBannerView = [[GADBannerView alloc]
                           initWithAdSize:kGADAdSizeSmartBannerPortrait];
-    self.topBannerView.adUnitID = GAD_BOTTOMBANNER_ID;
+    self.topBannerView.adUnitID = GAD_TOPBANNER_ID;
     self.topBannerView.rootViewController = self;
     self.topBannerView.delegate = self;
     [self.topBannerView loadRequest:[GADRequest request]];
     [self addTopBannerViewToView:self.topBannerView];
     
     [self commonInit];
-    [self commonInitNavgationBar];
+  //  [self commonInitNavgationBar];
     
     // Do any additional setup after loading the view.
 }
@@ -160,6 +160,7 @@
     tableView.dataSource = self;
     tableView.estimatedRowHeight = 50;
     tableView.backgroundColor = [UIColor clearColor];
+    
     
     [tableView registerClass:[SKTaxHomeTableViewCell class] forCellReuseIdentifier:@"TAX_HOME_TABLEVIEW_CELL"];
     tableView.allowsMultipleSelection = NO;
@@ -355,6 +356,7 @@
     
     SKTaxPaymentItemDataModel *model = self.data[indexPath.row];
     cell.model = model;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
