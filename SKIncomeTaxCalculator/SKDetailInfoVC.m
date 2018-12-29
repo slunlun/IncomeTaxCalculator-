@@ -34,7 +34,9 @@
     UILabel *payLabel = [[UILabel alloc]init];
     [self.view addSubview:payLabel];
     payLabel.text = [NSString stringWithFormat:@"税前月薪 : %.2f 元",self.salary];
-    
+    UILabel *lastPayLabel = [[UILabel alloc]init];
+    [self.view addSubview:lastPayLabel];
+    lastPayLabel.text = [NSString stringWithFormat:@"上年月薪 : %.2f 元",self.salary];
     UILabel *incomeLabel = [[UILabel alloc]init];
     [self.view addSubview:incomeLabel];
     incomeLabel.textColor = SKMARKCOLOR;
@@ -47,7 +49,7 @@
     bgScrollView.contentSize = CGSizeMake(0, 900);
     
     UILabel *thresholdLabel = [[UILabel alloc]init];
-    thresholdLabel.text = [NSString stringWithFormat:@"起征点 : 5000元"];
+    thresholdLabel.text = [NSString stringWithFormat:@"起征点 : 5000.0 元"];
     [bgScrollView addSubview:thresholdLabel];
     SKSocialSecurityView *socialView = [[SKSocialSecurityView alloc]init];
     [bgScrollView addSubview:socialView];
