@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "SKResultTableViewCell.h"
 #import "SKDetailInfoVC.h"
+#import "SKTaxContext.h"
 @interface SKAllResultViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic, strong)UITableView *tableView;
 @end
@@ -21,7 +22,7 @@
     // Do any additional setup after loading the view.
     
     UITableView *tableView = [[UITableView alloc]init];
-    tableView.backgroundColor = [UIColor cyanColor];
+    tableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.estimatedRowHeight = 100;
@@ -65,6 +66,14 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SKDetailInfoVC *VC = [[SKDetailInfoVC alloc]init];
+    NSDictionary *dic = self.taxInfoDataArray[indexPath.row];
+    NSDictionary *levelDic = dic[PERSONAL_TAX_LEAVE];
+    NSNumber *taxRate = levelDic[TAX_RATE];
+    NSNumber *quickCount = levelDic[TAX_QUICK_DISCOUNT];
+    NSNumber *taxValue = dic[PERSONAL_TAX_COUNT];
+    NSArray *taxInfoArray = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%.1f",[taxRate floatValue]*100],[NSString stringWithFormat:@"%.1f",[quickCount floatValue]],[NSString stringWithFormat:@"%.1f",[taxValue floatValue]] ,nil];
+    VC.dataArray = taxInfoArray;
+    
     [self.navigationController pushViewController:VC animated:YES];
 }
 /*

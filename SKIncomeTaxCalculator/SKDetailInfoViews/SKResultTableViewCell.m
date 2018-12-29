@@ -36,6 +36,7 @@ static const CGFloat leftOrRightSpace = 10;
     return self;
 }
 - (void)commonInit {
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     UILabel *payLabel = [[UILabel alloc]init];
     payLabel.text = @"税前月薪 :";
