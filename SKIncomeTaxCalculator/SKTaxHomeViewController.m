@@ -76,11 +76,18 @@
 
 - (void)commonInit
 {
-    self.textField.placeholder = @"请输入税前月薪月薪";
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = [UIColor clearColor];
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.5);
+    [self.view addSubview:scrollView];
+    
+    self.textField.placeholder = @"请输入税前月薪";
     self.textField.delegate = self;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
     
-    [self.view addSubview:_textField];
+    [scrollView addSubview:_textField];
     
     UIButton *cityButton = [[UIButton alloc] init];
     cityButton.backgroundColor = [UIColor clearColor];
@@ -92,7 +99,7 @@
     cityButton.imageEdgeInsets = UIEdgeInsetsMake(0, cityButton.imageView.bounds.size.width + 68.0, 0, 0);
     [cityButton addTarget:self action:@selector(cityChooseButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.cityChooseButton = cityButton;
-    [self.view addSubview:cityButton];
+    [scrollView addSubview:cityButton];
     
     UIButton *cityDisplayButton = [[UIButton alloc] init];
     cityDisplayButton.backgroundColor = [UIColor clearColor];
@@ -101,7 +108,7 @@
     [cityDisplayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     cityDisplayButton.titleLabel.font = [UIFont systemFontOfSize:16];
     self.cityDisplayButton = cityDisplayButton;
-    [self.view addSubview:cityDisplayButton];
+    [scrollView addSubview:cityDisplayButton];
     
     UIButton *calculateButton = [[UIButton alloc] init];
     calculateButton.layer.cornerRadius = 2.0;
@@ -111,7 +118,7 @@
     [calculateButton setBackgroundColor:[UIColor colorWithRed:57.0/255.0 green:150.0/255.0 blue:73.0/255.0 alpha:1.0]];
     calculateButton.titleLabel.font = [UIFont systemFontOfSize:16];
     self.taxCalculateButton = calculateButton;
-    [self.view addSubview:calculateButton];
+    [scrollView addSubview:calculateButton];
     
     //init tableview
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -128,28 +135,32 @@
     tableView.cellLayoutMarginsFollowReadableWidth = NO;
     tableView.tableFooterView =[[UIView alloc]init];
     self.tableView = tableView;
-    [self.view addSubview:tableView];
+    [scrollView addSubview:tableView];
     
     
     CGFloat textFieldWidth = self.view.frame.size.width - 20*2;
     
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view.mas_right).offset(-20);
+        make.left.equalTo(scrollView).offset(20);
+        make.right.equalTo(scrollView.mas_right).offset(-20);
         make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
         make.width.equalTo(@(textFieldWidth));
         make.height.equalTo(@55);
     }];
     
     [_cityChooseButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
+        make.left.equalTo(scrollView).offset(20);
         make.height.equalTo(@(45));
         make.width.equalTo(@(90));
         make.top.equalTo(self.textField.mas_bottom).offset(8);
     }];
     
     [_cityDisplayButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view).offset(-20);
+        make.right.equalTo(scrollView).offset(-20);
         make.height.equalTo(@(45));
         make.width.equalTo(@(90));
         make.top.equalTo(self.textField.mas_bottom).offset(8);
@@ -157,17 +168,17 @@
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.textField.mas_bottom).offset(64);
-        make.left.equalTo(self.view);
-        make.right.equalTo(self.view);
+        make.left.equalTo(scrollView);
+        make.right.equalTo(scrollView);
         make.height.equalTo(@(280));
         //make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     
     [calculateButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view).offset(-20);
+        make.left.equalTo(scrollView).offset(20);
+        make.right.equalTo(scrollView).offset(-20);
         make.height.equalTo(@(45));
-        make.top.equalTo(self.tableView.mas_bottom).offset(20);
+        make.top.equalTo(self.tableView.mas_bottom).offset(10);
 //        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
     }];
     
