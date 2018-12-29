@@ -17,7 +17,9 @@
 #import "SKTaxContext.h"
 #import "SKSpecialAdditionalDeductionDetailVC.h"
 
-@interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
+@import GoogleMobileAds;
+
+@interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate, GADBannerViewDelegate>
 
 @property (nonatomic,strong) UITextField *textField;
 @property (nonatomic,strong) UITableView *tableView;
@@ -25,6 +27,9 @@
 @property (nonatomic,strong) UIButton *cityDisplayButton;
 @property (nonatomic,strong) UIButton *taxCalculateButton;
 @property (nonatomic,strong) NSArray *data;
+
+@property(nonatomic, strong) GADBannerView *topBannerView;
+@property(nonatomic, strong) GADBannerView *bottomBannerView;
 
 @end
 
@@ -52,6 +57,25 @@
     [self tableData];
     [self commonInit];
     [self commonInitNavgationBar];
+    
+    // 初始化广告
+    // In this case, we instantiate the banner with desired ad size.
+    self.bottomBannerView = [[GADBannerView alloc]
+                       initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    self.bottomBannerView.adUnitID = GAD_BOTTOMBANNER_ID;
+    self.bottomBannerView.rootViewController = self;
+    self.bottomBannerView.delegate = self;
+    [self.bottomBannerView loadRequest:[GADRequest request]];
+    [self addBottomBannerViewToView:self.bottomBannerView];
+    
+    self.topBannerView = [[GADBannerView alloc]
+                             initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    self.topBannerView.adUnitID = GAD_BOTTOMBANNER_ID;
+    self.topBannerView.rootViewController = self;
+    self.topBannerView.delegate = self;
+    [self.topBannerView loadRequest:[GADRequest request]];
+    [self addTopBannerViewToView:self.topBannerView];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -189,6 +213,106 @@
     //    self.cityChooseButton.backgroundColor = [UIColor greenColor];
     
 }
+
+#pragma mark - view positioning
+- (void)addTopBannerViewToView:(UIView *)bannerView {
+    bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:bannerView];
+    if (@available(ios 11.0, *)) {
+        // In iOS 11, we need to constrain the view to the safe area.
+        [self positionBannerViewFullWidthAtTopOfSafeArea:bannerView];
+    } else {
+        // In lower iOS versions, safe area is not available so we use
+        // bottom layout guide and view edges.
+        [self positionBannerViewFullWidthAtTopOfView:bannerView];
+    }
+}
+
+- (void)positionBannerViewFullWidthAtTopOfSafeArea:(UIView *_Nonnull)bannerView {
+    // Position the banner. Stick it to the bottom of the Safe Area.
+    // Make it constrained to the edges of the safe area.
+    UILayoutGuide *guide = self.view.safeAreaLayoutGuide;
+    
+    [NSLayoutConstraint activateConstraints:@[
+                                              [guide.leftAnchor constraintEqualToAnchor:bannerView.leftAnchor],
+                                              [guide.rightAnchor constraintEqualToAnchor:bannerView.rightAnchor],
+                                              [guide.topAnchor constraintEqualToAnchor:bannerView.topAnchor]
+                                              ]];
+}
+
+- (void)positionBannerViewFullWidthAtTopOfView:(UIView *_Nonnull)bannerView {
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                          attribute:NSLayoutAttributeLeading
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeading
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                          attribute:NSLayoutAttributeTrailing
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTrailing
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.topLayoutGuide
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1
+                                                           constant:0]];
+}
+
+- (void)addBottomBannerViewToView:(UIView *)bannerView {
+    bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:bannerView];
+    if (@available(ios 11.0, *)) {
+        // In iOS 11, we need to constrain the view to the safe area.
+        [self positionBannerViewFullWidthAtBottomOfSafeArea:bannerView];
+    } else {
+        // In lower iOS versions, safe area is not available so we use
+        // bottom layout guide and view edges.
+        [self positionBannerViewFullWidthAtBottomOfView:bannerView];
+    }
+}
+
+- (void)positionBannerViewFullWidthAtBottomOfSafeArea:(UIView *_Nonnull)bannerView NS_AVAILABLE_IOS(11.0) {
+    // Position the banner. Stick it to the bottom of the Safe Area.
+    // Make it constrained to the edges of the safe area.
+    UILayoutGuide *guide = self.view.safeAreaLayoutGuide;
+    
+    [NSLayoutConstraint activateConstraints:@[
+                                              [guide.leftAnchor constraintEqualToAnchor:bannerView.leftAnchor],
+                                              [guide.rightAnchor constraintEqualToAnchor:bannerView.rightAnchor],
+                                              [guide.bottomAnchor constraintEqualToAnchor:bannerView.bottomAnchor]
+                                              ]];
+}
+
+- (void)positionBannerViewFullWidthAtBottomOfView:(UIView *_Nonnull)bannerView {
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                          attribute:NSLayoutAttributeLeading
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeading
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                          attribute:NSLayoutAttributeTrailing
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTrailing
+                                                         multiplier:1
+                                                           constant:0]];
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:bannerView
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.bottomLayoutGuide
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1
+                                                           constant:0]];
+}
+
 
 - (void)commonInitNavgationBar {
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
@@ -439,6 +563,15 @@
     }else{
         return NO;
     }
+}
+
+#pragma mark - GADBannerViewDelegate
+/// Tells the delegate an ad request loaded an ad.
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    adView.alpha = 0;
+    [UIView animateWithDuration:1.0 animations:^{
+        adView.alpha = 1;
+    }];
 }
 
 @end
