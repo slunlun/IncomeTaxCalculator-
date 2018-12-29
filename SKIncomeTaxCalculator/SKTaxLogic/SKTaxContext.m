@@ -280,19 +280,18 @@
     CGFloat personalTax = personalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
     NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
     [personalIncomeTaxes addObject:dic];
-    
+    CGFloat alreadyTaxed = personalTax;
     // 根据1月的值，计算第n月的个税额度
     for (NSInteger n = 2; n < 13; ++n) {
         CGFloat curPersonalTaxBaseLine = personalTaxBaseLine * n;
         NSDictionary *personalTaxRate = [self fetchPersonalTaxRate:curPersonalTaxBaseLine];
         CGFloat personalTax = curPersonalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
-        NSDictionary *preDic = [personalIncomeTaxes lastObject];
-        CGFloat perPersonalTax = ((NSNumber *)preDic[PERSONAL_TAX_COUNT]).floatValue;
-        personalTax -= perPersonalTax;
+        personalTax -= alreadyTaxed;
+        alreadyTaxed += personalTax;
         NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
         [personalIncomeTaxes addObject:dic];
     }
-    return nil;
+    return personalIncomeTaxes;
 }
 
 #pragma mark -  计算个人应缴社保及公积金
