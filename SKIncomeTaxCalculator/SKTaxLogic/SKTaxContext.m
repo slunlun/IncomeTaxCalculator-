@@ -242,6 +242,23 @@
     return self.childDeduction.deduction + self.parentSupportDeduction.deduction + self.housingDeduction.deduction + self.adultEducationDeduction.deduction;
 }
 
+- (NSArray *)selectedDeductions {
+    NSMutableArray *retArray = [NSMutableArray array];
+    if (self.childDeduction.deduction != 0) {
+        [retArray addObject:self.childDeduction];
+    }
+    if (self.adultEducationDeduction.deduction != 0) {
+        [retArray addObject:self.adultEducationDeduction];
+    }
+    if (self.housingDeduction.deduction != 0) {
+        [retArray addObject:self.housingDeduction];
+    }
+    if (self.parentSupportDeduction.deduction != 0) {
+        [retArray addObject:self.parentSupportDeduction];
+    }
+    return retArray;
+}
+
 #pragma mark -  清空状态
 - (void)cleanUpTaxContext {
     self.childDeduction.deduction = 0.0f;
