@@ -240,6 +240,40 @@
     //    self.resultDict = pickerView.resultDict;
     pickerView.resultBlock = ^(SKTaxPaymentItemDataModel *newModel) {
         //        ws.resultDict = [[NSDictionary alloc] initWithDictionary:dict];
+        switch (newModel.type) {
+            case SKTaxModelTypeSpecialAdditionalDeduction:
+                break;
+            case SKTaxModelTypeChildEducation:
+            {
+                 [[SKTaxContext sharedInstance] updateChildDeduction:newModel.childStatus];
+            }
+            break;
+            case SKTaxModelTypeHousingSituation:
+            {
+                [[SKTaxContext sharedInstance] updateHousingDeduction:newModel.houseStatus];
+            }
+                break;
+            case SKTaxModelTypeContinuingEducation:
+            {
+                 [[SKTaxContext sharedInstance] updateAdultEducationDeduction:newModel.adultEduStatus];
+            }
+                break;
+            case SKTaxModelTypeSupportForTheElderly:
+            {
+                  [[SKTaxContext sharedInstance] updateParentsSupportDeduction:newModel.parentsSupportStatus];
+            }
+                break;
+            default:
+                break;
+        }
+        SKTaxPaymentItemDataModel *specialModel = self.data[0];
+        if ([SKTaxContext sharedInstance].specialDeductionCount >0) {
+            NSString *specialModelContent = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].specialDeductionCount];
+            specialModel.content = specialModelContent;
+        }else{
+            specialModel.content = @"";
+        }
+        
         model.content = newModel.content;
         [self.tableView reloadData];
     };
@@ -276,6 +310,41 @@
 #pragma -mark SKTaxHomeTableViewCellDelegate
 - (void)actionWithDeleteButton:(SKTaxHomeTableViewCell *)cell dataModel:(SKTaxPaymentItemDataModel *)model
 {
+    switch (model.type) {
+        case SKTaxModelTypeSpecialAdditionalDeduction:
+            break;
+        case SKTaxModelTypeChildEducation:
+        {
+            [[SKTaxContext sharedInstance] updateChildDeduction:SKChildStatusNONE];
+        }
+            break;
+        case SKTaxModelTypeHousingSituation:
+        {
+            [[SKTaxContext sharedInstance] updateHousingDeduction:SKHousingStatusNONE];
+        }
+            break;
+        case SKTaxModelTypeContinuingEducation:
+        {
+            [[SKTaxContext sharedInstance] updateAdultEducationDeduction:SKAdultEducationStatusNONE];
+        }
+            break;
+        case SKTaxModelTypeSupportForTheElderly:
+        {
+            [[SKTaxContext sharedInstance] updateParentsSupportDeduction:SKParentsSupportStatusNONE];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    SKTaxPaymentItemDataModel *specialModel = self.data[0];
+    if ([SKTaxContext sharedInstance].specialDeductionCount >0) {
+        NSString *specialModelContent = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].specialDeductionCount];
+        specialModel.content = specialModelContent;
+    }else{
+        specialModel.content = @"";
+    }
+    
     [self.tableView reloadData];
 }
 

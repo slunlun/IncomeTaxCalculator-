@@ -19,8 +19,30 @@
         _placeholder = placeholder;
         _isSelected = isSelected;
         _type = type;
+        
+        _parentsSupportStatus =  SKParentsSupportStatusNONE;
+        _childStatus = SKChildStatusNONE;
+        _adultEduStatus = SKAdultEducationStatusNONE;
+        _houseStatus = SKHousingStatusNONE;
     }
     return self;
+}
+
+// copy
+- (id)copyWithZone:(nullable NSZone *)zone {
+    SKTaxPaymentItemDataModel *copyModel = [[SKTaxPaymentItemDataModel alloc] init];
+    copyModel.itemTitle = [self.itemTitle copy];
+    copyModel.content = [self.content copy];
+    copyModel.placeholder = [self.placeholder copy];
+    copyModel.isSelected = self.isSelected;
+    copyModel.type = self.type;
+    
+    copyModel.parentsSupportStatus = self.parentsSupportStatus;
+    copyModel.childStatus = self.childStatus;
+    copyModel.adultEduStatus = self.adultEduStatus;
+    copyModel.houseStatus = self.houseStatus;
+    
+    return copyModel;
 }
 
 @end

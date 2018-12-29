@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSMutableArray *dataMarr;
 
 @property (nonatomic, strong) SKTaxPaymentItemDataModel *model;
+@property (nonatomic, strong) SKTaxPaymentItemDataModel *fakeModel;
 
 @end
 
@@ -95,35 +96,55 @@
          [_pickerView selectRow:1 inComponent:0 animated:YES];
         NSString *textContent = self.dataMarr[row + 1];
         self.model.content = textContent;
+        self.fakeModel.content = textContent;
     }else{
           [_pickerView selectRow:row inComponent:0 animated:YES];
           NSString *textContent = self.dataMarr[row];
           self.model.content = textContent;
+        self.fakeModel.content = textContent;
     }
     
-  
+    NSInteger index = 0;
+    if (row == 0) {
+        index = row + 1;
+    }else{
+        index = row;
+    }
     
-//    for (int i = 0; i < self.dataMarr.count; i++) {
-//        YMUniversalSingleDataModel *selectModel = self.dataMarr[i];
-//        if (i == row) {
-//            selectModel.select = @"1";
-//            NSDictionary *resultD = @{@"pickerViewTitle" : selectModel.title, @"pickerViewTitleId" : selectModel.titleId};
-//            if (self.resultBlock) {
-//                self.resultBlock(resultD);
-//            } else {
-//                self.resultDict = [[NSDictionary alloc] initWithDictionary:resultD];
-//            }
-//            NSLog(@"self.resultDict == %@", self.resultDict);
-//        } else {
-//            selectModel.select = @"0";
-//        }
-//    }
+    switch (self.model.type) {
+         
+        case SKTaxModelTypeSpecialAdditionalDeduction:
+            break;
+        case SKTaxModelTypeChildEducation:
+        {
+            self.fakeModel.childStatus = index;
+        }
+            break;
+        case SKTaxModelTypeHousingSituation:
+        {
+            self.fakeModel.houseStatus = index;
+        }
+            break;
+        case SKTaxModelTypeContinuingEducation:
+        {
+            self.fakeModel.adultEduStatus = index;
+        }
+            break;
+        case SKTaxModelTypeSupportForTheElderly:
+        {
+            self.fakeModel.parentsSupportStatus = index;
+        }
+            break;
+        default:
+            break;
+    }
     [self.pickerView reloadComponent:component];
 }
 
 //#pragma mark  按钮点击调用
 - (void)buttonClickMethod {
     __weak typeof(&*self) ws = self;
+  
     // 工具栏左侧按钮点击调用
     self.toolBarView.leftBtnClickBlock = ^(UIButton * _Nonnull sender) {
         [ws hide];
@@ -131,6 +152,7 @@
 
     // 工具栏右侧按钮点击调用
     self.toolBarView.rightBtnClickBlcok = ^(UIButton * _Nonnull sender) {
+        ws.model = ws.fakeModel;
         if (ws.resultBlock) {
             ws.resultBlock(ws.model);
         }
@@ -148,6 +170,7 @@
 {
     [super loadData:model];
     self.model = model;
+    self.fakeModel = [model copy];
     NSMutableArray *dataM = [[NSMutableArray alloc] init];
     
     switch (model.type) {
