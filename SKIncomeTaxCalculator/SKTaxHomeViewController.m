@@ -550,6 +550,11 @@
 - (void)calculateButtonClicked:(id)sender
 {
     [SKTaxContext sharedInstance].salary = [self.textField.text floatValue];
+    if ([self.lastYearTextField.text floatValue] != 0) {
+        [SKTaxContext sharedInstance].lastSalary = [self.lastYearTextField.text floatValue];
+    }else {
+        [SKTaxContext sharedInstance].lastSalary = [SKTaxContext sharedInstance].salary;
+    }
     
     CGFloat salaryValue = [SKTaxContext sharedInstance].salary;
     CGFloat socialValue = [[SKTaxContext sharedInstance] calculatePersonalSocialSecurityAndHousingFund];
