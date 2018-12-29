@@ -23,11 +23,13 @@
 @interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate, GADBannerViewDelegate>
 
 @property (nonatomic,strong) UITextField *textField;
+@property (nonatomic,strong) UITextField *lastYearTextField;
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIButton *cityChooseButton;
 @property (nonatomic,strong) UIButton *cityDisplayButton;
 @property (nonatomic,strong) UIButton *taxCalculateButton;
 @property (nonatomic,strong) NSArray *data;
+@property (nonatomic,strong) UILabel *promptLabel;
 
 @property(nonatomic, strong) GADBannerView *topBannerView;
 @property(nonatomic, strong) GADBannerView *bottomBannerView;
@@ -41,6 +43,7 @@
     self = [super init];
     if (self) {
         _textField = [[UITextField alloc] init];
+        _lastYearTextField = [[UITextField alloc] init];
         _data = [[NSArray alloc] init];
         
     }
@@ -115,8 +118,21 @@
     self.textField.placeholder = @"请输入税前月薪";
     self.textField.delegate = self;
     self.textField.keyboardType = UIKeyboardTypeNumberPad;
+    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     [scrollView addSubview:_textField];
+    
+    UILabel *promptLabel = [[UILabel alloc] init];
+    promptLabel.text = @"(*去年月薪用于三险一金计算，不填默认使用当年月薪)";
+    promptLabel.textColor = [UIColor redColor];
+    promptLabel.font = [UIFont systemFontOfSize:16];
+    [self.view addSubview:promptLabel];
+    
+    self.lastYearTextField.placeholder = @"请输入去年税前月薪";
+    self.lastYearTextField.delegate = self;
+    self.lastYearTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.lastYearTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [scrollView addSubview:_lastYearTextField];
     
     UIButton *cityButton = [[UIButton alloc] init];
     cityButton.backgroundColor = [UIColor clearColor];
@@ -186,22 +202,39 @@
         make.height.equalTo(@55);
     }];
     
+    [promptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.left.equalTo(scrollView).offset(20);
+        make.right.equalTo(scrollView.mas_right).offset(-20);
+        make.top.equalTo(self.textField.mas_bottom).offset(2);
+        make.width.equalTo(@(textFieldWidth));
+        make.height.equalTo(@30);
+    }];
+    
+    [_lastYearTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(scrollView).offset(20);
+        make.right.equalTo(scrollView.mas_right).offset(-20);
+        make.top.equalTo(promptLabel.mas_bottom).offset(10);
+        make.width.equalTo(@(textFieldWidth));
+        make.height.equalTo(@55);
+    }];
+    
     [_cityChooseButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.height.equalTo(@(45));
         make.width.equalTo(@(90));
-        make.top.equalTo(self.textField.mas_bottom).offset(8);
+        make.top.equalTo(self.lastYearTextField.mas_bottom).offset(8);
     }];
     
     [_cityDisplayButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(scrollView).offset(-20);
         make.height.equalTo(@(45));
         make.left.equalTo(self.cityChooseButton.mas_right).offset(10);
-        make.top.equalTo(self.textField.mas_bottom).offset(8);
+        make.top.equalTo(self.lastYearTextField.mas_bottom).offset(8);
     }];
     
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.textField.mas_bottom).offset(64);
+        make.top.equalTo(self.lastYearTextField.mas_bottom).offset(64);
         make.left.equalTo(scrollView);
         make.right.equalTo(scrollView);
         make.height.equalTo(@(280));
