@@ -27,6 +27,7 @@
     tableView.dataSource = self;
     tableView.estimatedRowHeight = 100;
     [self.view addSubview:tableView];
+    tableView.showsVerticalScrollIndicator = NO;
     self.tableView = tableView;
     [tableView registerClass:[SKResultTableViewCell class] forCellReuseIdentifier: @"cell"];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
