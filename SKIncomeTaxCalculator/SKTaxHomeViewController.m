@@ -14,6 +14,8 @@
 #import "SKUniversalSingleSelectionPickerView.h"
 #import "SKCityChooseViewController.h"
 #import "SKAllResultViewController.h"
+#import "SKTaxContext.h"
+
 @interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic,strong) UITextField *textField;
@@ -290,12 +292,32 @@
 
 - (void)calculateButtonClicked:(id)sender
 {
+    CGFloat salaryValue = [SKTaxContext sharedInstance].salary;
+    CGFloat socialValue = [[SKTaxContext sharedInstance] calculatePersonalSocialSecurityAndHousingFund];
+    NSMutableArray *dataArray = [NSMutableArray array];
+    NSMutableArray *taxInfoDataArray = [NSMutableArray array];
+    NSArray *resultArray = [[SKTaxContext sharedInstance] calculatePersonalIncomeTax];
+    
+    for (NSDictionary *dic in resultArray) {
+         NSDictionary *taxInfoDic = dic[PERSONAL_TAX_LEAVE];
+        [taxInfoDataArray  addObject:taxInfoDic];
+        NSNumber *taxValue = dic[PERSONAL_TAX_COUNT];
+        CGFloat incomeValue = salaryValue - socialValue - [taxValue floatValue];
+        NSArray *detailArray = [NSArray arrayWithObjects:[self valueStringWith:salaryValue],[self valueStringWith:socialValue],[self valueStringWith:[taxValue floatValue]],[self valueStringWith:incomeValue], nil];
+        [dataArray addObject:detailArray];
+        
+    }
+    
     SKAllResultViewController *allResultVC = [[SKAllResultViewController alloc]init];
-    allResultVC.dataArray = @[@[@"10000",@"2000",@"2000",@"7000"]];
+    allResultVC.dataArray = dataArray;
+    allResultVC.taxInfoDataArray = taxInfoDataArray;
     [self.navigationController pushViewController:allResultVC animated:YES];
 }
 
-
+- (NSString *)valueStringWith:(CGFloat)floatValue {
+    NSString *string = [NSString stringWithFormat:@"%f 元",floatValue];
+    return string;
+}
 #pragma -mark UITextfield Delagate
 
 // 限制只能输入数字

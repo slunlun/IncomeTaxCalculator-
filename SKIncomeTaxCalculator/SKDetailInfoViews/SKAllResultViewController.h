@@ -12,6 +12,7 @@
 
 @interface SKAllResultViewController : UIViewController
 @property(nonatomic, strong)NSArray<NSArray<NSString *>*> *dataArray;
+@property(nonatomic, strong)NSArray<NSDictionary *>*taxInfoDataArray;
 @end
 
 
