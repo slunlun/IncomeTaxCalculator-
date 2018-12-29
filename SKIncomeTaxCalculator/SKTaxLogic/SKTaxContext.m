@@ -293,6 +293,9 @@
     CGFloat  socialSecurityPaied = [self.currentSecurityStrategy calculatePersonalPaied:self.salary];
     CGFloat personalDeduction = self.childDeduction.deduction + self.adultEducationDeduction.deduction + self.housingDeduction.deduction + self.parentSupportDeduction.deduction;
     CGFloat personalTaxBaseLine = self.salary - PERSONAL_TAX_FREE - socialSecurityPaied - personalDeduction;
+    if (personalTaxBaseLine < 0) {
+        personalTaxBaseLine = 0;
+    }
     NSDictionary *personalTaxRate = [self fetchPersonalTaxRate:personalTaxBaseLine];
     CGFloat personalTax = personalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
     NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
