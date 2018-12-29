@@ -54,8 +54,8 @@
     
     SKBaseFormView *specialView = [[SKBaseFormView alloc]init];
     [bgScrollView addSubview:specialView];
-     NSArray *dataArray = @[@[@"项目",@"金额"],@[@"子女",@"1000元"],@[@"父母",@"2000"],@[@"租金",@"1500"]];
-    specialView.dataArray = dataArray;
+    
+    specialView.dataArray = [self getSpecialDetailData];
     specialView.titleLabel.text = @"专项扣除";
 
     SKBaseFormView *taxView = [[SKBaseFormView alloc]init];
@@ -134,7 +134,18 @@
     return socialDataArray;
 }
 #pragma mark -----> 专项扣除详情
-- (void)getSpecialDetailDataFrom {
+- (NSArray *)getSpecialDetailData {
+    NSMutableArray *allSpecialArray = [NSMutableArray arrayWithObjects:@[@"项目",@"金额(元)"], nil];
+    NSArray *specialArray = [[SKTaxContext sharedInstance] selectedDeductions];
+    for (SKSpecialDeduction *deduction in specialArray) {
+        NSMutableArray *itemArray = [[NSMutableArray alloc]init];
+        [itemArray addObject:deduction.title];
+        [itemArray addObject:[NSString stringWithFormat:@"%.0f",deduction.deduction]];
+        [allSpecialArray addObject:itemArray];
+    }
+    CGFloat count = [[SKTaxContext sharedInstance] specialDeductionCount];
+    [allSpecialArray addObject:@[@"小计",[NSString stringWithFormat:@"%.0f 元",count]]];
+    return allSpecialArray;
 }
 /*
 #pragma mark - Navigation
