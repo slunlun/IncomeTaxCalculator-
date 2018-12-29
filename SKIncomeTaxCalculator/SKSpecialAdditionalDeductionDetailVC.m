@@ -126,7 +126,7 @@
         
         if (model.type == SKTaxModelTypeSupportForTheElderly) {
             if (model.parentsSupportStatus != SKParentsSupportStatusNONE) {
-                NSString *value = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].housingDeduction.deduction];
+                NSString *value = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].parentSupportDeduction.deduction];
                 pensionLabel.text = [NSString stringWithFormat:@"赡养老人:    %@元",value];
             }else{
                 NSString *value = @"0.00";
