@@ -15,12 +15,18 @@ static CGFloat itemHeight = 40.0;
 @interface SKSocialSecurityView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic, strong)UICollectionView *collectionView;
 @property (nonatomic, assign)CGFloat itemWidth;
-@property(nonatomic,strong) NSArray<NSArray<NSString *> *>* dataArray;
 @end
 @implementation SKSocialSecurityView
 - (instancetype)initWithDataArray:(NSArray<NSArray<NSString *> *> *)dataArray {
     if (self = [super init]) {
         self.dataArray = dataArray;
+        [self commonInit];
+    }
+    return self;
+}
+- (instancetype)init {
+    self = [super init];
+    if (self) {
         [self commonInit];
     }
     return self;
@@ -56,7 +62,7 @@ static CGFloat itemHeight = 40.0;
         make.top.equalTo(titleLabel.mas_bottom).offset(8);
         make.left.equalTo(self);
         make.right.equalTo(self);
-        make.height.equalTo(@(self.dataArray.count * itemHeight));
+        make.height.equalTo(@(itemHeight));
         make.bottom.equalTo(self).offset(-8);
     }];
 }
@@ -86,5 +92,11 @@ static CGFloat itemHeight = 40.0;
     }
     return cell;
 }
-
+- (void)setDataArray:(NSArray<NSArray<NSString *> *> *)dataArray {
+    _dataArray = dataArray;
+    [self.collectionView reloadData];
+    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(@(dataArray.count *itemHeight));
+    }];
+}
 @end

@@ -44,6 +44,10 @@
 @property (nonatomic, strong, readwrite) SKSocialSecurityStrategy *currentSecurityStrategy;
 @property (nonatomic, strong, readwrite) NSMutableArray *deductions;
 @property (nonatomic, strong) NSDictionary *personalTaxRateTable;
+@property (nonatomic, strong, readwrite) SKSpecialDeduction *childDeduction;
+@property (nonatomic, strong, readwrite) SKSpecialDeduction *adultEducationDeduction;
+@property (nonatomic, strong, readwrite) SKSpecialDeduction *housingDeduction;
+@property (nonatomic, strong, readwrite) SKSpecialDeduction *parentSupportDeduction;
 @end
 
 @implementation SKTaxContext
@@ -232,6 +236,10 @@
         default:
             break;
     }
+}
+
+- (CGFloat)specialDeductionCount {
+    return self.childDeduction.deduction + self.parentSupportDeduction.deduction + self.housingDeduction.deduction + self.adultEducationDeduction.deduction;
 }
 
 #pragma mark -  清空状态

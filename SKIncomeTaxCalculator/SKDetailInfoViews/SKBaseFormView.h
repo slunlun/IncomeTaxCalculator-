@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SKBaseFormView : UIView
 @property(nonatomic,strong) UILabel *titleLabel;
+@property(nonatomic,strong) NSArray<NSArray<NSString *> *>*dataArray;
 - (instancetype)initWithDataArray:(NSArray<NSArray<NSString *> *>*)dataArray;
 @end
 
