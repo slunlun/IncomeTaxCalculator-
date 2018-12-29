@@ -237,11 +237,11 @@
         make.top.equalTo(self.lastYearTextField.mas_bottom).offset(8);
     }];
     
-    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.lastYearTextField.mas_bottom).offset(64);
         make.left.equalTo(scrollView);
         make.right.equalTo(scrollView);
-        make.height.equalTo(@(280));
+        make.height.equalTo(@(220));
         //make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
     
@@ -249,7 +249,7 @@
         make.left.equalTo(scrollView).offset(20);
         make.right.equalTo(scrollView).offset(-20);
         make.height.equalTo(@(45));
-        make.top.equalTo(self.tableView.mas_bottom).offset(10);
+        make.top.equalTo(self.tableView.mas_bottom).offset(5);
 //        make.bottom.equalTo(self.view.mas_bottom).offset(-60);
     }];
     
