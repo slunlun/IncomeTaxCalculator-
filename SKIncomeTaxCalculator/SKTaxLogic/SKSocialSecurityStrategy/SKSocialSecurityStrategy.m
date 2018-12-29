@@ -37,8 +37,8 @@
 }
 
 - (CGFloat)calculateCompanyHF:(CGFloat)salary {
-    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
-    return socialSecurityBaseLine * self.C_HF.floatValue;
+    CGFloat PFBaseLine = salary > self.MAX_PF_BASELINE.floatValue?self.MAX_PF_BASELINE.floatValue:salary;
+    return PFBaseLine * self.C_HF.floatValue;
 }
 
 - (CGFloat)calculatePersonalPaied:(CGFloat)salary {
@@ -64,8 +64,8 @@
 }
 
 - (CGFloat)calculatePersonalHF:(CGFloat)salary {
-    CGFloat socialSecurityBaseLine = salary > self.MAX_SS_BASELINE.floatValue?self.MAX_SS_BASELINE.floatValue:salary;
-    return socialSecurityBaseLine * self.P_HF.floatValue;
+    CGFloat PFBaseLine = salary > self.MAX_PF_BASELINE.floatValue?self.MAX_PF_BASELINE.floatValue:salary;
+    return PFBaseLine * self.P_HF.floatValue;
 }
 
 - (CGFloat)calculateTotaolPaied:(CGFloat)salary {
