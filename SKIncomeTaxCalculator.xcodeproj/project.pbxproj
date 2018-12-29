@@ -13,6 +13,7 @@
 		583C5C5421D3878000C3639F /* SKBaseFormView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C4E21D3877F00C3639F /* SKBaseFormView.m */; };
 		583C5C5521D3878000C3639F /* SKSocialSecurityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5121D3877F00C3639F /* SKSocialSecurityView.m */; };
 		583C5C5C21D484BC00C3639F /* SKDetailInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */; };
+		7E4A838421D7AE1D0099E4DF /* SKSettingPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4A838321D7AE1D0099E4DF /* SKSettingPageViewController.m */; };
 		7E7388D421D264E80093CD83 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C221D264E70093CD83 /* ViewController+MASAdditions.m */; };
 		7E7388D621D264E80093CD83 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E7388C621D264E70093CD83 /* MASCompositeConstraint.m */; };
@@ -62,6 +63,8 @@
 		583C5C5221D3878000C3639F /* SKSocialSecurityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSocialSecurityView.h; sourceTree = "<group>"; };
 		583C5C5A21D484BC00C3639F /* SKDetailInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKDetailInfoVC.h; sourceTree = "<group>"; };
 		583C5C5B21D484BC00C3639F /* SKDetailInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKDetailInfoVC.m; sourceTree = "<group>"; };
+		7E4A838221D7AE1D0099E4DF /* SKSettingPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSettingPageViewController.h; sourceTree = "<group>"; };
+		7E4A838321D7AE1D0099E4DF /* SKSettingPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKSettingPageViewController.m; sourceTree = "<group>"; };
 		7E7388B821D264E70093CD83 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		7E7388B921D264E70093CD83 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		7E7388BA21D264E70093CD83 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				7EC949D921D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.m */,
 				7EC949DB21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.h */,
 				7EC949DC21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.m */,
+				7E4A838221D7AE1D0099E4DF /* SKSettingPageViewController.h */,
+				7E4A838321D7AE1D0099E4DF /* SKSettingPageViewController.m */,
 				B0FCD60521D242B70082E795 /* Main.storyboard */,
 				B0FCD60821D242CA0082E795 /* Assets.xcassets */,
 				B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */,
@@ -455,6 +460,7 @@
 				58353F9B21D65C9B0028B7A8 /* SKResultTableViewCell.m in Sources */,
 				B0FFFDA721D4C19400FDF5F2 /* SKTaxContext.m in Sources */,
 				7E7388E421D2652A0093CD83 /* SKTaxHomeViewController.m in Sources */,
+				7E4A838421D7AE1D0099E4DF /* SKSettingPageViewController.m in Sources */,
 				7E7388D921D264E80093CD83 /* NSArray+MASAdditions.m in Sources */,
 				B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */,
 				7EC949D221D5BF1C0077225D /* UIColor+Hex.m in Sources */,

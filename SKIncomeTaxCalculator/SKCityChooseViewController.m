@@ -8,11 +8,12 @@
 
 #import "SKCityChooseViewController.h"
 #import "SKDef.h"
+#import "SKTaxContext.h"
 
 @interface SKCityChooseViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView *cityTableview;
-@property (nonatomic,strong) NSArray *cityData;
+@property (nonatomic,strong) NSMutableArray *cityData;
 
 @end
 
@@ -27,6 +28,12 @@
 
 - (void)commonInit
 {
+    
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithImage:nil style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClcik:)];
+    [rightBarButton setTitle:@"重置"];
+    rightBarButton.accessibilityValue = @"HOME_PAGE_SET_BTN";
+    self.navigationItem.rightBarButtonItems = @[rightBarButton];
+    
     //init tableview
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.cellLayoutMarginsFollowReadableWidth = NO;
@@ -46,7 +53,15 @@
 - (void)loadTableData
 {
 //    NSMutableArray *cityData = [[NSMutableArray alloc] initWithObjects:@"北京",@"上海" ,@"广州",@"深圳",@"杭州" ,@"通用",@"自定义", nil];
-    self.cityData = [[SKTaxContext sharedInstance] allSecurityStrategies];
+    self.cityData = [[[SKTaxContext sharedInstance] allSecurityStrategies] mutableCopy];
+}
+
+- (void)rightBarButtonItemClcik:(id)sender
+{
+    [[SKTaxContext sharedInstance] resetSocialSecurityStrageties];
+    [self.cityData removeAllObjects];
+    [self loadTableData];
+    [self.cityTableview reloadData];
 }
 
 #pragma mark - table view data source

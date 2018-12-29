@@ -16,6 +16,7 @@
 #import "SKAllResultViewController.h"
 #import "SKTaxContext.h"
 #import "SKSpecialAdditionalDeductionDetailVC.h"
+#import "SKSettingPageViewController.h"
 
 @import GoogleMobileAds;
 
@@ -334,6 +335,9 @@
 - (void)leftBarButtonItemClcik:(UIBarButtonItem *) sender {
     //TODO
     NSLog(@"left button clicked!");
+//
+//    SKSettingPageViewController *vc = [[SKSettingPageViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:NO];
 }
 
 #pragma mark - table view data source

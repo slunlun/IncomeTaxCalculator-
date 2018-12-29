@@ -72,8 +72,12 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 - (CGFloat)specialDeductionCount;
 - (NSArray *)selectedDeductions;
 
+//加载
+- (void)loadAllSocialSecurity;
+
 // 清空状态
 - (void)cleanUpTaxContext;
+- (void)resetSocialSecurityStrageties;
 
 // 计算每个月个人所得税
 - (NSArray<NSDictionary *> *)calculatePersonalIncomeTax;
