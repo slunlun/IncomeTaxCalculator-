@@ -280,7 +280,7 @@
 - (void)calculateButtonClicked:(id)sender
 {
     SKAllResultViewController *allResultVC = [[SKAllResultViewController alloc]init];
-    allResultVC.dataArray = @[@[@"10000",@"2000",@"2000",@"1000",@"7000"]];
+    allResultVC.dataArray = @[@[@"10000",@"2000",@"2000",@"7000"]];
     [self.navigationController pushViewController:allResultVC animated:YES];
 }
 
