@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SKDetailInfoVC : UIViewController
 @property (nonatomic, strong)NSArray *dataArray;
+@property (nonatomic, strong)NSString *monthStr;
+@property (nonatomic, strong)NSString *incomeStr;
 @end
 
 NS_ASSUME_NONNULL_END

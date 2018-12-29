@@ -12,9 +12,10 @@
 #import "SKBaseFormView.h"
 #import "SKTaxContext.h"
 #import "SKSocialSecurityStrategy.h"
+#define SKMARKCOLOR  [UIColor colorWithRed:242/255.0 green:81/255.0 blue:28/255.0 alpha:1]
 @interface SKDetailInfoVC ()
-@property (nonatomic, strong) UILabel *payLabel;
-@property (nonatomic, strong) UILabel *incomeLabel;
+//@property (nonatomic, strong) UILabel *payLabel;
+//@property (nonatomic, strong) UILabel *incomeLabel;
 @property (nonatomic, strong) UIScrollView *bgScrollView;
 @property (nonatomic, assign) CGFloat salary;
 @end
@@ -24,28 +25,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"1月详细";
+    self.navigationItem.title = self.monthStr;
+    self.view.backgroundColor = [UIColor whiteColor];
     [self commonInit];
 }
 - (void)commonInit {
     self.salary = [SKTaxContext sharedInstance].salary;
     UILabel *payLabel = [[UILabel alloc]init];
     [self.view addSubview:payLabel];
-    self.payLabel = payLabel;
-    self.payLabel.text = [NSString stringWithFormat:@"税前月薪 : %.2f 元",self.salary];
+    payLabel.text = [NSString stringWithFormat:@"税前月薪 : %.2f 元",self.salary];
     
     UILabel *incomeLabel = [[UILabel alloc]init];
     [self.view addSubview:incomeLabel];
-    self.incomeLabel = incomeLabel;
-    self.incomeLabel.text = [NSString stringWithFormat:@"税后所得 : %@ 元",self.dataArray.lastObject];
+    incomeLabel.textColor = SKMARKCOLOR;
+    incomeLabel.text = [NSString stringWithFormat:@"税后所得 : %@",self.incomeStr];
+    
     UIScrollView *bgScrollView = [[UIScrollView alloc]init];
-    bgScrollView.backgroundColor = [UIColor cyanColor];
+    bgScrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:bgScrollView];
     self.bgScrollView = bgScrollView;
     bgScrollView.contentSize = CGSizeMake(0, 900);
     
     UILabel *thresholdLabel = [[UILabel alloc]init];
-    thresholdLabel.text = [NSString stringWithFormat:@"起征点 : 5000"];
+    thresholdLabel.text = [NSString stringWithFormat:@"起征点 : 5000元"];
     [bgScrollView addSubview:thresholdLabel];
     SKSocialSecurityView *socialView = [[SKSocialSecurityView alloc]init];
     [bgScrollView addSubview:socialView];
@@ -56,7 +58,7 @@
     [bgScrollView addSubview:specialView];
     
     specialView.dataArray = [self getSpecialDetailData];
-    specialView.titleLabel.text = @"专项扣除";
+    specialView.titleLabel.text = @"专项扣除详情";
 
     SKBaseFormView *taxView = [[SKBaseFormView alloc]init];
     [bgScrollView addSubview:taxView];
@@ -64,7 +66,7 @@
     NSArray *taxDataArray = [NSArray arrayWithObjects:taxTitleArray,self.dataArray, nil];
     taxView.dataArray = taxDataArray;
     
-    taxView.titleLabel.text = @"个税";
+    taxView.titleLabel.text = @"个税详情";
     [payLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
             make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(10);
@@ -76,18 +78,25 @@
             make.top.equalTo(self.mas_topLayoutGuideBottom).offset(10);
             make.left.equalTo(self.view).offset(10);
             make.right.equalTo(self.view).offset(-10);
-            make.height.equalTo(@40);
+            make.height.equalTo(@30);
         }
        
     }];
     [incomeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(payLabel.mas_bottom).offset(10);
         make.left.right.equalTo(payLabel);
-        make.height.equalTo(@40);
+        make.height.equalTo(@30);
     }];
     [bgScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(incomeLabel.mas_bottom);
-        make.left.right.bottom.equalTo(self.view);
+        if (@available(iOS 11.0, *)) {
+            make.top.equalTo(incomeLabel.mas_bottom);
+            make.left.right.equalTo(self.view);
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            
+        } else {
+            make.top.equalTo(incomeLabel.mas_bottom);
+            make.left.right.bottom.equalTo(self.view);
+        }
     }];
     
     [thresholdLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,7 +153,7 @@
         [allSpecialArray addObject:itemArray];
     }
     CGFloat count = [[SKTaxContext sharedInstance] specialDeductionCount];
-    [allSpecialArray addObject:@[@"小计",[NSString stringWithFormat:@"%.0f 元",count]]];
+    [allSpecialArray addObject:@[@"小计",[NSString stringWithFormat:@"%.0f",count]]];
     return allSpecialArray;
 }
 /*

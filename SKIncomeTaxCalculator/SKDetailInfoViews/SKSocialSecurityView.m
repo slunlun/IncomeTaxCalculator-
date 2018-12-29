@@ -36,7 +36,7 @@ static CGFloat itemHeight = 40.0;
     UILabel *titleLabel = [[UILabel alloc]init];
     [self addSubview:titleLabel];
     self.titleLabel = titleLabel;
-    titleLabel.text = @"三险一金";
+    titleLabel.text = @"三险一金详情";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.minimumInteritemSpacing = 0;
