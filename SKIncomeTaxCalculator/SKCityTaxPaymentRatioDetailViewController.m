@@ -84,6 +84,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [self.view addGestureRecognizer:tapGesture];
     
     [self.view setBackgroundColor:[UIColor colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1.0]];
+    [self commonInitNavgationBar];
     [self commonInit];
     // Do any additional setup after loading the view.
 }
@@ -98,10 +99,23 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
 }
 
+- (void)commonInitNavgationBar {
+   // self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithImage:nil style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClcik:)];
+    [rightBarButton setTitle:@"保存"];
+    rightBarButton.accessibilityValue = @"HOME_PAGE_SET_BTN";
+    self.navigationItem.rightBarButtonItems = @[rightBarButton];
+    // add rightButton just for titleView is center.
+//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    leftButton.enabled = NO;
+//    self.navigationItem.leftBarButtonItems = @[leftButton];
+    
+}
+
 - (void)commonInit{
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height - 30);
+    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height);
     scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView = scrollView;
     [scrollView setBackgroundColor:[UIColor whiteColor]];
@@ -242,7 +256,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:housingFundForCompanyTextfield];
     
     UITextField *basePayMaxTextField = [[UITextField alloc] init];
-    basePayMaxTextField.text =  _strategyModel.MAX_PF_BASELINE.stringValue;
+       basePayMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",( _strategyModel.MAX_PF_BASELINE.floatValue * 100)];
     basePayMaxTextField.tag = textFieldTypTaxPayMAX;
     basePayMaxTextField.delegate = self;
     basePayMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -251,7 +265,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:basePayMaxTextField];
     
     UITextField *basePaySocialSecurityMaxTextField = [[UITextField alloc] init];
-    basePaySocialSecurityMaxTextField.text = _strategyModel.MAX_SS_BASELINE.stringValue;
+    basePaySocialSecurityMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",(_strategyModel.MAX_SS_BASELINE.floatValue * 100)];
     basePaySocialSecurityMaxTextField.tag = textFieldTypTaxPaySocialSecurityMAX;
     basePaySocialSecurityMaxTextField.delegate = self;
     basePaySocialSecurityMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -259,12 +273,12 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     self.basePaySocialSecurityMaxTextField = basePaySocialSecurityMaxTextField;
     [scrollView addSubview:basePaySocialSecurityMaxTextField];
     
-    UIButton *saveButton = [[UIButton alloc] init];
-    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
-    [saveButton addTarget:self action:@selector(onTapSaveButton:) forControlEvents:UIControlEventTouchUpInside];
-    [saveButton setBackgroundColor:[UIColor colorWithRed:252.0/255.0 green:83.0/255.0 blue:84.0/255.0 alpha:1.0]];
-    self.saveDataButton = saveButton;
-    [scrollView addSubview:saveButton];
+//    UIButton *saveButton = [[UIButton alloc] init];
+//    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+//    [saveButton addTarget:self action:@selector(onTapSaveButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [saveButton setBackgroundColor:[UIColor colorWithRed:252.0/255.0 green:83.0/255.0 blue:84.0/255.0 alpha:1.0]];
+//    self.saveDataButton = saveButton;
+//    [self.view addSubview:saveButton];
     
     UILabel *percentageLabel1 = [[UILabel alloc] init];
     percentageLabel1.text = @"%";
@@ -299,36 +313,44 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:percentageLabel8];
     
     
+//    [saveButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.equalTo(@(120));
+//        make.height.equalTo(@(45));
+//        make.left.equalTo(scrollView).offset(20);
+//        make.bottom.equalTo(self.view.mas_bottom).offset(-40);
+//    }];
+    
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
-        make.left.equalTo(self.view).offset(20);
-        make.right.equalTo(self.view.mas_right).offset(-20);
-        make.bottom.equalTo(self.view);
+//        make.top.equalTo(self.mas_topLayoutGuideBottom);
+//        make.left.equalTo(self.view);
+//        make.right.equalTo(self.view.mas_right);
+//        make.bottom.equalTo(self.saveDataButton.mas_top).offset(-20);
+          make.edges.equalTo(self.view);
     }];
     
     [hozLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(scrollView);
         make.height.equalTo(@(2));
-        make.top.equalTo(scrollView).offset(80);
+        make.top.equalTo(scrollView).offset(40);
     }];
     
     [verticalLine mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(568));
         make.width.equalTo(@(2));
-        make.top.equalTo(scrollView).offset(40);
-        make.left.equalTo(self.view.mas_centerX).offset(60);
+        make.top.equalTo(scrollView).offset(5);
+        make.left.equalTo(self.view.mas_centerX).offset(40);
     }];
     
     [personalTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(40));
-        make.height.equalTo(@(40));
-        make.right.equalTo(verticalLine).offset(-40);
+        make.height.equalTo(@(30));
+        make.right.equalTo(verticalLine).offset(-45);
         make.bottom.equalTo(hozLine).offset(-5);
     }];
     
     [companyTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(40));
-        make.height.equalTo(@(40));
+        make.height.equalTo(@(30));
         make.left.equalTo(verticalLine).offset(40);
         make.bottom.equalTo(hozLine).offset(-5);
     }];
@@ -366,7 +388,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [pensionForPersonalTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.left.equalTo(pensionItemLabel.mas_right).offset(30);
         make.width.equalTo(@(60));
-        make.right.equalTo(verticalLine.mas_left).offset(-30);
+        make.right.equalTo(verticalLine.mas_left).offset(-40);
         make.height.equalTo(@(50));
         make.top.equalTo(hozLine.mas_bottom).offset(10);
     }];
@@ -374,7 +396,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [medicalForPersonalTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.left.equalTo(medicalItemLabel.mas_right).offset(30);
            make.width.equalTo(@(60));
-        make.right.equalTo(verticalLine.mas_left).offset(-30);
+        make.right.equalTo(verticalLine.mas_left).offset(-40);
         make.height.equalTo(@(50));
         make.top.equalTo(pensionForPersonalTextField.mas_bottom).offset(20);
     }];
@@ -382,7 +404,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [unemploymentForPersonalTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.left.equalTo(unemploymentItemLabel.mas_right).offset(30);
            make.width.equalTo(@(60));
-        make.right.equalTo(verticalLine.mas_left).offset(-30);
+        make.right.equalTo(verticalLine.mas_left).offset(-40);
         make.height.equalTo(@(50));
         make.top.equalTo(medicalForPersonalTextfield.mas_bottom).offset(20);
     }];
@@ -390,7 +412,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [housingFundForPersonalTextfield mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.left.equalTo(houseFoundItemLabel.mas_right).offset(30);
         make.width.equalTo(@(60));
-        make.right.equalTo(verticalLine.mas_left).offset(-30);
+        make.right.equalTo(verticalLine.mas_left).offset(-40);
         make.height.equalTo(@(50));
         make.top.equalTo(unemploymentForPersonalTextfield.mas_bottom).offset(20);
     }];
@@ -508,13 +530,6 @@ typedef NS_ENUM(NSInteger, textFieldType) {
         make.top.equalTo(basePaysSocialSecurityMaxLabel.mas_bottom).offset(20);
         make.width.equalTo(@(120));
         make.height.equalTo(@(50));
-    }];
-    
-    [saveButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(120));
-        make.height.equalTo(@(45));
-        make.left.equalTo(scrollView).offset(20);
-        make.bottom.equalTo(self.view.mas_bottom).offset(-40);
     }];
 }
 
@@ -714,6 +729,87 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     }else{
         return NO;
     }
+}
+
+- (void)rightBarButtonItemClcik:(id)sender
+{
+    if (self.pensionForPersonalTextfield.text.length > 0) {
+        float value = self.pensionForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_ED = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_ED = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.pensionForCompanyTextfield.text.length > 0) {
+        float value = self.pensionForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.C_ED = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_ED = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.medicalForPersonalTextfield.text.length > 0) {
+        float value = self.medicalForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_MD = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_MD = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.medicalForCompanyTextfield.text.length > 0) {
+        float value = self.medicalForCompanyTextfield.text.floatValue/100.0;
+        _strategyModel.C_MD = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_MD = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.unemploymentForPersonalTextfield.text.length > 0) {
+        float value = self.unemploymentForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_UE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_UE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.unemploymentForCompanyTextfield.text.length > 0) {
+        float value = self.unemploymentForCompanyTextfield.text.floatValue/100.0;
+        _strategyModel.C_UE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_UE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.housingFundForPersonalTextfield.text.length > 0) {
+        float value = self.housingFundForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.P_HF = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.P_HF = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.housingFundForCompanyTextfield.text.length > 0) {
+        float value = self.housingFundForPersonalTextfield.text.floatValue/100.0;
+        _strategyModel.C_HF = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.C_HF = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.basePayMaxTextField.text.length > 0) {
+        float value = self.basePayMaxTextField.text.floatValue;
+        _strategyModel.MAX_PF_BASELINE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.MAX_PF_BASELINE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    if (self.basePaySocialSecurityMaxTextField.text.length > 0) {
+        float value = self.basePaySocialSecurityMaxTextField.text.floatValue;
+        _strategyModel.MAX_SS_BASELINE = [NSNumber numberWithFloat:value];
+    }else{
+        _strategyModel.MAX_SS_BASELINE = [NSNumber numberWithFloat:0.0];
+    }
+    
+    [[SKTaxContext sharedInstance] updateCurrentSecurityStrategy:_strategyModel];
+    
+    if (self.saveButtonClickedBlock) {
+        self.saveButtonClickedBlock(_strategyModel.SS_TITLE);
+    }
+    
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 #pragma -mark Dealloc Method
