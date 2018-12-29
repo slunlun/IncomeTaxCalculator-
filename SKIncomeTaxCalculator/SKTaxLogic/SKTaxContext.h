@@ -54,6 +54,7 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 + (instancetype)sharedInstance;
 @property (nonatomic, strong, readonly) SKSocialSecurityStrategy *currentSecurityStrategy;
 @property (nonatomic, assign) CGFloat salary;
+@property (nonatomic, assign) CGFloat lastSalary;
 @property (nonatomic, strong, readonly) NSMutableArray *deductions;
 @property (nonatomic, strong, readonly) SKSpecialDeduction *childDeduction;
 @property (nonatomic, strong, readonly) SKSpecialDeduction *adultEducationDeduction;
@@ -72,8 +73,12 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 - (CGFloat)specialDeductionCount;
 - (NSArray *)selectedDeductions;
 
+//加载
+- (void)loadAllSocialSecurity;
+
 // 清空状态
 - (void)cleanUpTaxContext;
+- (void)resetSocialSecurityStrageties;
 
 // 计算每个月个人所得税
 - (NSArray<NSDictionary *> *)calculatePersonalIncomeTax;
