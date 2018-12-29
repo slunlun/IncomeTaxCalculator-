@@ -46,18 +46,21 @@
 {
     _model = model;
     self.titleLabel.text = model.itemTitle;
-    if (model.isSelected || model.content.length > 0) {
-        self.contentLabel.text = model.content;
-        self.contentLabel.textColor = [UIColor blackColor];
-    }else{
-        self.contentLabel.text = model.placeholder;
-        self.contentLabel.textColor = [UIColor lightGrayColor];
-    }
-    
     if (model.type == SKTaxModelTypeSpecialAdditionalDeduction) {
         [self.deleteButton setHidden:YES];
         [self.customAccessView setHidden:YES];
         [self.policyDescripButton setHidden:NO];
+        
+        if (model.content.length > 0) {
+            NSDictionary *attribtDic = @{NSUnderlineStyleAttributeName:[NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+            NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:model.content attributes:attribtDic];
+            self.contentLabel.attributedText = attribtStr;
+            self.contentLabel.textColor = [UIColor blackColor];
+        }else{
+            self.contentLabel.attributedText = nil;
+            self.contentLabel.text = @"";
+        }
+        
     }else{
         if (model.content.length > 0 && model.content) {
             [self.deleteButton setHidden:NO];
@@ -67,6 +70,15 @@
         
         [self.customAccessView setHidden:NO];
         [self.policyDescripButton setHidden:YES];
+        
+        if (model.content.length > 0) {
+            self.contentLabel.attributedText = nil;
+            self.contentLabel.text = model.content;
+            self.contentLabel.textColor = [UIColor blackColor];
+        }else{
+            self.contentLabel.text = model.placeholder;
+            self.contentLabel.textColor = [UIColor lightGrayColor];
+        }
     }
 }
 

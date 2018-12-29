@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SKTaxContext.h"
 
 typedef NS_ENUM(NSInteger, SKTaxModelType) {
     SKTaxModelTypeSpecialAdditionalDeduction = 1,
@@ -18,13 +19,18 @@ typedef NS_ENUM(NSInteger, SKTaxModelType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SKTaxPaymentItemDataModel : NSObject
+@interface SKTaxPaymentItemDataModel : NSObject<NSCopying>
 
 @property (nonatomic,copy) NSString *itemTitle;
 @property (nonatomic,copy) NSString *content;
 @property (nonatomic,copy) NSString *placeholder;
 @property (nonatomic,assign) BOOL isSelected;
 @property (nonatomic,assign) SKTaxModelType type;
+
+@property (nonatomic,assign) SKChildStatus childStatus;
+@property (nonatomic,assign) SKAdultEducationStatus adultEduStatus;
+@property (nonatomic,assign) SKHousingStatus houseStatus;
+@property (nonatomic,assign) SKParentsSupportStatus parentsSupportStatus;
 
 - (instancetype)initWithTitle:(NSString *)title content:(NSString *)content placeholder:(NSString *)placeholder isSelected:(BOOL)isSelected modelType:(SKTaxModelType)type;
 

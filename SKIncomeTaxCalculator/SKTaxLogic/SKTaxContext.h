@@ -13,30 +13,30 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, SKChildStatus) {
-    SKChildStatusOne = 1,
+    SKChildStatusNONE = 0,
+    SKChildStatusOne,
     SKChildStatusTwo,
     SKChildStatusThree,
-    SKChildStatusNONE,
 };
 
 typedef NS_ENUM(NSUInteger, SKAdultEducationStatus) {
-    SKAdultEducationStatusAcademic = 1,
+    SKAdultEducationStatusNONE = 0,
+    SKAdultEducationStatusAcademic,
     SKAdultEducationStatusVocational,
-    SKAdultEducationStatusNONE,
 };
 
 typedef NS_ENUM(NSUInteger, SKHousingStatus) {
-    SKHousingStatusFirstHousingLoan = 1,
+    SKHousingStatusNONE = 0,
+    SKHousingStatusFirstHousingLoan,
     SKHousingStatusRentLeave1,
     SKHousingStatusRentLeave2,
     SKHousingStatusRentLeave3,
-    SKHousingStatusNONE,
 };
 
 typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
-    SKParentsSupportStatusOnlyChild = 1,
+    SKParentsSupportStatusNONE = 0,
     SKParentsSupportStatusNoOnlyChild,
-    SKParentsSupportStatusNONE,
+    SKParentsSupportStatusOnlyChild,
 };
 
 #define PERSONAL_TAX_LEAVE @"PERSONAL_TAX_LEAVE"
