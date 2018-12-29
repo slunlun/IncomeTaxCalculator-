@@ -10,10 +10,13 @@
 #import "SKSocialSecurityView.h"
 #import "Masonry.h"
 #import "SKBaseFormView.h"
+#import "SKTaxContext.h"
+#import "SKSocialSecurityStrategy.h"
 @interface SKDetailInfoVC ()
 @property (nonatomic, strong) UILabel *payLabel;
 @property (nonatomic, strong) UILabel *incomeLabel;
 @property (nonatomic, strong) UIScrollView *bgScrollView;
+@property (nonatomic, assign) CGFloat salary;
 @end
 
 @implementation SKDetailInfoVC
@@ -25,15 +28,16 @@
     [self commonInit];
 }
 - (void)commonInit {
+    self.salary = [SKTaxContext sharedInstance].salary;
     UILabel *payLabel = [[UILabel alloc]init];
     [self.view addSubview:payLabel];
     self.payLabel = payLabel;
-    self.payLabel.text = [NSString stringWithFormat:@"月薪 : 20000"];
+    self.payLabel.text = [NSString stringWithFormat:@"税前月薪 : %.2f 元",self.salary];
     
     UILabel *incomeLabel = [[UILabel alloc]init];
     [self.view addSubview:incomeLabel];
     self.incomeLabel = incomeLabel;
-    self.incomeLabel.text = [NSString stringWithFormat:@"税后所得 : 15000"];
+    self.incomeLabel.text = [NSString stringWithFormat:@"税后所得 : %@ 元",self.dataArray.lastObject];
     UIScrollView *bgScrollView = [[UIScrollView alloc]init];
     bgScrollView.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:bgScrollView];
@@ -43,21 +47,23 @@
     UILabel *thresholdLabel = [[UILabel alloc]init];
     thresholdLabel.text = [NSString stringWithFormat:@"起征点 : 5000"];
     [bgScrollView addSubview:thresholdLabel];
-    NSArray *securityDataArray = @[@[@" ",@"个人",@"单位"],@[@" ",@"比例%",@"金额",@"比例%",@"金额"],@[@"养老",@"0",@"0",@"0",@"0"],@[@"医疗",@"0",@"0",@"0",@"0"],@[@"失业",@"0",@"0",@"0",@"0"],@[@"公积金",@"0",@"0",@"0",@"0"],@[@"小计",@"0",@"0"]];
     SKSocialSecurityView *socialView = [[SKSocialSecurityView alloc]init];
     [bgScrollView addSubview:socialView];
-     socialView.dataArray = securityDataArray;
-    
-    NSArray *dataArray = @[@[@"项目",@"金额"],@[@"子女",@"1000元"],@[@"父母",@"2000"],@[@"租金",@"1500"]];
+
+    socialView.dataArray = [self getSocialSecurityDetailArrayfromStrategy:[SKTaxContext sharedInstance].currentSecurityStrategy];
     
     SKBaseFormView *specialView = [[SKBaseFormView alloc]init];
     [bgScrollView addSubview:specialView];
+     NSArray *dataArray = @[@[@"项目",@"金额"],@[@"子女",@"1000元"],@[@"父母",@"2000"],@[@"租金",@"1500"]];
     specialView.dataArray = dataArray;
     specialView.titleLabel.text = @"专项扣除";
-   NSArray *taxDataArray =  @[@[@"预扣率(%)",@"速算扣除数",@"纳税额"],@[@"3",@"0",@"300"]];
+
     SKBaseFormView *taxView = [[SKBaseFormView alloc]init];
-    taxView.dataArray = taxDataArray;
     [bgScrollView addSubview:taxView];
+    NSArray *taxTitleArray = @[@"预扣率(%)",@"速算扣除数",@"个税(元)"];
+    NSArray *taxDataArray = [NSArray arrayWithObjects:taxTitleArray,self.dataArray, nil];
+    taxView.dataArray = taxDataArray;
+    
     taxView.titleLabel.text = @"个税";
     [payLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         if (@available(iOS 11.0, *)) {
@@ -101,6 +107,34 @@
         make.top.equalTo(specialView.mas_bottom);
         make.left.right.equalTo(specialView);
     }];
+}
+
+#pragma mark ------> 三险一金详情
+- (NSArray *)getSocialSecurityDetailArrayfromStrategy:(SKSocialSecurityStrategy *)strategy {
+    CGFloat P_EDValue = [[SKTaxContext sharedInstance] calculatePersonalED];
+    CGFloat C_EDValue = [[SKTaxContext sharedInstance] calculateCompanyED];
+    CGFloat P_MDValue = [[SKTaxContext sharedInstance] calculatePersonalMD];
+    CGFloat C_MDValue = [[SKTaxContext sharedInstance] calculateCompanyMD];
+    CGFloat P_UEValue = [[SKTaxContext sharedInstance] calculatePersonalUE];
+    CGFloat C_UEValue = [[SKTaxContext sharedInstance] calculateCompanyUE];
+    CGFloat P_HFValue = [[SKTaxContext sharedInstance] calculatePersonalHF];
+    CGFloat C_HFValue = [[SKTaxContext sharedInstance] calculateCompanyHF];
+    NSArray *titleArray = [NSArray arrayWithObjects:@" ",@"个人",@"单位", nil];
+    NSArray *subTitleArray = [NSArray arrayWithObjects:@" ",@"比例%",@"金额(元)",@"比例%",@"金额(元)", nil];
+    NSArray *EDArray = [NSArray arrayWithObjects:@"养老",[NSString stringWithFormat:@"%.1f",[strategy.P_ED floatValue] * 100], [NSString stringWithFormat:@"%.2f",P_EDValue],[NSString stringWithFormat:@"%.1f",[strategy.C_ED floatValue] * 100],[NSString stringWithFormat:@"%.2f",C_EDValue],nil];
+    
+    NSArray *MDArray = [NSArray arrayWithObjects:@"医疗",[NSString stringWithFormat:@"%.1f",[strategy.P_MD floatValue] * 100], [NSString stringWithFormat:@"%.2f",P_MDValue],[NSString stringWithFormat:@"%.1f",[strategy.C_MD floatValue] * 100],[NSString stringWithFormat:@"%.2f",C_MDValue],nil];
+    NSArray *UEArray = [NSArray arrayWithObjects:@"失业",[NSString stringWithFormat:@"%.1f",[strategy.P_UE floatValue] * 100], [NSString stringWithFormat:@"%.2f",P_UEValue],[NSString stringWithFormat:@"%.1f",[strategy.C_UE floatValue] * 100],[NSString stringWithFormat:@"%.2f",C_UEValue],nil];
+     NSArray *HFArray = [NSArray arrayWithObjects:@"公积金",[NSString stringWithFormat:@"%.1f",[strategy.P_HF floatValue] * 100], [NSString stringWithFormat:@"%.2f",P_HFValue],[NSString stringWithFormat:@"%.1f",[strategy.C_HF floatValue] * 100],[NSString stringWithFormat:@"%.2f",C_HFValue],nil];
+    
+    NSArray *totalArray = [NSArray arrayWithObjects:@"小计",[NSString stringWithFormat:@"%.2f",(P_EDValue+P_MDValue+P_UEValue+P_HFValue)],[NSString stringWithFormat:@"%.2f",(C_EDValue+C_MDValue+C_UEValue+C_HFValue)],nil];
+    
+    
+    NSArray *socialDataArray = [NSArray arrayWithObjects:titleArray,subTitleArray,EDArray,MDArray,UEArray,HFArray,totalArray, nil];
+    return socialDataArray;
+}
+#pragma mark -----> 专项扣除详情
+- (void)getSpecialDetailDataFrom {
 }
 /*
 #pragma mark - Navigation

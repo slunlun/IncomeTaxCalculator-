@@ -365,18 +365,15 @@
     
     CGFloat salaryValue = [SKTaxContext sharedInstance].salary;
     CGFloat socialValue = [[SKTaxContext sharedInstance] calculatePersonalSocialSecurityAndHousingFund];
-    NSMutableArray *dataArray = [NSMutableArray array];
-    NSMutableArray *taxInfoDataArray = [NSMutableArray array];
     NSArray *resultArray = [[SKTaxContext sharedInstance] calculatePersonalIncomeTax];
+    NSMutableArray *dataArray = [NSMutableArray array];
+    NSArray *taxInfoDataArray = resultArray;
     
     for (NSDictionary *dic in resultArray) {
-         NSDictionary *taxInfoDic = dic[PERSONAL_TAX_LEAVE];
-        [taxInfoDataArray  addObject:taxInfoDic];
         NSNumber *taxValue = dic[PERSONAL_TAX_COUNT];
         CGFloat incomeValue = salaryValue - socialValue - [taxValue floatValue];
         NSArray *detailArray = [NSArray arrayWithObjects:[self valueStringWith:salaryValue],[self valueStringWith:socialValue],[self valueStringWith:[taxValue floatValue]],[self valueStringWith:incomeValue], nil];
         [dataArray addObject:detailArray];
-        
     }
     
     SKAllResultViewController *allResultVC = [[SKAllResultViewController alloc]init];
@@ -386,7 +383,7 @@
 }
 
 - (NSString *)valueStringWith:(CGFloat)floatValue {
-    NSString *string = [NSString stringWithFormat:@"%f 元",floatValue];
+    NSString *string = [NSString stringWithFormat:@"%.2f 元",floatValue];
     return string;
 }
 #pragma -mark UITextfield Delagate
