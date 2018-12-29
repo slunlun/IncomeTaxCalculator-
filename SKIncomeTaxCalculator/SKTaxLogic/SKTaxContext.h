@@ -70,6 +70,7 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 - (void)updateHousingDeduction:(SKHousingStatus)housingStatus;
 - (void)updateParentsSupportDeduction:(SKParentsSupportStatus)parentSupportStatus;
 - (CGFloat)specialDeductionCount;
+- (NSArray *)selectedDeductions;
 
 // 清空状态
 - (void)cleanUpTaxContext;

@@ -105,7 +105,7 @@
     [self.contentView addSubview:deleteButton];
     
     UIButton *policyDesButton = [[UIButton alloc] init];
-    [policyDesButton setTitle:@"政策解读" forState:UIControlStateNormal];
+    [policyDesButton setTitle:@"详情" forState:UIControlStateNormal];
     [policyDesButton setTitleColor:[UIColor colorWithRed:0.0/255.0 green:134.0/255.0 blue:204.0/255.0 alpha:1.0] forState:UIControlStateNormal];
     policyDesButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [policyDesButton addTarget:self action:@selector(policyButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -169,7 +169,9 @@
 
 - (void)policyButtonClicked:(id)sender
 {
-    //TODO
+    if ([self.delegate respondsToSelector:@selector(actionWithDetailButton:dataModel:)]) {
+        [self.delegate actionWithDetailButton:self dataModel:_model];
+    }
 }
 
 @end

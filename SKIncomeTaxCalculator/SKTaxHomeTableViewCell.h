@@ -14,6 +14,7 @@
 @protocol SKTaxHomeTableViewCellDelegate <NSObject>
 /** 删除按钮点击代理方法 */
 - (void)actionWithDeleteButton:(SKTaxHomeTableViewCell *)cell dataModel:(SKTaxPaymentItemDataModel *)model;
+- (void)actionWithDetailButton:(SKTaxHomeTableViewCell *)cell dataModel:(SKTaxPaymentItemDataModel *)model;
 
 @end
 

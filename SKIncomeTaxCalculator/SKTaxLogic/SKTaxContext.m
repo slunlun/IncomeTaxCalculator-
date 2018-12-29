@@ -242,6 +242,23 @@
     return self.childDeduction.deduction + self.parentSupportDeduction.deduction + self.housingDeduction.deduction + self.adultEducationDeduction.deduction;
 }
 
+- (NSArray *)selectedDeductions {
+    NSMutableArray *retArray = [NSMutableArray array];
+    if (self.childDeduction.deduction != 0) {
+        [retArray addObject:self.childDeduction];
+    }
+    if (self.adultEducationDeduction.deduction != 0) {
+        [retArray addObject:self.adultEducationDeduction];
+    }
+    if (self.housingDeduction.deduction != 0) {
+        [retArray addObject:self.housingDeduction];
+    }
+    if (self.parentSupportDeduction.deduction != 0) {
+        [retArray addObject:self.parentSupportDeduction];
+    }
+    return retArray;
+}
+
 #pragma mark -  清空状态
 - (void)cleanUpTaxContext {
     self.childDeduction.deduction = 0.0f;
@@ -280,15 +297,14 @@
     CGFloat personalTax = personalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
     NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
     [personalIncomeTaxes addObject:dic];
-    
+    CGFloat alreadyTaxed = personalTax;
     // 根据1月的值，计算第n月的个税额度
     for (NSInteger n = 2; n < 13; ++n) {
         CGFloat curPersonalTaxBaseLine = personalTaxBaseLine * n;
         NSDictionary *personalTaxRate = [self fetchPersonalTaxRate:curPersonalTaxBaseLine];
         CGFloat personalTax = curPersonalTaxBaseLine * ((NSNumber *)personalTaxRate[TAX_RATE]).floatValue - ((NSNumber *)personalTaxRate[TAX_QUICK_DISCOUNT]).floatValue;
-        NSDictionary *preDic = [personalIncomeTaxes lastObject];
-        CGFloat perPersonalTax = ((NSNumber *)preDic[PERSONAL_TAX_COUNT]).floatValue;
-        personalTax -= perPersonalTax;
+        personalTax -= alreadyTaxed;
+        alreadyTaxed += personalTax;
         NSDictionary *dic = @{PERSONAL_TAX_LEAVE:personalTaxRate, PERSONAL_TAX_COUNT:[NSNumber numberWithFloat:personalTax]};
         [personalIncomeTaxes addObject:dic];
     }

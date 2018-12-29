@@ -16,4 +16,13 @@
 #define MainScreenHeight_Scale   ([UIScreen mainScreen].bounds.size.height/667.0f)
 
 #define GAD_APPID @"ca-app-pub-7600977789871519~3653895124"
+
+#ifdef DEBUG
+    #define GAD_TOPBANNER_ID    @"ca-app-pub-3940256099942544/2934735716"
+    #define GAD_BOTTOMBANNER_ID @"ca-app-pub-3940256099942544/2934735716"
+#else
+    #define GAD_TOPBANNER_ID    @"ca-app-pub-7600977789871519/4932608770"
+    #define GAD_BOTTOMBANNER_ID @"ca-app-pub-7600977789871519/6690233952"
+#endif
+
 #endif /* SKDef_h */

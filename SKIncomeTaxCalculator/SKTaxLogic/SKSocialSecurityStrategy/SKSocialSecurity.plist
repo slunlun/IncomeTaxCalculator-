@@ -4,9 +4,9 @@
 <array>
 	<dict>
 		<key>MAX_SS_BASELINE</key>
-		<real>7457.47</real>
+		<integer>50000</integer>
 		<key>MAX_PF_BASELINE</key>
-		<real>7457.47</real>
+		<integer>50000</integer>
 		<key>P_ED</key>
 		<real>0.01</real>
 		<key>P_MD</key>

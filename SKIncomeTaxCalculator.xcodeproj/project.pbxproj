@@ -35,6 +35,7 @@
 		7EC949D521D5BF1C0077225D /* SKPickerToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949CD21D5BF1B0077225D /* SKPickerToolBarView.m */; };
 		7EC949D621D5BF1C0077225D /* SKUniversalSingleSelectionPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949CE21D5BF1B0077225D /* SKUniversalSingleSelectionPickerView.m */; };
 		7EC949DA21D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949D921D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.m */; };
+		7EC949DD21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC949DC21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.m */; };
 		817AFD349397E7BBB4D6F579 /* libPods-SKIncomeTaxCalculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */; };
 		B0FCD60121D242B70082E795 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60021D242B70082E795 /* AppDelegate.m */; };
 		B0FCD60421D242B70082E795 /* SKADTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FCD60321D242B70082E795 /* SKADTestViewController.m */; };
@@ -110,6 +111,8 @@
 		7EC949D121D5BF1B0077225D /* SKBasePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKBasePickerView.h; sourceTree = "<group>"; };
 		7EC949D821D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKCityTaxPaymentRatioDetailViewController.h; sourceTree = "<group>"; };
 		7EC949D921D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKCityTaxPaymentRatioDetailViewController.m; sourceTree = "<group>"; };
+		7EC949DB21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SKSpecialAdditionalDeductionDetailVC.h; sourceTree = "<group>"; };
+		7EC949DC21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SKSpecialAdditionalDeductionDetailVC.m; sourceTree = "<group>"; };
 		A1E57A6CD1AF3EF347BDB1BB /* libPods-SKIncomeTaxCalculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKIncomeTaxCalculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF854F6109D64F9F5E6CD54 /* Pods-SKIncomeTaxCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		B0BB7C51DCD7B605ABD120D9 /* Pods-SKIncomeTaxCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKIncomeTaxCalculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SKIncomeTaxCalculator/Pods-SKIncomeTaxCalculator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +292,8 @@
 				7EC949C321D5BEE20077225D /* SKCityChooseViewController.m */,
 				7EC949D821D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.h */,
 				7EC949D921D5CC910077225D /* SKCityTaxPaymentRatioDetailViewController.m */,
+				7EC949DB21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.h */,
+				7EC949DC21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.m */,
 				B0FCD60521D242B70082E795 /* Main.storyboard */,
 				B0FCD60821D242CA0082E795 /* Assets.xcassets */,
 				B0FCD60A21D242CA0082E795 /* LaunchScreen.storyboard */,
@@ -439,6 +444,7 @@
 				B0FFFDA621D4C19400FDF5F2 /* SKSocialSecurityStrategy.m in Sources */,
 				7E7388D521D264E80093CD83 /* ViewController+MASAdditions.m in Sources */,
 				7E7388DC21D264E80093CD83 /* MASViewConstraint.m in Sources */,
+				7EC949DD21D74ECA0077225D /* SKSpecialAdditionalDeductionDetailVC.m in Sources */,
 				7EC949D421D5BF1C0077225D /* UIView+YMFrame.m in Sources */,
 				B0FCD60F21D242CA0082E795 /* main.m in Sources */,
 				58353F9A21D65C9B0028B7A8 /* SKAllResultViewController.m in Sources */,
