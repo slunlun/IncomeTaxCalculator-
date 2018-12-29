@@ -15,6 +15,7 @@
 #import "SKCityChooseViewController.h"
 #import "SKAllResultViewController.h"
 #import "SKTaxContext.h"
+#import "SKSpecialAdditionalDeductionDetailVC.h"
 
 @interface SKTaxHomeViewController ()<UITableViewDelegate,UITableViewDataSource,SKBasePickerViewDelegate,SKTaxHomeTableViewCellDelegate,UITextFieldDelegate,UIGestureRecognizerDelegate>
 
@@ -246,21 +247,25 @@
             case SKTaxModelTypeChildEducation:
             {
                  [[SKTaxContext sharedInstance] updateChildDeduction:newModel.childStatus];
+                model.childStatus = newModel.childStatus;
             }
             break;
             case SKTaxModelTypeHousingSituation:
             {
                 [[SKTaxContext sharedInstance] updateHousingDeduction:newModel.houseStatus];
+                model.houseStatus = newModel.houseStatus;
             }
                 break;
             case SKTaxModelTypeContinuingEducation:
             {
                  [[SKTaxContext sharedInstance] updateAdultEducationDeduction:newModel.adultEduStatus];
+                model.adultEduStatus = newModel.adultEduStatus;
             }
                 break;
             case SKTaxModelTypeSupportForTheElderly:
             {
                   [[SKTaxContext sharedInstance] updateParentsSupportDeduction:newModel.parentsSupportStatus];
+                model.parentsSupportStatus = newModel.parentsSupportStatus;
             }
                 break;
             default:
@@ -348,6 +353,12 @@
     [self.tableView reloadData];
 }
 
+- (void)actionWithDetailButton:(SKTaxHomeTableViewCell *)cell dataModel:(SKTaxPaymentItemDataModel *)model;
+{
+    SKSpecialAdditionalDeductionDetailVC *detailInfoVC = [[SKSpecialAdditionalDeductionDetailVC alloc] initWithDataArray:self.data];
+    [self.navigationController pushViewController:detailInfoVC animated:NO];
+}
+
 #pragma -mark button click event
 
 - (void)cityChooseButtonClicked:(id)sender
@@ -361,6 +372,8 @@
 
 - (void)calculateButtonClicked:(id)sender
 {
+    [SKTaxContext sharedInstance].salary = [self.textField.text floatValue];
+    
     CGFloat salaryValue = [SKTaxContext sharedInstance].salary;
     CGFloat socialValue = [[SKTaxContext sharedInstance] calculatePersonalSocialSecurityAndHousingFund];
     NSMutableArray *dataArray = [NSMutableArray array];
