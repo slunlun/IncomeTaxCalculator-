@@ -361,6 +361,8 @@
 
 - (void)calculateButtonClicked:(id)sender
 {
+    [SKTaxContext sharedInstance].salary = [self.textField.text floatValue];
+    
     CGFloat salaryValue = [SKTaxContext sharedInstance].salary;
     CGFloat socialValue = [[SKTaxContext sharedInstance] calculatePersonalSocialSecurityAndHousingFund];
     NSMutableArray *dataArray = [NSMutableArray array];
