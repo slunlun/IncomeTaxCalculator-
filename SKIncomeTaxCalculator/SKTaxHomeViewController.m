@@ -55,13 +55,11 @@
     [self.view addGestureRecognizer:tapGesture];
     
     [self tableData];
-    [self commonInit];
-    [self commonInitNavgationBar];
     
     // 初始化广告
     // In this case, we instantiate the banner with desired ad size.
     self.bottomBannerView = [[GADBannerView alloc]
-                       initWithAdSize:kGADAdSizeSmartBannerPortrait];
+                             initWithAdSize:kGADAdSizeSmartBannerPortrait];
     self.bottomBannerView.adUnitID = GAD_BOTTOMBANNER_ID;
     self.bottomBannerView.rootViewController = self;
     self.bottomBannerView.delegate = self;
@@ -69,12 +67,15 @@
     [self addBottomBannerViewToView:self.bottomBannerView];
     
     self.topBannerView = [[GADBannerView alloc]
-                             initWithAdSize:kGADAdSizeSmartBannerPortrait];
+                          initWithAdSize:kGADAdSizeSmartBannerPortrait];
     self.topBannerView.adUnitID = GAD_BOTTOMBANNER_ID;
     self.topBannerView.rootViewController = self;
     self.topBannerView.delegate = self;
     [self.topBannerView loadRequest:[GADRequest request]];
     [self addTopBannerViewToView:self.topBannerView];
+    
+    [self commonInit];
+    [self commonInitNavgationBar];
     
     // Do any additional setup after loading the view.
 }
@@ -131,9 +132,13 @@
     UIButton *cityDisplayButton = [[UIButton alloc] init];
     cityDisplayButton.backgroundColor = [UIColor clearColor];
     NSString *dispalyName = [SKTaxContext sharedInstance].currentSecurityStrategy.SS_TITLE;
+    [cityDisplayButton addTarget:self action:@selector(cityDisplayButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    cityDisplayButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 20);
     [cityDisplayButton setTitle:dispalyName forState:UIControlStateNormal];
     [cityDisplayButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     cityDisplayButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    cityDisplayButton.titleLabel.textAlignment = NSTextAlignmentRight;
+    cityDisplayButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     self.cityDisplayButton = cityDisplayButton;
     [scrollView addSubview:cityDisplayButton];
     
@@ -174,7 +179,7 @@
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.right.equalTo(scrollView.mas_right).offset(-20);
-        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(60);
+        make.top.equalTo(self.topBannerView.mas_bottom).offset(2);
         make.width.equalTo(@(textFieldWidth));
         make.height.equalTo(@55);
     }];
@@ -189,7 +194,7 @@
     [_cityDisplayButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(scrollView).offset(-20);
         make.height.equalTo(@(45));
-        make.width.equalTo(@(90));
+        make.left.equalTo(self.cityChooseButton.mas_right).offset(10);
         make.top.equalTo(self.textField.mas_bottom).offset(8);
     }];
     
@@ -486,6 +491,15 @@
 #pragma -mark button click event
 
 - (void)cityChooseButtonClicked:(id)sender
+{
+    SKCityChooseViewController *vc = [[SKCityChooseViewController alloc] init];
+    [vc setChooseCompletedBlock:^(NSString *cityName) {
+        [self.cityDisplayButton setTitle:cityName forState:UIControlStateNormal];
+    }];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+- (void)cityDisplayButtonClicked:(id)sender
 {
     SKCityChooseViewController *vc = [[SKCityChooseViewController alloc] init];
     [vc setChooseCompletedBlock:^(NSString *cityName) {
