@@ -256,7 +256,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:housingFundForCompanyTextfield];
     
     UITextField *basePayMaxTextField = [[UITextField alloc] init];
-       basePayMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",( _strategyModel.MAX_PF_BASELINE.floatValue * 100)];
+       basePayMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",( _strategyModel.MAX_PF_BASELINE.floatValue )];
     basePayMaxTextField.tag = textFieldTypTaxPayMAX;
     basePayMaxTextField.delegate = self;
     basePayMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -265,7 +265,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:basePayMaxTextField];
     
     UITextField *basePaySocialSecurityMaxTextField = [[UITextField alloc] init];
-    basePaySocialSecurityMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",(_strategyModel.MAX_SS_BASELINE.floatValue * 100)];
+    basePaySocialSecurityMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",(_strategyModel.MAX_SS_BASELINE.floatValue)];
     basePaySocialSecurityMaxTextField.tag = textFieldTypTaxPaySocialSecurityMAX;
     basePaySocialSecurityMaxTextField.delegate = self;
     basePaySocialSecurityMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
