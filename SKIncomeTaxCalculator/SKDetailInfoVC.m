@@ -36,7 +36,7 @@
     payLabel.text = [NSString stringWithFormat:@"税前月薪 : %.2f 元",self.salary];
     UILabel *lastPayLabel = [[UILabel alloc]init];
     [self.view addSubview:lastPayLabel];
-    lastPayLabel.text = [NSString stringWithFormat:@"上年月薪 : %.2f 元",self.salary];
+    lastPayLabel.text = [NSString stringWithFormat:@"上年月薪 : %.2f 元",[SKTaxContext sharedInstance].lastSalary];
     UILabel *incomeLabel = [[UILabel alloc]init];
     [self.view addSubview:incomeLabel];
     incomeLabel.textColor = SKMARKCOLOR;
@@ -46,7 +46,8 @@
     bgScrollView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:bgScrollView];
     self.bgScrollView = bgScrollView;
-    bgScrollView.contentSize = CGSizeMake(0, 900);
+    bgScrollView.contentSize = CGSizeMake(0, 850);
+    bgScrollView.showsVerticalScrollIndicator =NO;
     
     UILabel *thresholdLabel = [[UILabel alloc]init];
     thresholdLabel.text = [NSString stringWithFormat:@"起征点 : 5000.0 元"];
@@ -84,8 +85,13 @@
         }
        
     }];
+    [lastPayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(payLabel.mas_bottom).offset(5);
+        make.left.right.equalTo(payLabel);
+        make.height.equalTo(@30);
+    }];
     [incomeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(payLabel.mas_bottom).offset(10);
+        make.top.equalTo(lastPayLabel.mas_bottom).offset(5);
         make.left.right.equalTo(payLabel);
         make.height.equalTo(@30);
     }];

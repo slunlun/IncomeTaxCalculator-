@@ -38,8 +38,8 @@ static CGFloat itemHeight = 40.0;
     self.titleLabel = titleLabel;
     titleLabel.text = @"三险一金详情";
     UILabel *messageLabel = [[UILabel alloc]init];
-    messageLabel.textColor = [UIColor lightGrayColor];
     messageLabel.text = @"* 三险一金由上年度平均月薪计算所得.若没有填写,由本年度月薪计算所得";
+    messageLabel.numberOfLines = 0;
     messageLabel.font = [UIFont systemFontOfSize:12];
     [self addSubview:messageLabel];
     
