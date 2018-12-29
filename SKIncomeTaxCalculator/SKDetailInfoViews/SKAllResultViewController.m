@@ -61,12 +61,14 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SKResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    cell.dataArray = self.dataArray[indexPath.row];
+    cell.dataArray = self.dataArray[indexPath.section];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SKDetailInfoVC *VC = [[SKDetailInfoVC alloc]init];
-    NSDictionary *dic = self.taxInfoDataArray[indexPath.row];
+    VC.monthStr = [NSString stringWithFormat:@"%ld月详情",indexPath.section+1];
+    VC.incomeStr = self.dataArray[indexPath.section].lastObject;
+    NSDictionary *dic = self.taxInfoDataArray[indexPath.section];
     NSDictionary *levelDic = dic[PERSONAL_TAX_LEAVE];
     NSNumber *taxRate = levelDic[TAX_RATE];
     NSNumber *quickCount = levelDic[TAX_QUICK_DISCOUNT];
