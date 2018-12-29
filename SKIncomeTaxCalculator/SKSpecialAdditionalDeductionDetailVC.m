@@ -59,7 +59,7 @@
     [self.view addSubview:totalLabel];
     
     UILabel *infomationLabel = [[UILabel alloc] init];
-    infomationLabel.text = @"* 职业资格教育和大病医疗需要向汇缴地主管税务机关进行汇算清缴申报时办理扣除。不计入每月个税扣除。";
+    infomationLabel.text = @"* 职业资格教育和大病医疗需要在汇缴地主管税务机关进行汇算清缴申报时办理扣除。不计入每月个税扣除。";
     infomationLabel.numberOfLines = 0;
     infomationLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:infomationLabel];

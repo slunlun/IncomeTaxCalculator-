@@ -108,12 +108,10 @@
 }
 
 - (void)updateCurrentSecurityStrategy:(SKSocialSecurityStrategy *)strategy {
-    if (![self.currentSecurityStrategy isEqual:strategy]) {
-        self.currentSecurityStrategy = strategy;
-        [self.socialSecurityStrategies removeObject:strategy];
-        [self.socialSecurityStrategies insertObject:strategy atIndex:0];
-        [self updateSocialSecurityPlist];
-    }
+    self.currentSecurityStrategy = strategy;
+    [self.socialSecurityStrategies removeObject:strategy];
+    [self.socialSecurityStrategies insertObject:strategy atIndex:0];
+    [self updateSocialSecurityPlist];
 }
 
 - (void)updateSocialSecurityPlist {
