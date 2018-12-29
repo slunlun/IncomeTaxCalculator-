@@ -54,6 +54,7 @@ typedef NS_ENUM(NSUInteger, SKParentsSupportStatus) {
 + (instancetype)sharedInstance;
 @property (nonatomic, strong, readonly) SKSocialSecurityStrategy *currentSecurityStrategy;
 @property (nonatomic, assign) CGFloat salary;
+@property (nonatomic, assign) CGFloat lastSalary;
 @property (nonatomic, strong, readonly) NSMutableArray *deductions;
 @property (nonatomic, strong, readonly) SKSpecialDeduction *childDeduction;
 @property (nonatomic, strong, readonly) SKSpecialDeduction *adultEducationDeduction;

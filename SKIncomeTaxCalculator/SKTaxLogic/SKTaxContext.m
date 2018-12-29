@@ -314,39 +314,39 @@
 
 #pragma mark -  计算个人应缴社保及公积金
 - (CGFloat)calculatePersonalSocialSecurityAndHousingFund {
-    return [self.currentSecurityStrategy calculatePersonalPaied:self.salary];
+    return [self.currentSecurityStrategy calculatePersonalPaied:self.lastSalary];
 }
 
 - (CGFloat)calculatePersonalED {
-    return [self.currentSecurityStrategy calculatePersonalED:self.salary];
+    return [self.currentSecurityStrategy calculatePersonalED:self.lastSalary];
 }
 
 - (CGFloat)calculatePersonalMD {
-    return [self.currentSecurityStrategy calculatePersonalMD:self.salary];
+    return [self.currentSecurityStrategy calculatePersonalMD:self.lastSalary];
 }
 
 - (CGFloat)calculatePersonalUE {
-    return [self.currentSecurityStrategy calculatePersonalUE:self.salary];
+    return [self.currentSecurityStrategy calculatePersonalUE:self.lastSalary];
 }
 
 - (CGFloat)calculatePersonalHF {
-    return [self.currentSecurityStrategy calculatePersonalHF:self.salary];
+    return [self.currentSecurityStrategy calculatePersonalHF:self.lastSalary];
 }
 
 - (CGFloat)calculateCompanyED {
-    return [self.currentSecurityStrategy calculateCompanyED:self.salary];
+    return [self.currentSecurityStrategy calculateCompanyED:self.lastSalary];
 }
 
 - (CGFloat)calculateCompanyMD {
-    return [self.currentSecurityStrategy calculateCompanyMD:self.salary];
+    return [self.currentSecurityStrategy calculateCompanyMD:self.lastSalary];
 }
 
 - (CGFloat)calculateCompanyUE {
-    return [self.currentSecurityStrategy calculateCompanyUE:self.salary];
+    return [self.currentSecurityStrategy calculateCompanyUE:self.lastSalary];
 }
 
 - (CGFloat)calculateCompanyHF {
-    return [self.currentSecurityStrategy calculateCompanyHF:self.salary];
+    return [self.currentSecurityStrategy calculateCompanyHF:self.lastSalary];
 }
 
 #pragma mark - setter/getter
