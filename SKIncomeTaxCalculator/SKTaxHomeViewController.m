@@ -174,7 +174,7 @@
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.right.equalTo(scrollView.mas_right).offset(-20);
-        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
+        make.top.equalTo(self.mas_topLayoutGuideBottom).offset(60);
         make.width.equalTo(@(textFieldWidth));
         make.height.equalTo(@55);
     }];
