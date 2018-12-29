@@ -125,8 +125,9 @@
     UILabel *promptLabel = [[UILabel alloc] init];
     promptLabel.text = @"(*去年月薪用于三险一金计算，不填默认使用当年月薪)";
     promptLabel.textColor = [UIColor redColor];
-    promptLabel.font = [UIFont systemFontOfSize:16];
-    [self.view addSubview:promptLabel];
+    promptLabel.font = [UIFont systemFontOfSize:12];
+    promptLabel.numberOfLines = 0;
+    [scrollView addSubview:promptLabel];
     
     self.lastYearTextField.placeholder = @"请输入去年税前月薪";
     self.lastYearTextField.delegate = self;
