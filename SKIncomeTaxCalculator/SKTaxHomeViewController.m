@@ -182,8 +182,7 @@
     
     [tableView registerClass:[SKTaxHomeTableViewCell class] forCellReuseIdentifier:@"TAX_HOME_TABLEVIEW_CELL"];
     tableView.allowsMultipleSelection = NO;
-    tableView.contentInset = UIEdgeInsetsMake(0, 0, kMargin * 4, 0);
-    tableView.cellLayoutMarginsFollowReadableWidth = NO;
+    //tableView.contentInset = UIEdgeInsetsMake(0, 0, kMargin * 4, 0);
     tableView.tableFooterView =[[UIView alloc]init];
     self.tableView = tableView;
     [scrollView addSubview:tableView];
@@ -200,7 +199,7 @@
         make.right.equalTo(scrollView.mas_right).offset(-20);
         make.top.equalTo(self.topBannerView.mas_bottom).offset(2);
         make.width.equalTo(@(textFieldWidth));
-        make.height.equalTo(@55);
+        make.height.equalTo(@45);
     }];
     
     [promptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -217,19 +216,23 @@
         make.right.equalTo(scrollView.mas_right).offset(-20);
         make.top.equalTo(promptLabel.mas_bottom).offset(10);
         make.width.equalTo(@(textFieldWidth));
-        make.height.equalTo(@55);
+        make.height.equalTo(@45);
     }];
+    
+   // [_lastYearTextField setBackgroundColor:[UIColor orangeColor]];
     
     [_cityChooseButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
-        make.height.equalTo(@(45));
+        make.height.equalTo(@(35));
         make.width.equalTo(@(90));
         make.top.equalTo(self.lastYearTextField.mas_bottom).offset(8);
     }];
     
+    //[_cityChooseButton setBackgroundColor:[UIColor cyanColor]];
+    
     [_cityDisplayButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(scrollView).offset(-20);
-        make.height.equalTo(@(45));
+        make.height.equalTo(@(35));
         make.left.equalTo(self.cityChooseButton.mas_right).offset(10);
         make.top.equalTo(self.lastYearTextField.mas_bottom).offset(8);
     }];
