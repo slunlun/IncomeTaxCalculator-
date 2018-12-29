@@ -58,6 +58,12 @@
     totalLabel.text = @"合计:";
     [self.view addSubview:totalLabel];
     
+    UILabel *infomationLabel = [[UILabel alloc] init];
+    infomationLabel.text = @"* 职业资格教育和大病医疗需要向汇缴地主管税务机关进行汇算清缴申报时办理扣除。不计入每月个税扣除。";
+    infomationLabel.numberOfLines = 0;
+    infomationLabel.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:infomationLabel];
+    
     [childEducationTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(20);
         make.top.equalTo(self.mas_topLayoutGuideBottom).offset(20);
@@ -92,6 +98,15 @@
         make.width.equalTo(@(180));
         make.height.equalTo(@45);
     }];
+    
+    [infomationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(20);
+        make.top.equalTo(totalLabel.mas_bottom).offset(20);
+        make.width.equalTo(@(300));
+        make.height.equalTo(@100);
+    }];
+    
+    ///infomationLabel.backgroundColor = [UIColor orangeColor];
     
     for (SKTaxPaymentItemDataModel *model in _dataArray) {
         if (model.type == SKTaxModelTypeChildEducation) {
