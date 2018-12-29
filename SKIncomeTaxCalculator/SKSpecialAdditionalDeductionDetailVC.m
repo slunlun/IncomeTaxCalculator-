@@ -99,8 +99,8 @@
                 NSString *value = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].childDeduction.deduction];
                 childEducationTitleLabel.text = [NSString stringWithFormat:@"子女教育:    %@元",value];
             }else{
-                NSString *value = @"0";
-                childEducationTitleLabel.text = [NSString stringWithFormat:@"子女教育:    %@",value];
+                NSString *value = @"0.00";
+                childEducationTitleLabel.text = [NSString stringWithFormat:@"子女教育:    %@元",value];
             }
         }
         
@@ -109,7 +109,7 @@
                 NSString *value = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].adultEducationDeduction.deduction];
                 continuingEducationLabel.text = [NSString stringWithFormat:@"继续教育:    %@元",value];
             }else{
-                NSString *value = @"0";
+                NSString *value = @"0.00";
                 continuingEducationLabel.text = [NSString stringWithFormat:@"继续教育:    %@元",value];
             }
         }
@@ -119,7 +119,7 @@
                 NSString *value = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].housingDeduction.deduction];
                 housingSituationLabel.text = [NSString stringWithFormat:@"住房情况:    %@元",value];
             }else{
-                NSString *value = @"0";
+                NSString *value = @"0.00";
                 housingSituationLabel.text = [NSString stringWithFormat:@"住房情况:    %@元",value];
             }
         }
@@ -129,7 +129,7 @@
                 NSString *value = [NSString stringWithFormat:@"%.2lf",[SKTaxContext sharedInstance].housingDeduction.deduction];
                 pensionLabel.text = [NSString stringWithFormat:@"赡养老人:    %@元",value];
             }else{
-                NSString *value = @"0";
+                NSString *value = @"0.00";
                 pensionLabel.text = [NSString stringWithFormat:@"赡养老人:    %@元",value];
             }
         }
@@ -141,7 +141,7 @@
           totalLabel.text = [NSString stringWithFormat:@"合计: %@元",value];
     }else
     {
-          NSString *value = @"0";
+          NSString *value = @"0.00";
           totalLabel.text = [NSString stringWithFormat:@"合计: %@元",value];
     }
   
