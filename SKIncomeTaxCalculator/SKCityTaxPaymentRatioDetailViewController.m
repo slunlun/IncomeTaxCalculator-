@@ -115,7 +115,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
 - (void)commonInit{
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.5);
+    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height);
     scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView = scrollView;
     [scrollView setBackgroundColor:[UIColor whiteColor]];
@@ -256,7 +256,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:housingFundForCompanyTextfield];
     
     UITextField *basePayMaxTextField = [[UITextField alloc] init];
-    basePayMaxTextField.text =  _strategyModel.MAX_PF_BASELINE.stringValue;
+       basePayMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",( _strategyModel.MAX_PF_BASELINE.floatValue * 100)];
     basePayMaxTextField.tag = textFieldTypTaxPayMAX;
     basePayMaxTextField.delegate = self;
     basePayMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
@@ -265,7 +265,7 @@ typedef NS_ENUM(NSInteger, textFieldType) {
     [scrollView addSubview:basePayMaxTextField];
     
     UITextField *basePaySocialSecurityMaxTextField = [[UITextField alloc] init];
-    basePaySocialSecurityMaxTextField.text = _strategyModel.MAX_SS_BASELINE.stringValue;
+    basePaySocialSecurityMaxTextField.text =  [NSString stringWithFormat:@"%.2lf",(_strategyModel.MAX_SS_BASELINE.floatValue * 100)];
     basePaySocialSecurityMaxTextField.tag = textFieldTypTaxPaySocialSecurityMAX;
     basePaySocialSecurityMaxTextField.delegate = self;
     basePaySocialSecurityMaxTextField.keyboardType = UIKeyboardTypeNumberPad;
