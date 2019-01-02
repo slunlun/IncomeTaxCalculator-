@@ -33,6 +33,7 @@
 
 @property(nonatomic, strong) GADBannerView *topBannerView;
 @property(nonatomic, strong) GADBannerView *bottomBannerView;
+@property (nonatomic,strong) UIScrollView *scrollView;
 
 @end
 
@@ -57,7 +58,6 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickBackground:)];
     tapGesture.delegate = self;
     [self.view addGestureRecognizer:tapGesture];
-    
     [self tableData];
     
     // 初始化广告
@@ -69,7 +69,6 @@
     self.bottomBannerView.delegate = self;
     [self.bottomBannerView loadRequest:[GADRequest request]];
     [self addBottomBannerViewToView:self.bottomBannerView];
-    
     self.topBannerView = [[GADBannerView alloc]
                           initWithAdSize:kGADAdSizeSmartBannerPortrait];
     self.topBannerView.adUnitID = GAD_TOPBANNER_ID;
@@ -112,8 +111,9 @@
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.contentSize = CGSizeMake(0, self.view.frame.size.height*1.5);
+    self.scrollView = scrollView;
     [self.view addSubview:scrollView];
+   
     
     self.textField.placeholder = @"请输入税前月薪";
     self.textField.delegate = self;
@@ -189,15 +189,18 @@
     
     
     CGFloat textFieldWidth = self.view.frame.size.width - 20*2;
+    //CGFloat topBannerViewHeight = self.topBannerView.frame.size.height;
     
     [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.leading.trailing.bottom.equalTo(self.view);
+        make.top.equalTo(self.topBannerView.mas_bottom);
     }];
     
     [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.right.equalTo(scrollView.mas_right).offset(-20);
-        make.top.equalTo(self.topBannerView.mas_bottom).offset(2);
+       // make.top.equalTo(self.scrollView.mas_bottom).offset(2 + topBannerViewHeight);
+         make.top.equalTo(self.scrollView.mas_bottom).offset(2);
         make.width.equalTo(@(textFieldWidth));
         make.height.equalTo(@45);
     }];
@@ -244,7 +247,7 @@
         make.height.equalTo(@(220));
         //make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
     }];
-    
+
     [calculateButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(scrollView).offset(20);
         make.right.equalTo(scrollView).offset(-20);
@@ -256,6 +259,20 @@
     //    self.textField.backgroundColor = [UIColor orangeColor];
     //    self.cityChooseButton.backgroundColor = [UIColor greenColor];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.scrollView layoutIfNeeded];
+    [self.view layoutIfNeeded];
+    
+    if (self.view.frame.size.height > 568) {
+          //self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 0);
+    }else{
+          self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 50);
+    }
 }
 
 #pragma mark - view positioning
@@ -616,7 +633,7 @@
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    
+
     if ([touch.view isKindOfClass:[UIScrollView class]]){
         return YES;
     }else{
